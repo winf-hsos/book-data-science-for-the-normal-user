@@ -1,6 +1,5 @@
 fig:screenshot-r-console
 fig:screenshot-rstudio
-eq:binom
 die-arbeitsumgebung
 r-installieren
 rstudio-installieren
@@ -14,12 +13,6 @@ der-dataframe
 tibbles
 daten-aus-dem-csv-format-laden
 das-csv-format
-blocks
-equations
-theorems-and-proofs
-callout-blocks
-footnotes-and-citations
-footnotes
 einen-datensatz-erkunden
 alle-daten-anzeigen
 datensaetze

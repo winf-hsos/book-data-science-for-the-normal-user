@@ -1,9 +1,0 @@
-# Footnotes and citations
-
-## Footnotes
-
-Footnotes are put inside the square brackets after a caret `^[]`. Like this one [^citations-1].
-
-[^citations-1]: This is a footnote.
-
-The RStudio Visual Markdown Editor can also make it easier to insert citations: <https://rstudio.github.io/visual-markdown-editing/#/citations>
