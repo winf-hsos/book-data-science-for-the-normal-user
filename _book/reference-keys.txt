@@ -1,9 +1,6 @@
 fig:screenshot-r-console
 fig:screenshot-rstudio
 eq:binom
-übersicht
-zielgruppe
-didaktisches-konzept
 die-arbeitsumgebung
 r-installieren
 rstudio-installieren

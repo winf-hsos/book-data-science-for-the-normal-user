@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.1.11)  12 JAN 2022 11:45
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.1.11)  12 JAN 2022 12:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -743,14 +743,12 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 \tf@toc=\write5
 \openout5 = `_main.toc'.
 
-[4]
-Chapter 1.
-[5
+[4] [5
 
 ] [6] [7
 
 ] [8]
-Chapter 2.
+Chapter 1.
 File: fig/screenshot_r_console.png Graphic file (type bmp)
 <fig/screenshot_r_console.png>
 [9
@@ -759,37 +757,37 @@ File: fig/screenshot_r_console.png Graphic file (type bmp)
 File: fig/screenshot_r_console.png Graphic file (type bmp)
 <fig/screenshot_r_console.png>
 [11]
-Underfull \hbox (badness 1019) in paragraph at lines 240--241
+Underfull \hbox (badness 1019) in paragraph at lines 243--244
 \TU/lmr/m/n/10 Die Konsole ermöglicht, R-Befehle einzugeben und mit der Taste Enter
  []
 
 [12]
-Chapter 3.
+Chapter 2.
 [13
 
 ] [14
 
 ]
-Chapter 4.
+Chapter 3.
 [15] [16
 
 ]
-Chapter 5.
+Chapter 4.
 [17] [18
 
 ]
-Chapter 6.
+Chapter 5.
 
-Package natbib Warning: Citation `xie2015' on page 19 undefined on input line 316.
+Package natbib Warning: Citation `xie2015' on page 19 undefined on input line 319.
 
 [19] [20
 
 ]
-Chapter 7.
+Chapter 6.
 [21] [22
 
 ]
-Chapter 8.
+Chapter 7.
 [23] (./_main.bbl [24])
 
 Package natbib Warning: There were undefined citations.
@@ -798,15 +796,15 @@ Package natbib Warning: There were undefined citations.
 
 ] (./_main.aux)
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 50C8A4B7AE05361BD8F8F712643D3068;3461.
+(rerunfilecheck)             Checksum: 55032D0A9316AD853F2EA20E70D1AA7D;3462.
  ) 
 Here is how much of TeX's memory you used:
- 17590 strings out of 478256
- 323003 string characters out of 5854211
- 766703 words of memory out of 5000000
- 37871 multiletter control sequences out of 15000+600000
+ 17587 strings out of 478256
+ 322911 string characters out of 5854211
+ 767668 words of memory out of 5000000
+ 37868 multiletter control sequences out of 15000+600000
  409921 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,8n,121p,765b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,8n,121p,758b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on _main.pdf (25 pages).
