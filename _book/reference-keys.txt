@@ -20,10 +20,6 @@ theorems-and-proofs
 callout-blocks
 footnotes-and-citations
 footnotes
-citations
 einen-datensatz-erkunden
 alle-daten-anzeigen
 datensaetze
-publishing
-pages
-metadata-for-sharing

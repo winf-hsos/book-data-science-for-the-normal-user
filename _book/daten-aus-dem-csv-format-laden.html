@@ -4,27 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 3 Daten aus dem CSV-Format laden | Data Science mit R für den normalen Anwender</title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <title>Kapitel 3 Daten aus dem CSV-Format laden | Data Science für normale Anwender*innen</title>
+  <meta name="description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 3 Daten aus dem CSV-Format laden | Data Science mit R für den normalen Anwender" />
+  <meta property="og:title" content="Kapitel 3 Daten aus dem CSV-Format laden | Data Science für normale Anwender*innen" />
   <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://book-data-science-for-the-normal-user.netlify.app/" />
   
-  
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
-  <meta name="github-repo" content="winf-hsos/intro_to_data_science_with_r_for_the_normal_user" />
+  <meta property="og:description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
+  <meta name="github-repo" content="winf-hsos/book-data-science-for-the-normal-user" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 3 Daten aus dem CSV-Format laden | Data Science mit R für den normalen Anwender" />
+  <meta name="twitter:title" content="Kapitel 3 Daten aus dem CSV-Format laden | Data Science für normale Anwender*innen" />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
   
 
 <meta name="author" content="Prof. Dr. Nicolas Meseth" />
@@ -126,28 +120,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -201,19 +173,13 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
-<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html"><i class="fa fa-check"></i><b>6</b> Einen Datensatz erkunden</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#alle-daten-anzeigen"><i class="fa fa-check"></i><b>6.1</b> Alle Daten anzeigen</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="datensaetze.html"><a href="datensaetze.html"><i class="fa fa-check"></i><b>7</b> Datensätze</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="datensaetze.html"><a href="datensaetze.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
-<li class="chapter" data-level="7.2" data-path="datensaetze.html"><a href="datensaetze.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
-<li class="chapter" data-level="7.3" data-path="datensaetze.html"><a href="datensaetze.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+<li class="chapter" data-level="7" data-path="datensaetze.html"><a href="datensaetze.html"><i class="fa fa-check"></i><b>7</b> Datensätze</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/winf-hsos/intro_to_data_science_with_r_for_the_normal_user" target="blank">Published with bookdown</a></li>
 
@@ -226,7 +192,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science mit R für den normalen Anwender</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science für normale Anwender*innen</a>
           </h1>
         </div>
 
