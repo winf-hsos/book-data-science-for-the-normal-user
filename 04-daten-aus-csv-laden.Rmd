@@ -1,0 +1,4 @@
+# Daten aus dem CSV-Format laden
+
+## Das CSV-Format
+In den meisten Fällen erzeugen wir einen Dataframe oder Tibble, indem wir einen Datensatz aus einer Datenquelle laden. Häufig ist die Quelle eine einfache Texdatei, in der Daten zeilenweise gespeichert sind und jede Zeile aus mehreren Werten besteht, die durch ein Trennzeichen voneinander getrennt sind. Wenn die Werte mit einem Komma voneinander getrennt sind, nennt man das Forat auch **CSV**. CSV steht für **Comma Separated Values**, was auf Deutsch so viel wie _Durch Kommata getrennte Werte_ bedeutet.

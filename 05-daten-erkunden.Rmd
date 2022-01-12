@@ -1,0 +1,10 @@
+# Einen Datensatz erkunden
+
+## Alle Daten anzeigen
+
+Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion `view()` verwenden. Der Funktion übergeben wir ein Tibble und es öffnet sich daraufhin ein neuer Tab im Skripteditor, der die Daten als Tabelle anzeigt.
+
+
+```r
+view(food_production)
+```
