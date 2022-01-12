@@ -1,18 +1,16 @@
 --- 
-title: "Data Science mit R für den normalen Anwender"
+title: "Data Science für normale Anwender*innen"
 author: "Prof. Dr. Nicolas Meseth"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
+url: https://book-data-science-for-the-normal-user.netlify.app/
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::gitbook,
-  set in the _output.yml file.
+  Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist.
 link-citations: yes
-github-repo: winf-hsos/intro_to_data_science_with_r_for_the_normal_user
+github-repo: winf-hsos/book-data-science-for-the-normal-user
 ---
 
 # Übersicht{-}
