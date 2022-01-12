@@ -1,4 +1,24 @@
 # Daten aus dem CSV-Format laden
 
 ## Das CSV-Format
-In den meisten Fällen erzeugen wir einen Dataframe oder Tibble, indem wir einen Datensatz aus einer Datenquelle laden. Häufig ist die Quelle eine einfache Texdatei, in der Daten zeilenweise gespeichert sind und jede Zeile aus mehreren Werten besteht, die durch ein Trennzeichen voneinander getrennt sind. Wenn die Werte mit einem Komma voneinander getrennt sind, nennt man das Forat auch **CSV**. CSV steht für **Comma Separated Values**, was auf Deutsch so viel wie _Durch Kommata getrennte Werte_ bedeutet.
+In den meisten Fällen erzeugen wir einen Dataframe oder Tibble, indem wir einen Datensatz aus einer Datenquelle laden. Häufig ist die Quelle eine einfache Texdatei, in der Daten zeilenweise gespeichert sind und jede Zeile aus mehreren einzelnen Werten besteht, die durch ein bestimmtes **Trennzeichen** voneinander getrennt sind. Wenn die Werte mit einem Komma voneinander getrennt sind, nennt man das Format **CSV**. CSV steht für **Comma Separated Values**, was auf Deutsch so viel wie _Durch Kommata getrennte Werte_ bedeutet.
+
+Unten seht ihr ein Beispiel für Daten im CSV-Format.
+
+```
+id,firstname,lastname
+1,Boris,Becker
+2,Steffi,Graf
+3,Rafael, Nadal
+```
+
+Die erste Zeile nennen wir auch Kopfzeile oder *Header*. Sie beinhaltet die Spaltennamen. Jede nachfolgende Zeile stellt einen Datensatz oder *Record* dar. Dabei müssen die Werte in jeder Zeile mit Komma getrennt in der selben Reihenfolge wie im Header aufgeführt werden. Nur so ist eindeutig erkennbar, welcher Wert zu welcher Spalte gehört.
+
+Manchmal fehlen Werte für eine bestimmte Spalte. In diesem Fall werden einfach zwei (oder mehrere) Kommata hintereinander gesetzt.
+
+```
+id,firstname,lastname,height,weight,gender
+1,Boris,Becker,,,male
+2,Steffi,Graf,175,64,female
+3,Rafael,Nadal,185,,male
+```

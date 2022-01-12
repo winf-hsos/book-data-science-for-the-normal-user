@@ -224,7 +224,7 @@ Das Werkzeug besteht in der Standardansicht aus vier Bereichen (s. Screenshot ob
 
 Der wichtigste Bereich ist der Skripteditor. Hier schreiben wir unseren R-Code und speichern ihn in Dateien auf unserem Computer. Dabei unterstützt uns RStudio mit vielen nützlichen Funktionen.
 
-Wir können in RStudio unterschiedliche Arten von Dateien verwenden, um unsere Skripte zu speichern. Die einfachste Art sind sogenannte R-Skripte mit der Dateiendung \texttt{.R}. Wenn wir nicht nur R-Code, sondern auch Visualisierungen und formatierten Text in einem Dokument verwenden wollen, bietet sich die Verwendung eines R-Notebooks an. Ein R-Notebook endet auf \texttt{.Rmd} und wir können neben R-Code auch Markdown verwenden.
+Wir können in RStudio unterschiedliche Arten von Dateien verwenden, um unsere Skripte zu speichern. Die einfachste Art sind sogenannte \textbf{R-Skripte} mit der Dateiendung \texttt{.R}. Wenn wir nicht nur R-Code, sondern auch Visualisierungen und formatierten Text in einem Dokument verwenden und anzeigen wollen, bietet sich die Verwendung eines \textbf{R-Notebooks} an. Eine R-Notebook-Datei endet auf \texttt{.Rmd} (R-Markdown) und wir können neben R-Code auch Markdown verwenden. Über Markdown lernen wir zu einem späteren Zeitpunkt mehr.
 
 \hypertarget{informationen-zur-aktuellen-r-umgebung}{%
 \subsection{Informationen zur aktuellen R-Umgebung}\label{informationen-zur-aktuellen-r-umgebung}}
@@ -248,7 +248,7 @@ In diesem Bereich werden Vorschauen unterschiedlicher Artefakte angezeigt. Dazu 
 \hypertarget{strukturierte-daten-tabellen}{%
 \chapter{Strukturierte Daten (Tabellen)}\label{strukturierte-daten-tabellen}}
 
-Nachdem die Arbeitsumgebung eingerichtet ist können wir mit den ersten Schritten in R beginnen. Wir steigen direkt ein und lernen, wie wir mit Daten in R arbeiten.
+Nachdem die Arbeitsumgebung eingerichtet ist, können wir mit den ersten Schritten in R beginnen. Wir steigen direkt ein und lernen, wie wir mit Daten in R arbeiten.
 
 \hypertarget{tldr-1}{%
 \section*{TL;DR}\label{tldr-1}}
@@ -282,7 +282,27 @@ Wenn man so will ist der Tibble eine Weiterentwicklung des klassischen Dataframe
 \hypertarget{das-csv-format}{%
 \section{Das CSV-Format}\label{das-csv-format}}
 
-In den meisten Fällen erzeugen wir einen Dataframe oder Tibble, indem wir einen Datensatz aus einer Datenquelle laden. Häufig ist die Quelle eine einfache Texdatei, in der Daten zeilenweise gespeichert sind und jede Zeile aus mehreren Werten besteht, die durch ein Trennzeichen voneinander getrennt sind. Wenn die Werte mit einem Komma voneinander getrennt sind, nennt man das Forat auch \textbf{CSV}. CSV steht für \textbf{Comma Separated Values}, was auf Deutsch so viel wie \emph{Durch Kommata getrennte Werte} bedeutet.
+In den meisten Fällen erzeugen wir einen Dataframe oder Tibble, indem wir einen Datensatz aus einer Datenquelle laden. Häufig ist die Quelle eine einfache Texdatei, in der Daten zeilenweise gespeichert sind und jede Zeile aus mehreren einzelnen Werten besteht, die durch ein bestimmtes \textbf{Trennzeichen} voneinander getrennt sind. Wenn die Werte mit einem Komma voneinander getrennt sind, nennt man das Format \textbf{CSV}. CSV steht für \textbf{Comma Separated Values}, was auf Deutsch so viel wie \emph{Durch Kommata getrennte Werte} bedeutet.
+
+Unten seht ihr ein Beispiel für Daten im CSV-Format.
+
+\begin{verbatim}
+id,firstname,lastname
+1,Boris,Becker
+2,Steffi,Graf
+3,Rafael, Nadal
+\end{verbatim}
+
+Die erste Zeile nennen wir auch Kopfzeile oder \emph{Header}. Sie beinhaltet die Spaltennamen. Jede nachfolgende Zeile stellt einen Datensatz oder \emph{Record} dar. Dabei müssen die Werte in jeder Zeile mit Komma getrennt in der selben Reihenfolge wie im Header aufgeführt werden. Nur so ist eindeutig erkennbar, welcher Wert zu welcher Spalte gehört.
+
+Manchmal fehlen Werte für eine bestimmte Spalte. In diesem Fall werden einfach zwei (oder mehrere) Kommata hintereinander gesetzt.
+
+\begin{verbatim}
+id,firstname,lastname,height,weight,gender
+1,Boris,Becker,,,male
+2,Steffi,Graf,175,64,female
+3,Rafael,Nadal,185,,male
+\end{verbatim}
 
 \hypertarget{einen-datensatz-erkunden}{%
 \chapter{Einen Datensatz erkunden}\label{einen-datensatz-erkunden}}

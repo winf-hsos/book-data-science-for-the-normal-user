@@ -47,7 +47,9 @@ Das Werkzeug besteht in der Standardansicht aus vier Bereichen (s. Screenshot ob
 
 Der wichtigste Bereich ist der Skripteditor. Hier schreiben wir unseren R-Code und speichern ihn in Dateien auf unserem Computer. Dabei unterstützt uns RStudio mit vielen nützlichen Funktionen.
 
-Wir können in RStudio unterschiedliche Arten von Dateien verwenden, um unsere Skripte zu speichern. Die einfachste Art sind sogenannte <mark style="background-color:yellow;">R-Skripte</mark> mit der Dateiendung `.R`. Wenn wir nicht nur R-Code, sondern auch Visualisierungen und formatierten Text in einem Dokument verwenden wollen, bietet sich die Verwendung eines <mark style="background-color:yellow;">R-Notebooks</mark> an. Ein R-Notebook endet auf `.Rmd` und wir können neben R-Code auch Markdown verwenden.
+Wir können in RStudio unterschiedliche Arten von Dateien verwenden, um unsere Skripte zu speichern. Die einfachste Art sind sogenannte **R-Skripte** mit der Dateiendung `.R`. Wenn wir nicht nur R-Code, sondern auch Visualisierungen und formatierten Text in einem Dokument verwenden und anzeigen wollen, bietet sich die Verwendung eines **R-Notebooks** an. Eine R-Notebook-Datei endet auf `.Rmd` (R-Markdown) und wir können neben R-Code auch Markdown verwenden. Über Markdown lernen wir zu einem späteren Zeitpunkt mehr. 
+
+<!-- TODO: Referenz auf Markdown einfügen -->
 
 ### Informationen zur aktuellen R-Umgebung
 

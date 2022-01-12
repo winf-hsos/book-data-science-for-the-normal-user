@@ -194,7 +194,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapitel 3</span> Daten aus dem CSV-Format laden</h1>
 <div id="das-csv-format" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Das CSV-Format</h2>
-<p>In den meisten Fällen erzeugen wir einen Dataframe oder Tibble, indem wir einen Datensatz aus einer Datenquelle laden. Häufig ist die Quelle eine einfache Texdatei, in der Daten zeilenweise gespeichert sind und jede Zeile aus mehreren Werten besteht, die durch ein Trennzeichen voneinander getrennt sind. Wenn die Werte mit einem Komma voneinander getrennt sind, nennt man das Forat auch <strong>CSV</strong>. CSV steht für <strong>Comma Separated Values</strong>, was auf Deutsch so viel wie <em>Durch Kommata getrennte Werte</em> bedeutet.</p>
+<p>In den meisten Fällen erzeugen wir einen Dataframe oder Tibble, indem wir einen Datensatz aus einer Datenquelle laden. Häufig ist die Quelle eine einfache Texdatei, in der Daten zeilenweise gespeichert sind und jede Zeile aus mehreren einzelnen Werten besteht, die durch ein bestimmtes <strong>Trennzeichen</strong> voneinander getrennt sind. Wenn die Werte mit einem Komma voneinander getrennt sind, nennt man das Format <strong>CSV</strong>. CSV steht für <strong>Comma Separated Values</strong>, was auf Deutsch so viel wie <em>Durch Kommata getrennte Werte</em> bedeutet.</p>
+<p>Unten seht ihr ein Beispiel für Daten im CSV-Format.</p>
+<pre><code>id,firstname,lastname
+1,Boris,Becker
+2,Steffi,Graf
+3,Rafael, Nadal</code></pre>
+<p>Die erste Zeile nennen wir auch Kopfzeile oder <em>Header</em>. Sie beinhaltet die Spaltennamen. Jede nachfolgende Zeile stellt einen Datensatz oder <em>Record</em> dar. Dabei müssen die Werte in jeder Zeile mit Komma getrennt in der selben Reihenfolge wie im Header aufgeführt werden. Nur so ist eindeutig erkennbar, welcher Wert zu welcher Spalte gehört.</p>
+<p>Manchmal fehlen Werte für eine bestimmte Spalte. In diesem Fall werden einfach zwei (oder mehrere) Kommata hintereinander gesetzt.</p>
+<pre><code>id,firstname,lastname,height,weight,gender
+1,Boris,Becker,,,male
+2,Steffi,Graf,175,64,female
+3,Rafael,Nadal,185,,male</code></pre>
 
 </div>
 </div>

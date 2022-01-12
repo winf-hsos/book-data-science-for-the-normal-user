@@ -1,6 +1,6 @@
 # Strukturierte Daten (Tabellen)
 
-Nachdem die Arbeitsumgebung eingerichtet ist können wir mit den ersten Schritten in R beginnen. Wir steigen direkt ein und lernen, wie wir mit Daten in R arbeiten.
+Nachdem die Arbeitsumgebung eingerichtet ist, können wir mit den ersten Schritten in R beginnen. Wir steigen direkt ein und lernen, wie wir mit Daten in R arbeiten.
 
 ## TL;DR{.unlisted .unnumbered}
 
