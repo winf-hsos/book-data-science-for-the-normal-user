@@ -1,13 +1,5 @@
-Welcome! 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/45f16d5e-188d-413e-8354-35b83387e91a/deploy-status)](https://app.netlify.com/sites/book-data-science-for-the-normal-user/deploys)
 
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
+# Data Science für Endanwender:innen
 
-This template provides a skeleton file structure that you can edit to create your book. 
-
-The contents inside the .Rmd files provide some pointers to help you get started, but feel free to also delete the content in each file and start fresh.
-
-Additional resources:
-
-The **bookdown** book: https://bookdown.org/yihui/bookdown/
-
-The **bookdown** package reference site: https://pkgs.rstudio.com/bookdown
+Dieses Buch gibt eine Einführung in wichtige Themen der Datenanalyse. Anders als in vielen anderen Büchern zu diesem Thema ist die Zielgruppe der _normale_ Anwender. Darunter verstehe ich insbesondere Personen, die in ihrem beruflichen Alltag, ob in der Wissenschaft oder Unternehmenspraxis, oder im privaten Umfeld, von Kenntnissen der Datenanalyse (über Spreadsheets hinaus) profitieren können.
