@@ -1,6 +1,13 @@
 # (PART\*) Grundlagen {-} 
 
-# Die Arbeitsumgebung 
+# Die Arbeitsumgebung
+
+## TL;DR{.unlisted .unnumbered}
+
+- Für die Arbeit mit R benötigen wir eine Installation von R auf unserem Computer. 
+- R ist für alle Betriebssysteme [verfügbar](https://cran.r-project.org/).
+- Mit R bekommen wir auch eine einfache grafische Benutzeroberfläche (RGui) mitgeliefert. Diese bietet aber wenig Funktionen.
+- Mit dem kostenlosen [RStudio](https://www.rstudio.com/) bekommen wir eine vollwertige integrierte Entwicklungsumgebung (IDE) für die Arbeit R.
 
 ## R installieren
 

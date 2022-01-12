@@ -24,7 +24,6 @@
 <meta name="author" content="Prof. Dr. Nicolas Meseth" />
 
 
-<meta name="date" content="2022-01-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,6 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="strukturierte-daten-tabellen.html"><a href="strukturierte-daten-tabellen.html#der-dataframe"><i class="fa fa-check"></i><b>2.1</b> Der Dataframe</a></li>
 <li class="chapter" data-level="2.2" data-path="strukturierte-daten-tabellen.html"><a href="strukturierte-daten-tabellen.html#tibbles"><i class="fa fa-check"></i><b>2.2</b> Tibbles</a></li>
+<li class="chapter" data-level="2.3" data-path="strukturierte-daten-tabellen.html"><a href="strukturierte-daten-tabellen.html#das-tidyverse"><i class="fa fa-check"></i><b>2.3</b> Das Tidyverse</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="daten-aus-dem-csv-format-laden.html"><a href="daten-aus-dem-csv-format-laden.html"><i class="fa fa-check"></i><b>3</b> Daten aus dem CSV-Format laden</a>
 <ul>
@@ -193,6 +193,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="strukturierte-daten-tabellen" class="section level1" number="2">
 <h1><span class="header-section-number">Kapitel 2</span> Strukturierte Daten (Tabellen)</h1>
 <p>Nachdem die Arbeitsumgebung eingerichtet ist können wir mit den ersten Schritten in R beginnen. Wir steigen direkt ein und lernen, wie wir mit Daten in R arbeiten.</p>
+<div id="tldr-1" class="section level2 unlisted unnumbered">
+<h2>TL;DR</h2>
+<ul>
+<li>R bietet verschiedene Möglichkeiten, um mit Daten zu arbeiten.</li>
+<li>Für strukturierte Daten in Tabellenform (Zeilen und Spalten) verwenden wir in R den <a href="strukturierte-daten-tabellen.html#der-dataframe">Dataframe</a>.</li>
+<li>Eine modernere Version des klassischen Dataframe ist das <a href="strukturierte-daten-tabellen.html#tibbles">Tibble</a> aus dem <a href="strukturierte-daten-tabellen.html#das-tidyverse">Tidyverse</a>.</li>
+</ul>
+</div>
 <div id="der-dataframe" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Der Dataframe</h2>
 <p>In R gibt es verschiedene Strukturen für die Speicherung von Daten. Darunter sind beispielsweise Vektoren, Listen oder Matritzen. Um tabellarische Daten abzubilden, die in Spalten und Zeilen organisiert sind, verwenden wir in R den sogenannten <strong>Dataframe</strong>.</p>
@@ -201,6 +209,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tibbles" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Tibbles</h2>
 <p>Wenn man so will ist der Tibble eine Weiterentwicklung des klassischen Dataframe in R. Tibbles werden im Tidyverse standardmäßig verwendet und mit dem Paket <code>tibble</code> eingeführt.</p>
+</div>
+<div id="das-tidyverse" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Das Tidyverse</h2>
 
 </div>
 </div>
@@ -226,7 +237,7 @@ gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
-"facebook": true,
+"facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,

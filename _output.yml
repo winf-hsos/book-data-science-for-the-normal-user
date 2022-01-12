@@ -1,6 +1,8 @@
 bookdown::gitbook:
   css: style.css
   config:
+    sharing:
+      facebook: false
     toc:
       collapse: section
       before: |

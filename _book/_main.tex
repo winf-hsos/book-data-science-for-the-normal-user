@@ -6,7 +6,7 @@
 ]{book}
 \title{Data Science für normale Anwender*innen}
 \author{Prof.~Dr.~Nicolas Meseth}
-\date{2022-01-12}
+\date{Aktualisiert am 12.01.2022}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -157,6 +157,21 @@ Das Buch kann selbstverständlich abseits des didaktischen Konzepts verwendet we
 \hypertarget{die-arbeitsumgebung}{%
 \chapter{Die Arbeitsumgebung}\label{die-arbeitsumgebung}}
 
+\hypertarget{tldr}{%
+\section*{TL;DR}\label{tldr}}
+
+\begin{itemize}
+\tightlist
+\item
+  Für die Arbeit mit R benötigen wir eine Installation von R auf unserem Computer.
+\item
+  R ist für alle Betriebssysteme \href{https://cran.r-project.org/}{verfügbar}.
+\item
+  Mit R bekommen wir auch eine einfache grafische Benutzeroberfläche (RGui) mitgeliefert. Diese bietet aber wenig Funktionen.
+\item
+  Mit dem kostenlosen \href{https://www.rstudio.com/}{RStudio} bekommen wir eine vollwertige integrierte Entwicklungsumgebung (IDE) für die Arbeit R.
+\end{itemize}
+
 \hypertarget{r-installieren}{%
 \section{R installieren}\label{r-installieren}}
 
@@ -235,6 +250,19 @@ In diesem Bereich werden Vorschauen unterschiedlicher Artefakte angezeigt. Dazu 
 
 Nachdem die Arbeitsumgebung eingerichtet ist können wir mit den ersten Schritten in R beginnen. Wir steigen direkt ein und lernen, wie wir mit Daten in R arbeiten.
 
+\hypertarget{tldr-1}{%
+\section*{TL;DR}\label{tldr-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  R bietet verschiedene Möglichkeiten, um mit Daten zu arbeiten.
+\item
+  Für strukturierte Daten in Tabellenform (Zeilen und Spalten) verwenden wir in R den \protect\hyperlink{der-dataframe}{Dataframe}.
+\item
+  Eine modernere Version des klassischen Dataframe ist das \protect\hyperlink{tibbles}{Tibble} aus dem \protect\hyperlink{das-tidyverse}{Tidyverse}.
+\end{itemize}
+
 \hypertarget{der-dataframe}{%
 \section{Der Dataframe}\label{der-dataframe}}
 
@@ -244,6 +272,9 @@ In R gibt es verschiedene Strukturen für die Speicherung von Daten. Darunter si
 \section{Tibbles}\label{tibbles}}
 
 Wenn man so will ist der Tibble eine Weiterentwicklung des klassischen Dataframe in R. Tibbles werden im Tidyverse standardmäßig verwendet und mit dem Paket \texttt{tibble} eingeführt.
+
+\hypertarget{das-tidyverse}{%
+\section{Das Tidyverse}\label{das-tidyverse}}
 
 \hypertarget{daten-aus-dem-csv-format-laden}{%
 \chapter{Daten aus dem CSV-Format laden}\label{daten-aus-dem-csv-format-laden}}
