@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 6 Spalten auswählen | Data Science für normale Anwender*innen</title>
+  <meta name="description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 6 Spalten auswählen | Data Science für normale Anwender*innen" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://book-data-science-for-the-normal-user.netlify.app/" />
+  
+  <meta property="og:description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
+  <meta name="github-repo" content="winf-hsos/book-data-science-for-the-normal-user" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 6 Spalten auswählen | Data Science für normale Anwender*innen" />
+  
+  <meta name="twitter:description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
+  
+
+<meta name="author" content="Prof. Dr. Nicolas Meseth" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="der-explorative-analyseprozess.html"/>
+<link rel="next" href="datensaetze.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science mit R für den normalen Anwender</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Übersicht</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#zielgruppe"><i class="fa fa-check"></i>Zielgruppe</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#didaktisches-konzept"><i class="fa fa-check"></i>Didaktisches Konzept</a></li>
+</ul></li>
+<li class="part"><span><b>Erste Schritte mit R</b></span></li>
+<li class="chapter" data-level="1" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html"><i class="fa fa-check"></i><b>1</b> Die Arbeitsumgebung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#r-installieren"><i class="fa fa-check"></i><b>1.1</b> R installieren</a></li>
+<li class="chapter" data-level="1.2" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#rstudio-installieren"><i class="fa fa-check"></i><b>1.2</b> RStudio installieren</a></li>
+<li class="chapter" data-level="1.3" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#überblick-über-rstudio"><i class="fa fa-check"></i><b>1.3</b> Überblick über RStudio</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#der-skripteditor"><i class="fa fa-check"></i><b>1.3.1</b> Der Skripteditor</a></li>
+<li class="chapter" data-level="1.3.2" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#informationen-zur-aktuellen-r-umgebung"><i class="fa fa-check"></i><b>1.3.2</b> Informationen zur aktuellen R-Umgebung</a></li>
+<li class="chapter" data-level="1.3.3" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#konsole-und-terminal"><i class="fa fa-check"></i><b>1.3.3</b> Konsole und Terminal</a></li>
+<li class="chapter" data-level="1.3.4" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#dateien-vorschau-und-plots"><i class="fa fa-check"></i><b>1.3.4</b> Dateien, Vorschau und Plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html"><i class="fa fa-check"></i><b>2</b> Einen Datensatz laden</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#tabellarische-daten-in-r"><i class="fa fa-check"></i><b>2.1</b> Tabellarische Daten in R</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#der-dataframe"><i class="fa fa-check"></i><b>2.1.1</b> Der Dataframe</a></li>
+<li class="chapter" data-level="2.1.2" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#tibbles"><i class="fa fa-check"></i><b>2.1.2</b> Tibbles</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#das-csv-format"><i class="fa fa-check"></i><b>2.2</b> Das CSV-Format</a></li>
+<li class="chapter" data-level="2.3" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#csv-daten-laden"><i class="fa fa-check"></i><b>2.3</b> CSV-Daten laden</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html"><i class="fa fa-check"></i><b>3</b> Einen Datensatz erkunden</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#alle-daten-anzeigen"><i class="fa fa-check"></i><b>3.1</b> Alle Daten anzeigen</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html"><i class="fa fa-check"></i><b>4</b> Der Werkzeugkasten</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-tibble"><i class="fa fa-check"></i><b>4.1</b> Das Paket <code>tibble</code></a></li>
+<li class="chapter" data-level="4.2" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-readr"><i class="fa fa-check"></i><b>4.2</b> Das Paket <code>readr</code></a></li>
+<li class="chapter" data-level="4.3" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-dplyr"><i class="fa fa-check"></i><b>4.3</b> Das Paket <code>dplyr</code></a></li>
+<li class="chapter" data-level="4.4" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-ggplot2"><i class="fa fa-check"></i><b>4.4</b> Das Paket <code>ggplot2</code></a></li>
+</ul></li>
+<li class="part"><span><b>Explorative Datenanalyse mit R</b></span></li>
+<li class="chapter" data-level="5" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html"><i class="fa fa-check"></i><b>5</b> Der explorative Analyseprozess</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-laden"><i class="fa fa-check"></i><b>5.1</b> Daten laden</a></li>
+<li class="chapter" data-level="5.2" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-transformieren"><i class="fa fa-check"></i><b>5.2</b> Daten transformieren</a></li>
+<li class="chapter" data-level="5.3" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-visualisieren"><i class="fa fa-check"></i><b>5.3</b> Daten visualisieren</a></li>
+<li class="chapter" data-level="5.4" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#literatur"><i class="fa fa-check"></i><b>5.4</b> Literatur</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#bücher"><i class="fa fa-check"></i><b>5.4.1</b> Bücher</a></li>
+<li class="chapter" data-level="5.4.2" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#online-dokumentationen"><i class="fa fa-check"></i><b>5.4.2</b> Online-Dokumentationen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html"><i class="fa fa-check"></i><b>6</b> Spalten auswählen</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#beispieldaten-pokemon"><i class="fa fa-check"></i><b>6.1</b> Beispieldaten: Pokemon</a></li>
+<li class="chapter" data-level="6.2" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#bestimmte-spalten-nach-namen-auswählen"><i class="fa fa-check"></i><b>6.2</b> Bestimmte Spalten nach Namen auswählen</a></li>
+<li class="chapter" data-level="6.3" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#spalten-aus-der-auswahl-ausschließen"><i class="fa fa-check"></i><b>6.3</b> Spalten aus der Auswahl ausschließen</a></li>
+<li class="chapter" data-level="6.4" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#die-letzte-oder-n-letzten-spalten-auswählen"><i class="fa fa-check"></i><b>6.4</b> Die letzte oder n-letzten Spalten auswählen</a></li>
+</ul></li>
+<li class="part"><span><b>Anhang</b></span></li>
+<li class="chapter" data-level="" data-path="datensaetze.html"><a href="datensaetze.html"><i class="fa fa-check"></i>Datensätze</a></li>
+<li class="chapter" data-level="" data-path="literaturverzeichnis.html"><a href="literaturverzeichnis.html"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/winf-hsos/intro_to_data_science_with_r_for_the_normal_user" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science für normale Anwender*innen</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spalten-auswählen" class="section level1" number="6">
+<h1><span class="header-section-number">Kapitel 6</span> Spalten auswählen</h1>
+<div id="tldr-2" class="section level2 unlisted unnumbered">
+<h2>TL;DR</h2>
+<ul>
+<li>Mit dem <code>select</code> Befehl können wir aus allen Spalten einer Tabelle eine Untermenge auswählen.</li>
+<li>Neben einer Liste von gewünschten Spaltennamen können wir die Untermenge auch über den Ausschluss von nicht gewollten Spalten eingrenzen. Dafür verwenden wir das Zeichen <code>-</code> vor dem Spaltennamen.</li>
+<li>Mit der Funktion <code>last_col()</code> können wir die letzte oder die n-letzte Spalte auswählen</li>
+<li>Mit dem Semikolon können wir Spaltenbereiche auswählen und so beispielsweise alle Spalten von der 5. bis zur vorletzten selektieren (<code>select(5 : last_col(2))</code>).</li>
+<li>Wir können Spalten anhand ihres Datentyps selektieren.</li>
+<li>Wir können Spalten über die Zugehörigkeit zu einer Liste selektieren.</li>
+</ul>
+</div>
+<div id="beispieldaten-pokemon" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Beispieldaten: Pokemon</h2>
+<p>Es ist ratsam die verfügbaren Spalten eines Datensatzes zu kennen, bevor wir uns mit einigen Beispielen beschäftigen, wie wir Bestimmte davon auswählen können. Für dieses Kapitel verwenden wir den <a href="https://www.kaggle.com/rounakbanik/pokemon/version/1">Pokémon-Datensatz</a>, der auf <a href="https://kaggle.com/">Kaggle.com</a> bereitgestellt wird.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="spalten-auswählen.html#cb5-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;datasets/pokemon.csv&quot;</span>)</span></code></pre></div>
+<p>Nach dem Laden des Datensatzes lassen wir uns mit <code>colnames()</code> die Spalten anzeigen:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="spalten-auswählen.html#cb6-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span> <span class="fu">colnames</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;abilities&quot;         &quot;against_bug&quot;       &quot;against_dark&quot;     
+##  [4] &quot;against_dragon&quot;    &quot;against_electric&quot;  &quot;against_fairy&quot;    
+##  [7] &quot;against_fight&quot;     &quot;against_fire&quot;      &quot;against_flying&quot;   
+## [10] &quot;against_ghost&quot;     &quot;against_grass&quot;     &quot;against_ground&quot;   
+## [13] &quot;against_ice&quot;       &quot;against_normal&quot;    &quot;against_poison&quot;   
+## [16] &quot;against_psychic&quot;   &quot;against_rock&quot;      &quot;against_steel&quot;    
+## [19] &quot;against_water&quot;     &quot;attack&quot;            &quot;base_egg_steps&quot;   
+## [22] &quot;base_happiness&quot;    &quot;base_total&quot;        &quot;capture_rate&quot;     
+## [25] &quot;classfication&quot;     &quot;defense&quot;           &quot;experience_growth&quot;
+## [28] &quot;height_m&quot;          &quot;hp&quot;                &quot;japanese_name&quot;    
+## [31] &quot;name&quot;              &quot;percentage_male&quot;   &quot;pokedex_number&quot;   
+## [34] &quot;sp_attack&quot;         &quot;sp_defense&quot;        &quot;speed&quot;            
+## [37] &quot;type1&quot;             &quot;type2&quot;             &quot;weight_kg&quot;        
+## [40] &quot;generation&quot;        &quot;is_legendary&quot;</code></pre>
+<p>Das sind mehr als 40 Spalten. Wie viele genau?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="spalten-auswählen.html#cb8-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span> <span class="fu">dim</span>()</span></code></pre></div>
+<pre><code>## [1] 801  41</code></pre>
+<p>Oder mit <code>ncol()</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="spalten-auswählen.html#cb10-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span> <span class="fu">ncol</span>()</span></code></pre></div>
+<pre><code>## [1] 41</code></pre>
+<p>Es sind also 41 Spalten. Genug um die wichtigsten Funktionen für das Auswählen von Spalten zu zeigen.</p>
+</div>
+<div id="bestimmte-spalten-nach-namen-auswählen" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Bestimmte Spalten nach Namen auswählen</h2>
+<p>Die Funktion <code>select</code> verwenden wir für das Auswählen einer Untermenge an Spalten. Wir können im einfachsten Fall einfach die gewünschten Spalten mit Kommata getrennt auflisten:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="spalten-auswählen.html#cb12-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="spalten-auswählen.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type1)</span></code></pre></div>
+<pre><code>## # A tibble: 801 x 2
+##    name       type1
+##    &lt;chr&gt;      &lt;chr&gt;
+##  1 Bulbasaur  grass
+##  2 Ivysaur    grass
+##  3 Venusaur   grass
+##  4 Charmander fire 
+##  5 Charmeleon fire 
+##  6 Charizard  fire 
+##  7 Squirtle   water
+##  8 Wartortle  water
+##  9 Blastoise  water
+## 10 Caterpie   bug  
+## # ... with 791 more rows</code></pre>
+<p>Dabei können wir beliebig viele Spalten in die Liste aufnehmen:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="spalten-auswählen.html#cb14-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="spalten-auswählen.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type1, type2, is_legendary)</span></code></pre></div>
+<pre><code>## # A tibble: 801 x 4
+##    name       type1 type2  is_legendary
+##    &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;
+##  1 Bulbasaur  grass poison            0
+##  2 Ivysaur    grass poison            0
+##  3 Venusaur   grass poison            0
+##  4 Charmander fire  &lt;NA&gt;              0
+##  5 Charmeleon fire  &lt;NA&gt;              0
+##  6 Charizard  fire  flying            0
+##  7 Squirtle   water &lt;NA&gt;              0
+##  8 Wartortle  water &lt;NA&gt;              0
+##  9 Blastoise  water &lt;NA&gt;              0
+## 10 Caterpie   bug   &lt;NA&gt;              0
+## # ... with 791 more rows</code></pre>
+</div>
+<div id="spalten-aus-der-auswahl-ausschließen" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Spalten aus der Auswahl ausschließen</h2>
+<p>Wollen wir fast alle verfügbaren Spalten auswählen, so ist es effizienter, die Spalten zu nennen, die wir ausschließen wollen. Das können wir mit dem Minus-Symbol erreichen:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="spalten-auswählen.html#cb16-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="spalten-auswählen.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>is_legendary)</span></code></pre></div>
+</div>
+<div id="die-letzte-oder-n-letzten-spalten-auswählen" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Die letzte oder n-letzten Spalten auswählen</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="spalten-auswählen.html#cb17-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="spalten-auswählen.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">last_col</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 801 x 1
+##    is_legendary
+##           &lt;dbl&gt;
+##  1            0
+##  2            0
+##  3            0
+##  4            0
+##  5            0
+##  6            0
+##  7            0
+##  8            0
+##  9            0
+## 10            0
+## # ... with 791 more rows</code></pre>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="der-explorative-analyseprozess.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datensaetze.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/winf-hsos/intro_to_data_science_with_r_for_the_normal_user/edit/BRANCH/2_spalten-auswaehlen.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

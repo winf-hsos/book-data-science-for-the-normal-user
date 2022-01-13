@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 6 Der explorative Analyseprozess | Data Science für normale Anwender*innen</title>
+  <title>Kapitel 5 Der explorative Analyseprozess | Data Science für normale Anwender*innen</title>
   <meta name="description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 6 Der explorative Analyseprozess | Data Science für normale Anwender*innen" />
+  <meta property="og:title" content="Kapitel 5 Der explorative Analyseprozess | Data Science für normale Anwender*innen" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://book-data-science-for-the-normal-user.netlify.app/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="winf-hsos/book-data-science-for-the-normal-user" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 6 Der explorative Analyseprozess | Data Science für normale Anwender*innen" />
+  <meta name="twitter:title" content="Kapitel 5 Der explorative Analyseprozess | Data Science für normale Anwender*innen" />
   
   <meta name="twitter:description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
   
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="der-werkzeugkasten.html"/>
-<link rel="next" href="datensaetze.html"/>
+<link rel="next" href="spalten-auswählen.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -178,36 +178,43 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html"><i class="fa fa-check"></i><b>2</b> Einen Datensatz laden</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#der-dataframe"><i class="fa fa-check"></i><b>2.1</b> Der Dataframe</a></li>
-<li class="chapter" data-level="2.2" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#tibbles"><i class="fa fa-check"></i><b>2.2</b> Tibbles</a></li>
-<li class="chapter" data-level="2.3" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#das-tidyverse"><i class="fa fa-check"></i><b>2.3</b> Das Tidyverse</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="daten-aus-dem-csv-format-laden.html"><a href="daten-aus-dem-csv-format-laden.html"><i class="fa fa-check"></i><b>3</b> Daten aus dem CSV-Format laden</a>
+<li class="chapter" data-level="2.1" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#tabellarische-daten-in-r"><i class="fa fa-check"></i><b>2.1</b> Tabellarische Daten in R</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="daten-aus-dem-csv-format-laden.html"><a href="daten-aus-dem-csv-format-laden.html#das-csv-format"><i class="fa fa-check"></i><b>3.1</b> Das CSV-Format</a></li>
+<li class="chapter" data-level="2.1.1" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#der-dataframe"><i class="fa fa-check"></i><b>2.1.1</b> Der Dataframe</a></li>
+<li class="chapter" data-level="2.1.2" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#tibbles"><i class="fa fa-check"></i><b>2.1.2</b> Tibbles</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html"><i class="fa fa-check"></i><b>4</b> Einen Datensatz erkunden</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#alle-daten-anzeigen"><i class="fa fa-check"></i><b>4.1</b> Alle Daten anzeigen</a></li>
+<li class="chapter" data-level="2.2" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#das-csv-format"><i class="fa fa-check"></i><b>2.2</b> Das CSV-Format</a></li>
+<li class="chapter" data-level="2.3" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html#csv-daten-laden"><i class="fa fa-check"></i><b>2.3</b> CSV-Daten laden</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html"><i class="fa fa-check"></i><b>5</b> Der Werkzeugkasten</a>
+<li class="chapter" data-level="3" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html"><i class="fa fa-check"></i><b>3</b> Einen Datensatz erkunden</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-tibble"><i class="fa fa-check"></i><b>5.1</b> Das Paket <code>tibble</code></a></li>
-<li class="chapter" data-level="5.2" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-readr"><i class="fa fa-check"></i><b>5.2</b> Das Paket <code>readr</code></a></li>
-<li class="chapter" data-level="5.3" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-dplyr"><i class="fa fa-check"></i><b>5.3</b> Das Paket <code>dplyr</code></a></li>
-<li class="chapter" data-level="5.4" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-ggplot2"><i class="fa fa-check"></i><b>5.4</b> Das Paket <code>ggplot2</code></a></li>
+<li class="chapter" data-level="3.1" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#alle-daten-anzeigen"><i class="fa fa-check"></i><b>3.1</b> Alle Daten anzeigen</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html"><i class="fa fa-check"></i><b>4</b> Der Werkzeugkasten</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-tibble"><i class="fa fa-check"></i><b>4.1</b> Das Paket <code>tibble</code></a></li>
+<li class="chapter" data-level="4.2" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-readr"><i class="fa fa-check"></i><b>4.2</b> Das Paket <code>readr</code></a></li>
+<li class="chapter" data-level="4.3" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-dplyr"><i class="fa fa-check"></i><b>4.3</b> Das Paket <code>dplyr</code></a></li>
+<li class="chapter" data-level="4.4" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-ggplot2"><i class="fa fa-check"></i><b>4.4</b> Das Paket <code>ggplot2</code></a></li>
 </ul></li>
 <li class="part"><span><b>Explorative Datenanalyse mit R</b></span></li>
-<li class="chapter" data-level="6" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html"><i class="fa fa-check"></i><b>6</b> Der explorative Analyseprozess</a>
+<li class="chapter" data-level="5" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html"><i class="fa fa-check"></i><b>5</b> Der explorative Analyseprozess</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-laden"><i class="fa fa-check"></i><b>6.1</b> Daten laden</a></li>
-<li class="chapter" data-level="6.2" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-transformieren"><i class="fa fa-check"></i><b>6.2</b> Daten transformieren</a></li>
-<li class="chapter" data-level="6.3" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-visualisieren"><i class="fa fa-check"></i><b>6.3</b> Daten visualisieren</a></li>
-<li class="chapter" data-level="6.4" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#literatur"><i class="fa fa-check"></i><b>6.4</b> Literatur</a>
+<li class="chapter" data-level="5.1" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-laden"><i class="fa fa-check"></i><b>5.1</b> Daten laden</a></li>
+<li class="chapter" data-level="5.2" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-transformieren"><i class="fa fa-check"></i><b>5.2</b> Daten transformieren</a></li>
+<li class="chapter" data-level="5.3" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-visualisieren"><i class="fa fa-check"></i><b>5.3</b> Daten visualisieren</a></li>
+<li class="chapter" data-level="5.4" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#literatur"><i class="fa fa-check"></i><b>5.4</b> Literatur</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#bücher"><i class="fa fa-check"></i><b>6.4.1</b> Bücher</a></li>
-<li class="chapter" data-level="6.4.2" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#online-dokumentationen"><i class="fa fa-check"></i><b>6.4.2</b> Online-Dokumentationen</a></li>
+<li class="chapter" data-level="5.4.1" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#bücher"><i class="fa fa-check"></i><b>5.4.1</b> Bücher</a></li>
+<li class="chapter" data-level="5.4.2" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#online-dokumentationen"><i class="fa fa-check"></i><b>5.4.2</b> Online-Dokumentationen</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html"><i class="fa fa-check"></i><b>6</b> Spalten auswählen</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#beispieldaten-pokemon"><i class="fa fa-check"></i><b>6.1</b> Beispieldaten: Pokemon</a></li>
+<li class="chapter" data-level="6.2" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#bestimmte-spalten-nach-namen-auswählen"><i class="fa fa-check"></i><b>6.2</b> Bestimmte Spalten nach Namen auswählen</a></li>
+<li class="chapter" data-level="6.3" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#spalten-aus-der-auswahl-ausschließen"><i class="fa fa-check"></i><b>6.3</b> Spalten aus der Auswahl ausschließen</a></li>
+<li class="chapter" data-level="6.4" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#die-letzte-oder-n-letzten-spalten-auswählen"><i class="fa fa-check"></i><b>6.4</b> Die letzte oder n-letzten Spalten auswählen</a></li>
 </ul></li>
 <li class="part"><span><b>Anhang</b></span></li>
 <li class="chapter" data-level="" data-path="datensaetze.html"><a href="datensaetze.html"><i class="fa fa-check"></i>Datensätze</a></li>
@@ -232,24 +239,24 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="der-explorative-analyseprozess" class="section level1" number="6">
-<h1><span class="header-section-number">Kapitel 6</span> Der explorative Analyseprozess</h1>
-<p>Dieser Abschnitt führt euch in die Grundlagen der <strong>explorativen Datenanalyse</strong> mit R ein. In der explorativen Datenanalyse versuchen wir einen unbekannten Datensatz mit geeigneten Verfahren kennenzulernen und schnell Muster in den Daten zu erkennen. Auf Basis dieser Muster formulieren wir <strong>Hypothesen</strong>. Diese Hypothesen können anschließend mit statistischen Modellen aus dem Bereich der schließenden Statistik auf ihre Gültigkeit überprüft werden. Dieser Schritt ist jedoch nicht Teil der explorativen Datenanalyse nach dem Verständnis dieses Buches.</p>
+<div id="der-explorative-analyseprozess" class="section level1" number="5">
+<h1><span class="header-section-number">Kapitel 5</span> Der explorative Analyseprozess</h1>
+<p>Dieser Abschnitt führt euch in die Grundlagen der <strong>explorativen Datenanalyse</strong> mit R ein. In der explorativen Datenanalyse versuchen wir einen unbekannten Datensatz mit geeigneten Verfahren kennenzulernen und schnell Muster in den Daten zu erkennen. Auf Basis dieser Muster formulieren wir <strong>Hypothesen</strong>. Diese Hypothesen können anschließend mit statistischen Modellen aus dem Bereich der schließenden Statistik auf ihre Gültigkeit überprüft werden. Die statistische Überprüfung ist jedoch nicht Teil der explorativen Datenanalyse nach dem Verständnis dieses Buches.</p>
 <p>Eine ausgezeichnete Einführung in die explorative Datenanalyse mit R gibt auch das Buch <a href="https://r4ds.had.co.nz">R for Data Science</a> von <span class="citation"><a href="#ref-wickham_r_2016" role="doc-biblioref">Wickham and Grolemund</a> (<a href="#ref-wickham_r_2016" role="doc-biblioref">2016</a>)</span>. Das Buch ist online frei zugänglich.</p>
-<div class="figure"><span style="display:block;" id="fig:der-explorative-analyse-prozess"></span>
-<img src="fig/prozess_explorative_datenanalyse.png" alt="Der Datenanalyseprozess." width="50%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:der-explorative-analyse-prozess"></span>
+<img src="fig/prozess_explorative_datenanalyse.png" alt="Der Datenanalyseprozess." width="60%" />
 <p class="caption">
-Figure 6.1: Der Datenanalyseprozess.
+Figure 5.1: Der Datenanalyseprozess.
 </p>
 </div>
 <p><span class="citation"><a href="#ref-wickham_r_2016" role="doc-biblioref">Wickham and Grolemund</a> (<a href="#ref-wickham_r_2016" role="doc-biblioref">2016</a>)</span> definieren den Datenanalyseprozess durch eine Abfolge bestimmter Schritte, wie in der Abbildung  gezeigt. In diesem Abschnitt stehen die rot markierten Schritte im Fokus.</p>
-<div id="daten-laden" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Daten laden</h2>
-<p>Jeder Analyseprozess beginnt mit dem <a href="">Laden eines Datensatzes</a>. Dabei gibt es verschiedene Datenquellen, die in Betracht gezogen werden müssen. Ein häufig verwendetes Format sind Komma-separierte Werte (<em><strong>c</strong>omma <strong>s</strong>eparated <strong>v</strong>alues</em> = CSV) in einfachen Textdateien. Dieses Format steht auch hier im Vordergrund.</p>
-<p>Gemäß der Abbildung aus Wickham und Grolemund 2016 folgt auf das Laden der Daten der Arbeitsschritt „Tidy“. Dieser ist dann notwendig, wenn die Daten nicht in der typischen Form bestehend aus Spalten und Zeilen vorliegen. Leider ist das in der Praxis oft der Fall. In diesem Kurs wird aber zunächst davon ausgegangen, dass die Daten das entsprechende Format aufweisen. Die interessierte Leserin verweise ich auf das <a href="11-der-analyseprozess.md#explorative-datenanalyse-mit-r">Kapitel 12 im Buch „R for Data Science“</a>.</p>
+<div id="daten-laden" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Daten laden</h2>
+<p>Jeder Analyseprozess beginnt mit dem <a href="">Laden eines Datensatzes</a>. Dabei gibt es verschiedene Datenquellen, die in Betracht gezogen werden müssen. Ein häufig verwendetes Format sind Komma-separierte Werte (<strong>C</strong>omma <strong>S</strong>eparated <strong>V</strong>alues = CSV) in einfachen Textdateien. Dieses Format steht auch hier im Vordergrund.</p>
+<p>Gemäß der Abbildung aus <span class="citation"><a href="#ref-wickham_r_2016" role="doc-biblioref">Wickham and Grolemund</a> (<a href="#ref-wickham_r_2016" role="doc-biblioref">2016</a>)</span> folgt auf das Laden der Daten der Arbeitsschritt „Tidy“. Dieser ist dann notwendig, wenn die Daten nicht in der typischen Form bestehend aus Spalten und Zeilen vorliegen. Leider ist das in der Praxis oft der Fall. In diesem Buch wird aber zunächst davon ausgegangen, dass die Daten das entsprechende Format aufweisen. Die interessierte Leserin verweise ich auf das <a href="https://r4ds.had.co.nz/tidy-data.html">Kapitel 12 im Buch „R for Data Science“</a>.</p>
 </div>
-<div id="daten-transformieren" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Daten transformieren</h2>
+<div id="daten-transformieren" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Daten transformieren</h2>
 <p>Das Ziel der explorativen Datenanalyse ist die Visualisierung der Daten mit geeigneten Diagrammen, um interessante Muster sichtbar werden zu lassen. Visualisierungen benötigen häufig nur einen Teil der Daten (wenige Spalten oder bestimmte Zeilen). Auch müssen wir oft neue Spalten berechnen oder bestehende Daten aggregieren, bevor wir sie visualisieren können. Alle diese Aufgaben können wir unter dem Bereich der <strong>Datentransformation</strong> zusammenfassen.</p>
 <p>Für diese Aufgaben bietet R mit dem Paket <code>dplyr</code> mächtige Funktionen. Insbesondere lernen wir in dem Abschnitt:</p>
 <ul>
@@ -260,22 +267,22 @@ Figure 6.1: Der Datenanalyseprozess.
 <li>Wie wir Zeilen zusammenfassen und gruppieren können (dplyr-Verben: <code>summarize</code> und <code>group_by</code>)</li>
 </ul>
 </div>
-<div id="daten-visualisieren" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Daten visualisieren</h2>
+<div id="daten-visualisieren" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Daten visualisieren</h2>
 <p>Das wichtigste Werkzeug in der explorativen Datenanalyse ist die <strong>Visualisierung von Daten</strong>. In R steht uns dafür mit <code>ggplot2</code> ein leistungsfähiges Instrument zur Verfügung. Wir lernen für bestimmte Anwendungsfälle die richtigen Visualisierungen zu identifizieren und mit <code>ggplot2</code> umzusetzen.</p>
 <!-- TODO: Referenz einfügen -->
 </div>
-<div id="literatur" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Literatur</h2>
-<div id="bücher" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Bücher</h3>
+<div id="literatur" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Literatur</h2>
+<div id="bücher" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Bücher</h3>
 <p>Wickham, Hadley, and Garrett Grolemund. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. First edition, O’Reilly, 2016. Online verfügbar: <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz/</a></p>
 <p>Wickham, Hadley. ggplot2. Springer Science+Business Media, LLC, 2016. Online verfügbar: <a href="https://ggplot2-book.org">https://ggplot2-book.org/</a></p>
 <p>Kabacoff, Robert. R in Action: Data Analysis and Graphics with R. Second edition, Manning, 2015.</p>
 <p>Sauer, Sebastian. Moderne Datenanalyse mit R: Daten einlesen, aufbereiten, visualisieren, modellieren und kommunizieren. Springer Gabler, 2019. Online verfügbar: <a href="https://link.springer.com/book/10.1007/978-3-658-21587-3">https://link.springer.com/book/10.1007/978-3-658-21587-3</a></p>
 </div>
-<div id="online-dokumentationen" class="section level3" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Online-Dokumentationen</h3>
+<div id="online-dokumentationen" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Online-Dokumentationen</h3>
 <ul>
 <li><a href="https://www.tidyverse.org/">Die offizielle Dokumentation der Tidyverse-Bibliotheken</a></li>
 <li><a href="https://ourcodingclub.github.io/tutorials/intro-to-r/">Ein Tutorial für die Einführung in R mit RStudio</a></li>
@@ -287,9 +294,6 @@ Figure 6.1: Der Datenanalyseprozess.
 </div>
 </div>
 </div>
-
-
-
 <h3>Literaturverzeichnis</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-wickham_r_2016" class="csl-entry">
@@ -302,7 +306,7 @@ Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Ti
         </div>
       </div>
 <a href="der-werkzeugkasten.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="datensaetze.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="spalten-auswählen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

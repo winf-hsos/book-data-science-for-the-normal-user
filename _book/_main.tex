@@ -263,21 +263,18 @@ Nachdem die Arbeitsumgebung eingerichtet ist, können wir mit den ersten Schritt
   Eine modernere Version des klassischen Dataframe ist das \protect\hyperlink{tibbles}{Tibble} aus dem \protect\hyperlink{das-tidyverse}{Tidyverse}.
 \end{itemize}
 
+\hypertarget{tabellarische-daten-in-r}{%
+\section{Tabellarische Daten in R}\label{tabellarische-daten-in-r}}
+
 \hypertarget{der-dataframe}{%
-\section{Der Dataframe}\label{der-dataframe}}
+\subsection{Der Dataframe}\label{der-dataframe}}
 
 In R gibt es verschiedene Strukturen für die Speicherung von Daten. Darunter sind beispielsweise Vektoren, Listen oder Matritzen. Um tabellarische Daten abzubilden, die in Spalten und Zeilen organisiert sind, verwenden wir in R den sogenannten \textbf{Dataframe}.
 
 \hypertarget{tibbles}{%
-\section{Tibbles}\label{tibbles}}
+\subsection{Tibbles}\label{tibbles}}
 
 Der Tibble ist eine Weiterentwicklung des klassischen Dataframe in R. Tibbles werden im Tidyverse standardmäßig verwendet und mit dem Paket \texttt{tibble} eingeführt.
-
-\hypertarget{das-tidyverse}{%
-\section{Das Tidyverse}\label{das-tidyverse}}
-
-\hypertarget{daten-aus-dem-csv-format-laden}{%
-\chapter{Daten aus dem CSV-Format laden}\label{daten-aus-dem-csv-format-laden}}
 
 \hypertarget{das-csv-format}{%
 \section{Das CSV-Format}\label{das-csv-format}}
@@ -304,19 +301,35 @@ id,firstname,lastname,height,weight,gender
 3,Rafael,Nadal,185,,male
 \end{verbatim}
 
+\hypertarget{csv-daten-laden}{%
+\section{CSV-Daten laden}\label{csv-daten-laden}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\NormalTok{food\_production }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"food\_production.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{einen-datensatz-erkunden}{%
 \chapter{Einen Datensatz erkunden}\label{einen-datensatz-erkunden}}
 
 \hypertarget{alle-daten-anzeigen}{%
 \section{Alle Daten anzeigen}\label{alle-daten-anzeigen}}
 
-Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion \texttt{view()} verwenden. Der Funktion übergeben wir ein Tibble und es öffnet sich daraufhin ein neuer Tab im Skripteditor, der die Daten als Tabelle anzeigt.
+Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion \texttt{view()} verwenden. Der Funktion übergeben wir den Tibble \texttt{food\_production}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{view}\NormalTok{(food\_production)}
 \end{Highlighting}
 \end{Shaded}
+
+Mit ⌨ Strg + Enter oder über den Button „Run`` in der rechten oberen Ecke des Skriptfensters führen wir die Zeile aus. Es öffnet sich ein neuer Tab mit einer tabellarischen Ansicht der Daten.
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{fig/view_result_rstudio} \caption{Die Anzeige eines Tibbles in RStudio mit `view`.}\label{fig:fig-view-rstudio}
+\end{figure}
 
 \hypertarget{der-werkzeugkasten}{%
 \chapter{Der Werkzeugkasten}\label{der-werkzeugkasten}}
@@ -327,7 +340,7 @@ Bei der Arbeit mit Daten ist es wichtig zu wissen, welches Werkzeug (hier: R-Pak
 \includegraphics[width=1\linewidth]{fig/tool_set} \caption{Verschiedene Werkzeuge für unterschiedliche Aufgaben.}\label{fig:fig-werkzeuge}
 \end{figure}
 
-Die Tabelle unten listet wichtige Werkzeuge auf, die wir im weiteren Verlauf dieses Skriptes kennenlernen werden.
+Die Tabelle unten listet wichtige Werkzeuge auf, die wir im weiteren Verlauf dieses Buches kennenlernen werden.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.04}}
@@ -411,12 +424,17 @@ Das Cheat Sheet \href{https://raw.githubusercontent.com/rstudio/cheatsheets/main
 \hypertarget{der-explorative-analyseprozess}{%
 \chapter{Der explorative Analyseprozess}\label{der-explorative-analyseprozess}}
 
-Dieser Abschnitt führt euch in die Grundlagen der \textbf{explorativen Datenanalyse} mit R ein. In der explorativen Datenanalyse versuchen wir einen unbekannten Datensatz mit geeigneten Verfahren kennenzulernen und schnell Muster in den Daten zu erkennen. Auf Basis dieser Muster formulieren wir \textbf{Hypothesen}. Diese Hypothesen können anschließend mit statistischen Modellen aus dem Bereich der schließenden Statistik auf ihre Gültigkeit überprüft werden. Dieser Schritt ist jedoch nicht Teil der explorativen Datenanalyse nach dem Verständnis dieses Buches.
+Dieser Abschnitt führt euch in die Grundlagen der \textbf{explorativen Datenanalyse} mit R ein. In der explorativen Datenanalyse versuchen wir einen unbekannten Datensatz mit geeigneten Verfahren kennenzulernen und schnell Muster in den Daten zu erkennen. Auf Basis dieser Muster formulieren wir \textbf{Hypothesen}. Diese Hypothesen können anschließend mit statistischen Modellen aus dem Bereich der schließenden Statistik auf ihre Gültigkeit überprüft werden. Die statistische Überprüfung ist jedoch nicht Teil der explorativen Datenanalyse nach dem Verständnis dieses Buches.
 
 Eine ausgezeichnete Einführung in die explorative Datenanalyse mit R gibt auch das Buch \href{https://r4ds.had.co.nz}{R for Data Science} von \citet{wickham_r_2016}. Das Buch ist online frei zugänglich.
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{fig/prozess_explorative_datenanalyse} \caption{Der Datenanalyseprozess.}\label{fig:der-explorative-analyse-prozess}
+
+{\centering \includegraphics[width=0.6\linewidth]{fig/prozess_explorative_datenanalyse} 
+
+}
+
+\caption{Der Datenanalyseprozess.}\label{fig:der-explorative-analyse-prozess}
 \end{figure}
 
 \citet{wickham_r_2016} definieren den Datenanalyseprozess durch eine Abfolge bestimmter Schritte, wie in der Abbildung \ref{@der-explorative-analyse-prozess} gezeigt. In diesem Abschnitt stehen die rot markierten Schritte im Fokus.
@@ -424,9 +442,9 @@ Eine ausgezeichnete Einführung in die explorative Datenanalyse mit R gibt auch 
 \hypertarget{daten-laden}{%
 \section{Daten laden}\label{daten-laden}}
 
-Jeder Analyseprozess beginnt mit dem \href{}{Laden eines Datensatzes}. Dabei gibt es verschiedene Datenquellen, die in Betracht gezogen werden müssen. Ein häufig verwendetes Format sind Komma-separierte Werte (\emph{\textbf{c}omma \textbf{s}eparated \textbf{v}alues} = CSV) in einfachen Textdateien. Dieses Format steht auch hier im Vordergrund.
+Jeder Analyseprozess beginnt mit dem \href{}{Laden eines Datensatzes}. Dabei gibt es verschiedene Datenquellen, die in Betracht gezogen werden müssen. Ein häufig verwendetes Format sind Komma-separierte Werte (\textbf{C}omma \textbf{S}eparated \textbf{V}alues = CSV) in einfachen Textdateien. Dieses Format steht auch hier im Vordergrund.
 
-Gemäß der Abbildung aus Wickham und Grolemund 2016 folgt auf das Laden der Daten der Arbeitsschritt „Tidy``. Dieser ist dann notwendig, wenn die Daten nicht in der typischen Form bestehend aus Spalten und Zeilen vorliegen. Leider ist das in der Praxis oft der Fall. In diesem Kurs wird aber zunächst davon ausgegangen, dass die Daten das entsprechende Format aufweisen. Die interessierte Leserin verweise ich auf das \href{11-der-analyseprozess.md\#explorative-datenanalyse-mit-r}{Kapitel 12 im Buch „R for Data Science``}.
+Gemäß der Abbildung aus \citet{wickham_r_2016} folgt auf das Laden der Daten der Arbeitsschritt „Tidy``. Dieser ist dann notwendig, wenn die Daten nicht in der typischen Form bestehend aus Spalten und Zeilen vorliegen. Leider ist das in der Praxis oft der Fall. In diesem Buch wird aber zunächst davon ausgegangen, dass die Daten das entsprechende Format aufweisen. Die interessierte Leserin verweise ich auf das \href{https://r4ds.had.co.nz/tidy-data.html}{Kapitel 12 im Buch „R for Data Science``}.
 
 \hypertarget{daten-transformieren}{%
 \section{Daten transformieren}\label{daten-transformieren}}
@@ -485,6 +503,184 @@ Sauer, Sebastian. Moderne Datenanalyse mit R: Daten einlesen, aufbereiten, visua
   \href{https://ourcodingclub.github.io/tutorials/data-manip-creative-dplyr/}{Weiterführende Anleitungen zur Datenmanipulation mit \texttt{dplyr} (Advanced Data Manipulation)}
 \end{itemize}
 
+\hypertarget{spalten-auswuxe4hlen}{%
+\chapter{Spalten auswählen}\label{spalten-auswuxe4hlen}}
+
+\hypertarget{tldr-2}{%
+\section*{TL;DR}\label{tldr-2}}
+
+\begin{itemize}
+\tightlist
+\item
+  Mit dem \texttt{select} Befehl können wir aus allen Spalten einer Tabelle eine Untermenge auswählen.
+\item
+  Neben einer Liste von gewünschten Spaltennamen können wir die Untermenge auch über den Ausschluss von nicht gewollten Spalten eingrenzen. Dafür verwenden wir das Zeichen \texttt{-} vor dem Spaltennamen.
+\item
+  Mit der Funktion \texttt{last\_col()} können wir die letzte oder die n-letzte Spalte auswählen
+\item
+  Mit dem Semikolon können wir Spaltenbereiche auswählen und so beispielsweise alle Spalten von der 5. bis zur vorletzten selektieren (\texttt{select(5\ :\ last\_col(2))}).
+\item
+  Wir können Spalten anhand ihres Datentyps selektieren.
+\item
+  Wir können Spalten über die Zugehörigkeit zu einer Liste selektieren.
+\end{itemize}
+
+\hypertarget{beispieldaten-pokemon}{%
+\section{Beispieldaten: Pokemon}\label{beispieldaten-pokemon}}
+
+Es ist ratsam die verfügbaren Spalten eines Datensatzes zu kennen, bevor wir uns mit einigen Beispielen beschäftigen, wie wir Bestimmte davon auswählen können. Für dieses Kapitel verwenden wir den \href{https://www.kaggle.com/rounakbanik/pokemon/version/1}{Pokémon-Datensatz}, der auf \href{https://kaggle.com/}{Kaggle.com} bereitgestellt wird.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"datasets/pokemon.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Nach dem Laden des Datensatzes lassen wir uns mit \texttt{colnames()} die Spalten anzeigen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{colnames}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "abilities"         "against_bug"       "against_dark"     
+##  [4] "against_dragon"    "against_electric"  "against_fairy"    
+##  [7] "against_fight"     "against_fire"      "against_flying"   
+## [10] "against_ghost"     "against_grass"     "against_ground"   
+## [13] "against_ice"       "against_normal"    "against_poison"   
+## [16] "against_psychic"   "against_rock"      "against_steel"    
+## [19] "against_water"     "attack"            "base_egg_steps"   
+## [22] "base_happiness"    "base_total"        "capture_rate"     
+## [25] "classfication"     "defense"           "experience_growth"
+## [28] "height_m"          "hp"                "japanese_name"    
+## [31] "name"              "percentage_male"   "pokedex_number"   
+## [34] "sp_attack"         "sp_defense"        "speed"            
+## [37] "type1"             "type2"             "weight_kg"        
+## [40] "generation"        "is_legendary"
+\end{verbatim}
+
+Das sind mehr als 40 Spalten. Wie viele genau?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{dim}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 801  41
+\end{verbatim}
+
+Oder mit \texttt{ncol()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ncol}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 41
+\end{verbatim}
+
+Es sind also 41 Spalten. Genug um die wichtigsten Funktionen für das Auswählen von Spalten zu zeigen.
+
+\hypertarget{bestimmte-spalten-nach-namen-auswuxe4hlen}{%
+\section{Bestimmte Spalten nach Namen auswählen}\label{bestimmte-spalten-nach-namen-auswuxe4hlen}}
+
+Die Funktion \texttt{select} verwenden wir für das Auswählen einer Untermenge an Spalten. Wir können im einfachsten Fall einfach die gewünschten Spalten mit Kommata getrennt auflisten:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(name, type1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 801 x 2
+##    name       type1
+##    <chr>      <chr>
+##  1 Bulbasaur  grass
+##  2 Ivysaur    grass
+##  3 Venusaur   grass
+##  4 Charmander fire 
+##  5 Charmeleon fire 
+##  6 Charizard  fire 
+##  7 Squirtle   water
+##  8 Wartortle  water
+##  9 Blastoise  water
+## 10 Caterpie   bug  
+## # ... with 791 more rows
+\end{verbatim}
+
+Dabei können wir beliebig viele Spalten in die Liste aufnehmen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(name, type1, type2, is\_legendary)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 801 x 4
+##    name       type1 type2  is_legendary
+##    <chr>      <chr> <chr>         <dbl>
+##  1 Bulbasaur  grass poison            0
+##  2 Ivysaur    grass poison            0
+##  3 Venusaur   grass poison            0
+##  4 Charmander fire  <NA>              0
+##  5 Charmeleon fire  <NA>              0
+##  6 Charizard  fire  flying            0
+##  7 Squirtle   water <NA>              0
+##  8 Wartortle  water <NA>              0
+##  9 Blastoise  water <NA>              0
+## 10 Caterpie   bug   <NA>              0
+## # ... with 791 more rows
+\end{verbatim}
+
+\hypertarget{spalten-aus-der-auswahl-ausschlieuxdfen}{%
+\section{Spalten aus der Auswahl ausschließen}\label{spalten-aus-der-auswahl-ausschlieuxdfen}}
+
+Wollen wir fast alle verfügbaren Spalten auswählen, so ist es effizienter, die Spalten zu nennen, die wir ausschließen wollen. Das können wir mit dem Minus-Symbol erreichen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{is\_legendary)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{die-letzte-oder-n-letzten-spalten-auswuxe4hlen}{%
+\section{Die letzte oder n-letzten Spalten auswählen}\label{die-letzte-oder-n-letzten-spalten-auswuxe4hlen}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{last\_col}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 801 x 1
+##    is_legendary
+##           <dbl>
+##  1            0
+##  2            0
+##  3            0
+##  4            0
+##  5            0
+##  6            0
+##  7            0
+##  8            0
+##  9            0
+## 10            0
+## # ... with 791 more rows
+\end{verbatim}
+
 \hypertarget{part-anhang}{%
 \part*{Anhang}\label{part-anhang}}
 \addcontentsline{toc}{part}{Anhang}
@@ -503,7 +699,7 @@ Sauer, Sebastian. Moderne Datenanalyse mit R: Daten einlesen, aufbereiten, visua
 \textbf{Name} & \textbf{Download-Link} & \textbf{Kategorie} \\
 Online-Umfrage zum Kaufverhalten von Orangenlimonade & \href{datasets/limonade.csv}{Download} & Marktforschung \\
 Tweets ausgewählter deutscher Politiker:innen & Download & Soziale Medien \\
-& & \\
+Pokémon & Download & TV \\
 \bottomrule
 \end{longtable}
 

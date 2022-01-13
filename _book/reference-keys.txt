@@ -1,5 +1,6 @@
 fig:screenshot-r-console
 fig:screenshot-rstudio
+fig:fig-view-rstudio
 fig:fig-werkzeuge
 fig:der-explorative-analyse-prozess
 die-arbeitsumgebung
@@ -11,11 +12,11 @@ informationen-zur-aktuellen-r-umgebung
 konsole-und-terminal
 dateien-vorschau-und-plots
 einen-datensatz-laden
+tabellarische-daten-in-r
 der-dataframe
 tibbles
-das-tidyverse
-daten-aus-dem-csv-format-laden
 das-csv-format
+csv-daten-laden
 einen-datensatz-erkunden
 alle-daten-anzeigen
 der-werkzeugkasten
@@ -30,3 +31,8 @@ daten-visualisieren
 literatur
 bücher
 online-dokumentationen
+spalten-auswählen
+beispieldaten-pokemon
+bestimmte-spalten-nach-namen-auswählen
+spalten-aus-der-auswahl-ausschließen
+die-letzte-oder-n-letzten-spalten-auswählen

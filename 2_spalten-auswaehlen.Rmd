@@ -1,0 +1,72 @@
+# Spalten auswählen
+
+## TL;DR{.unlisted .unnumbered}
+
+- Mit dem `select` Befehl können wir aus allen Spalten einer Tabelle eine Untermenge auswählen.
+- Neben einer Liste von gewünschten Spaltennamen können wir die Untermenge auch über den Ausschluss von nicht gewollten Spalten eingrenzen. Dafür verwenden wir das Zeichen `-` vor dem Spaltennamen.
+- Mit der Funktion `last_col()` können wir die letzte oder die n-letzte Spalte auswählen
+- Mit dem Semikolon können wir Spaltenbereiche auswählen und so beispielsweise alle Spalten von der 5. bis zur vorletzten selektieren (`select(5 : last_col(2))`).
+- Wir können Spalten anhand ihres Datentyps selektieren.
+- Wir können Spalten über die Zugehörigkeit zu einer Liste selektieren.
+
+## Beispieldaten: Pokemon
+
+Es ist ratsam die verfügbaren Spalten eines Datensatzes zu kennen, bevor wir uns mit einigen Beispielen beschäftigen, wie wir Bestimmte davon auswählen können. Für dieses Kapitel verwenden wir den [Pokémon-Datensatz](https://www.kaggle.com/rounakbanik/pokemon/version/1), der auf [Kaggle.com](https://kaggle.com/) bereitgestellt wird.
+
+```{r, setup, include=FALSE}
+library(tidyverse)
+```
+
+```{r, results = 'hide', message = FALSE}
+pokemon <- read_csv("datasets/pokemon.csv")
+```
+
+Nach dem Laden des Datensatzes lassen wir uns mit `colnames()` die Spalten anzeigen:
+
+```{r}
+pokemon %>% colnames()
+```
+
+Das sind mehr als 40 Spalten. Wie viele genau?
+
+```{r}
+pokemon %>% dim()
+```
+Oder mit `ncol()`:
+
+```{r}
+pokemon %>% ncol()
+```
+Es sind also 41 Spalten. Genug um die wichtigsten Funktionen für das Auswählen von Spalten zu zeigen.
+
+## Bestimmte Spalten nach Namen auswählen
+
+Die Funktion `select` verwenden wir für das Auswählen einer Untermenge an Spalten. Wir können im einfachsten Fall einfach die gewünschten Spalten mit Kommata getrennt auflisten:
+
+```{r}
+pokemon %>%
+  select(name, type1)
+```
+
+Dabei können wir beliebig viele Spalten in die Liste aufnehmen:
+
+```{r}
+pokemon %>%
+  select(name, type1, type2, is_legendary)
+```
+## Spalten aus der Auswahl ausschließen
+
+Wollen wir fast alle verfügbaren Spalten auswählen, so ist es effizienter, die Spalten zu nennen, die wir ausschließen wollen. Das können wir mit dem Minus-Symbol erreichen:
+
+```{r results = 'hide'}
+pokemon %>%
+  select(-is_legendary)
+```
+
+## Die letzte oder n-letzten Spalten auswählen
+
+```{r}
+pokemon %>%
+  select(last_col())
+```
+

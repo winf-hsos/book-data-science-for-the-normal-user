@@ -6,7 +6,7 @@ Bei der Arbeit mit Daten ist es wichtig zu wissen, welches Werkzeug (hier: R-Pak
 knitr::include_graphics(rep('fig/tool_set.jpg', 1))
 ```
 
-Die Tabelle unten listet wichtige Werkzeuge auf, die wir im weiteren Verlauf dieses Skriptes kennenlernen werden.
+Die Tabelle unten listet wichtige Werkzeuge auf, die wir im weiteren Verlauf dieses Buches kennenlernen werden.
 
 | **Paket** | **Funktion**                                                               | **Aufgabe**                                                                                                            |
 | --------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |

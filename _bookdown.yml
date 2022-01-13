@@ -5,11 +5,11 @@ language:
 rmd_files: ["index.Rmd",
             "1_die-arbeitsumgebung.Rmd",
             "1_daten-laden.Rmd",
-            "1_daten-aus-csv-laden.Rmd",
             "1_daten-erkunden.Rmd",
             "1_der-werkzeugkasten.Rmd",
 
             "2_der-analyseprozess.Rmd",
+            "2_spalten-auswaehlen.Rmd",
 
             "99_datensaetze.Rmd",
             "99_references.Rmd"

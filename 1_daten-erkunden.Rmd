@@ -2,9 +2,15 @@
 
 ## Alle Daten anzeigen
 
-Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion `view()` verwenden. Der Funktion übergeben wir ein Tibble und es öffnet sich daraufhin ein neuer Tab im Skripteditor, der die Daten als Tabelle anzeigt.
+Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion `view()` verwenden. Der Funktion übergeben wir den Tibble `food_production`:
 
 
 ```r
 view(food_production)
+```
+
+Mit  ⌨ Strg + Enter oder über den Button „Run“ in der rechten oberen Ecke des Skriptfensters führen wir die Zeile aus. Es öffnet sich ein neuer Tab mit einer tabellarischen Ansicht der Daten.
+
+```{r echo = FALSE, fig-view-rstudio, out.width='100%', fig.show='hold', fig.cap='Die Anzeige eines Tibbles in RStudio mit `view`.'}
+knitr::include_graphics(rep('fig/view_result_rstudio.png', 1))
 ```

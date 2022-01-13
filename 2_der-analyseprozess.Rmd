@@ -2,11 +2,11 @@
 
 # Der explorative Analyseprozess
 
-Dieser Abschnitt führt euch in die Grundlagen der **explorativen Datenanalyse** mit R ein. In der explorativen Datenanalyse versuchen wir einen unbekannten Datensatz mit geeigneten Verfahren kennenzulernen und schnell Muster in den Daten zu erkennen. Auf Basis dieser Muster formulieren wir **Hypothesen**. Diese Hypothesen können anschließend mit statistischen Modellen aus dem Bereich der schließenden Statistik auf ihre Gültigkeit überprüft werden. Dieser Schritt ist jedoch nicht Teil der explorativen Datenanalyse nach dem Verständnis dieses Buches.
+Dieser Abschnitt führt euch in die Grundlagen der **explorativen Datenanalyse** mit R ein. In der explorativen Datenanalyse versuchen wir einen unbekannten Datensatz mit geeigneten Verfahren kennenzulernen und schnell Muster in den Daten zu erkennen. Auf Basis dieser Muster formulieren wir **Hypothesen**. Diese Hypothesen können anschließend mit statistischen Modellen aus dem Bereich der schließenden Statistik auf ihre Gültigkeit überprüft werden. Die statistische Überprüfung ist jedoch nicht Teil der explorativen Datenanalyse nach dem Verständnis dieses Buches.
 
 Eine ausgezeichnete Einführung in die explorative Datenanalyse mit R gibt auch das Buch [R for Data Science](https://r4ds.had.co.nz) von @wickham_r_2016. Das Buch ist online frei zugänglich.
 
-```{r echo = FALSE, der-explorative-analyse-prozess, out.width='50%', fig.show='hold', fig.cap='Der Datenanalyseprozess.'}
+```{r echo = FALSE, der-explorative-analyse-prozess, out.width='60%', fig.show='hold', fig.cap='Der Datenanalyseprozess.', fig.align = 'center'}
 knitr::include_graphics(rep('fig/prozess_explorative_datenanalyse.png', 1))
 ```
 
@@ -15,10 +15,10 @@ knitr::include_graphics(rep('fig/prozess_explorative_datenanalyse.png', 1))
 
 ## Daten laden
 
-Jeder Analyseprozess beginnt mit dem [Laden eines Datensatzes](). Dabei gibt es verschiedene Datenquellen, die in Betracht gezogen werden müssen. Ein häufig verwendetes Format sind Komma-separierte Werte (_**c**omma **s**eparated **v**alues_ = CSV) in einfachen Textdateien. Dieses Format steht auch hier im Vordergrund.
+Jeder Analyseprozess beginnt mit dem [Laden eines Datensatzes](). Dabei gibt es verschiedene Datenquellen, die in Betracht gezogen werden müssen. Ein häufig verwendetes Format sind Komma-separierte Werte (**C**omma **S**eparated **V**alues = CSV) in einfachen Textdateien. Dieses Format steht auch hier im Vordergrund.
 
 
-Gemäß der Abbildung aus Wickham und Grolemund 2016 folgt auf das Laden der Daten der Arbeitsschritt „Tidy“. Dieser ist dann notwendig, wenn die Daten nicht in der typischen Form bestehend aus Spalten und Zeilen vorliegen. Leider ist das in der Praxis oft der Fall. In diesem Kurs wird aber zunächst davon ausgegangen, dass die Daten das entsprechende Format aufweisen. Die interessierte Leserin verweise ich auf das [Kapitel 12 im Buch „R for Data Science“](11-der-analyseprozess.md#explorative-datenanalyse-mit-r).
+Gemäß der Abbildung aus @wickham_r_2016 folgt auf das Laden der Daten der Arbeitsschritt „Tidy“. Dieser ist dann notwendig, wenn die Daten nicht in der typischen Form bestehend aus Spalten und Zeilen vorliegen. Leider ist das in der Praxis oft der Fall. In diesem Buch wird aber zunächst davon ausgegangen, dass die Daten das entsprechende Format aufweisen. Die interessierte Leserin verweise ich auf das [Kapitel 12 im Buch „R for Data Science“](https://r4ds.had.co.nz/tidy-data.html).
 
 ## Daten transformieren
 
