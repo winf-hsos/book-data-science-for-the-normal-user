@@ -1,0 +1,21 @@
+# Einen Datensatz laden
+
+Nachdem die Arbeitsumgebung eingerichtet ist, können wir mit den ersten Schritten in R beginnen. Wir steigen direkt ein und lernen, wie wir mit Daten in R arbeiten.
+
+## TL;DR{.unlisted .unnumbered}
+
+- R bietet verschiedene Möglichkeiten, um mit Daten zu arbeiten.
+- Für strukturierte Daten in Tabellenform (Zeilen und Spalten) verwenden wir in R den [Dataframe](#der-dataframe).
+- Eine modernere Version des klassischen Dataframe ist das [Tibble](#tibbles) aus dem [Tidyverse](#das-tidyverse).
+
+## Der Dataframe
+
+In R gibt es verschiedene Strukturen für die Speicherung von Daten. Darunter sind beispielsweise Vektoren, Listen oder Matritzen. Um tabellarische Daten abzubilden, die in Spalten und Zeilen organisiert sind, verwenden wir in R den sogenannten **Dataframe**.
+
+<!-- TODO: Referenz zu weiteren Datenstrukturen einfügen, wenn bekannt -->
+
+## Tibbles
+
+Der Tibble ist eine Weiterentwicklung des klassischen Dataframe in R. Tibbles werden im Tidyverse standardmäßig verwendet und mit dem Paket `tibble` eingeführt.
+
+## Das Tidyverse

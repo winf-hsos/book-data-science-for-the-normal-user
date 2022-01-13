@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Data Science für normale Anwender*innen</title>
+  <title>Kapitel 5 Der Werkzeugkasten | Data Science für normale Anwender*innen</title>
   <meta name="description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Data Science für normale Anwender*innen" />
+  <meta property="og:title" content="Kapitel 5 Der Werkzeugkasten | Data Science für normale Anwender*innen" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://book-data-science-for-the-normal-user.netlify.app/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="winf-hsos/book-data-science-for-the-normal-user" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Data Science für normale Anwender*innen" />
+  <meta name="twitter:title" content="Kapitel 5 Der Werkzeugkasten | Data Science für normale Anwender*innen" />
   
   <meta name="twitter:description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="einen-datensatz-erkunden.html"/>
+<link rel="next" href="der-explorative-analyseprozess.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -232,19 +232,124 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="der-werkzeugkasten" class="section level1" number="5">
+<h1><span class="header-section-number">Kapitel 5</span> Der Werkzeugkasten</h1>
+<p>Bei der Arbeit mit Daten ist es wichtig zu wissen, welches Werkzeug (hier: R-Paket oder Funktion) wir für welche Aufgabe verwenden. Genauso wie in einer Werkstatt, in der es eine Vielzahl an Werkzeugen gibt, die für unterschiedliche Zwecke geeignet sind.</p>
+<div class="figure"><span style="display:block;" id="fig:fig-werkzeuge"></span>
+<img src="fig/tool_set.jpg" alt="Verschiedene Werkzeuge für unterschiedliche Aufgaben." width="100%" />
+<p class="caption">
+Figure 5.1: Verschiedene Werkzeuge für unterschiedliche Aufgaben.
+</p>
 </div>
+<p>Die Tabelle unten listet wichtige Werkzeuge auf, die wir im weiteren Verlauf dieses Skriptes kennenlernen werden.</p>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="36%" />
+<col width="58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Paket</strong></th>
+<th><strong>Funktion</strong></th>
+<th><strong>Aufgabe</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>tibble</code></td>
+<td><code>as.tibble</code></td>
+<td><a href="14-daten-laden-und-sichten/tidyverse-und-tibbles.md">Erstellt einen modernen Dataframe für tabellarische Daten</a>.</td>
+</tr>
+<tr class="even">
+<td><code>readr</code></td>
+<td><code>read_csv</code></td>
+<td><a href="14-daten-laden-und-sichten/laden-eines-datensatzes.md">Lesen von tabellarischen Datenformaten wie CSV-Dateien</a>.</td>
+</tr>
+<tr class="odd">
+<td><code>dplyr</code></td>
+<td><code>select</code></td>
+<td><a href="15-daten-veraendern/spalten-auswaehlen.md">Auswählen von Spalten (Variablen) eines Datensatzes</a>.</td>
+</tr>
+<tr class="even">
+<td><code>dplyr</code></td>
+<td><code>filter</code></td>
+<td><a href="15-daten-veraendern/zeilen-filtern.md">Filtern von Daten auf Basis fast beliebiger Ausdrücke</a>.</td>
+</tr>
+<tr class="odd">
+<td><code>dplyr</code></td>
+<td><code>mutate</code></td>
+<td><a href="15-daten-veraendern/spalten-veraendern/">Hinzufügen neuer Spalten (Variablen)</a>.</td>
+</tr>
+<tr class="even">
+<td><code>dplyr</code></td>
+<td><code>recode</code></td>
+<td><a href="15-daten-veraendern/spalten-veraendern/spalten-neu-kodieren.md">Spaltenwerte neu kodieren</a>.</td>
+</tr>
+<tr class="odd">
+<td><code>dplyr</code></td>
+<td><code>arrange</code></td>
+<td><a href="15-daten-veraendern/zeilen-sortieren.md">Die Reihenfolge von Zeilen verändern</a>.</td>
+</tr>
+<tr class="even">
+<td><code>dplyr</code></td>
+<td><code>group_by</code></td>
+<td><a href="15-daten-veraendern/daten-zusammenfassen.md#zusammenfassen-und-gruppieren">Gruppieren von Daten</a>.</td>
+</tr>
+<tr class="odd">
+<td><code>dplyr</code></td>
+<td><code>summarise</code></td>
+<td><a href="15-daten-veraendern/daten-zusammenfassen.md#viele-zeilen-zu-einer-kennzahl-zusammenfassen">Zusammenfassen von Daten</a>.</td>
+</tr>
+<tr class="even">
+<td><code>ggplot2</code></td>
+<td><code>ggplot</code>, <code>aes</code>, <code>geom_line</code><em>,</em> <code>geom_bar</code>, <code>geom_col</code> <code>geom_point</code> u.v.m.</td>
+<td><a href="16-daten-visualisieren-mit-ggplot2/">Visualisieren von Daten</a>.</td>
+</tr>
+</tbody>
+</table>
+<div id="das-paket-tibble" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Das Paket <code>tibble</code></h2>
+<p>Das Paket <code>tibble</code> führt das moderne Pendant zum klassischen Dataframe in R ein.</p>
+<ul>
+<li><a href="https://tibble.tidyverse.org/">Zur offiziellen Webseite des <code>tibble</code> Pakets</a></li>
+</ul>
+</div>
+<div id="das-paket-readr" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Das Paket <code>readr</code></h2>
+<p>Das Paket <code>readr</code> beinhaltet Funktionen für das Laden von Daten aus strukturierten Datenformaten wie CSV-Dateien. Alle Funktionen zum Datenimport aus readr erzeugen automatisch einen <code>tibble</code>.</p>
+<ul>
+<li><a href="https://readr.tidyverse.org/">Zur offiziellen Webseite des <code>readr</code> Pakets</a></li>
+</ul>
+</div>
+<div id="das-paket-dplyr" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Das Paket <code>dplyr</code></h2>
+<p>Das Paket <a href="https://dplyr.tidyverse.org"><code>dplyr</code></a> hat einen etwas merkwürdigen Namen. Er setzt sich aus dem Buchstaben „d“ und dem abgekürzten Wort „plyr“ zusammen. Das „d“ steht für Dataframe, während „plyr“ für den englischen Begriff „plier“ steht, was auf Deutsch „Zange“ bedeutet. Passend dazu bildet das offizielle Symbol des Pakets mehrere Zangen ab.</p>
+<ul>
+<li><a href="https://dplyr.tidyverse.org/">Zur offiziellen Dokumentation des <code>dplyr</code> Pakets</a></li>
+</ul>
+<p><code>dplyr</code> liefert uns eine Vielzahl wichtiger Funktionen für die Manipulation von Daten, die in Form eines Tibble vorliegen. Eine Übersicht der Funktionen findet ihr in dem Cheat Sheet <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Data Transformation wit dplyr</a>.</p>
+</div>
+<div id="das-paket-ggplot2" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Das Paket <code>ggplot2</code></h2>
+<p><code>ggplot2</code> ist eines der umfassendsten Pakete für die professionelle Visualisierung von Daten mit R:</p>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/">Zur offiziellemn Dokumentation des <code>ggplot2</code> Pakets</a></li>
+</ul>
+<p>Das Cheat Sheet <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">Data Visualization with ggplot2</a> beinhaltet alle wichtigen Funktionen im Überblick.</p>
+
+</div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="einen-datensatz-erkunden.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="der-explorative-analyseprozess.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -275,7 +380,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/winf-hsos/intro_to_data_science_with_r_for_the_normal_user/edit/BRANCH/%s",
+"link": "https://github.com/winf-hsos/intro_to_data_science_with_r_for_the_normal_user/edit/BRANCH/1_der-werkzeugkasten.Rmd",
 "text": "Edit"
 },
 "history": {

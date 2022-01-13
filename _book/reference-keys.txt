@@ -1,5 +1,7 @@
 fig:screenshot-r-console
 fig:screenshot-rstudio
+fig:fig-werkzeuge
+fig:der-explorative-analyse-prozess
 die-arbeitsumgebung
 r-installieren
 rstudio-installieren
@@ -8,7 +10,7 @@ der-skripteditor
 informationen-zur-aktuellen-r-umgebung
 konsole-und-terminal
 dateien-vorschau-und-plots
-strukturierte-daten-tabellen
+einen-datensatz-laden
 der-dataframe
 tibbles
 das-tidyverse
@@ -16,4 +18,15 @@ daten-aus-dem-csv-format-laden
 das-csv-format
 einen-datensatz-erkunden
 alle-daten-anzeigen
-datensaetze
+der-werkzeugkasten
+das-paket-tibble
+das-paket-readr
+das-paket-dplyr
+das-paket-ggplot2
+der-explorative-analyseprozess
+daten-laden
+daten-transformieren
+daten-visualisieren
+literatur
+bücher
+online-dokumentationen
