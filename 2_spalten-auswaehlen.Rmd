@@ -1,4 +1,4 @@
-# Spalten auswählen
+# Spalten auswählen mit `select`
 
 ## TL;DR{.unlisted .unnumbered}
 
@@ -9,11 +9,11 @@
 - Wir können Spalten anhand ihres Datentyps selektieren.
 - Wir können Spalten über die Zugehörigkeit zu einer Liste selektieren.
 
-## Beispieldaten: Pokemon
+## Beispieldaten: Pokémon
 
 Es ist ratsam die verfügbaren Spalten eines Datensatzes zu kennen, bevor wir uns mit einigen Beispielen beschäftigen, wie wir Bestimmte davon auswählen können. Für dieses Kapitel verwenden wir den [Pokémon-Datensatz](https://www.kaggle.com/rounakbanik/pokemon/version/1), der auf [Kaggle.com](https://kaggle.com/) bereitgestellt wird.
 
-```{r, setup, include=FALSE}
+```{r, include=FALSE}
 library(tidyverse)
 ```
 

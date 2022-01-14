@@ -6,7 +6,7 @@
 ]{book}
 \title{Data Science für normale Anwender*innen}
 \author{Prof.~Dr.~Nicolas Meseth}
-\date{Aktualisiert am 13.01.2022}
+\date{Aktualisiert am 14.01.2022}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -314,14 +314,37 @@ id,firstname,lastname,height,weight,gender
 \hypertarget{einen-datensatz-erkunden}{%
 \chapter{Einen Datensatz erkunden}\label{einen-datensatz-erkunden}}
 
+\hypertarget{tldr-2}{%
+\section*{TL;DR}\label{tldr-2}}
+
+\begin{itemize}
+\tightlist
+\item
+  In RStudio können wir mit \texttt{view} den gesamten Dataframe oder Tibble \protect\hyperlink{alle-daten-anzeigen}{im Skripteditor anzeigen}.
+\item
+  Die \protect\hyperlink{spaltennamen-ermitteln}{Spaltennamen} eines Tibble erhalten wir mit \texttt{colnames}.
+\item
+  Mit \texttt{ncol} und \texttt{nrow} erhalten wir die \protect\hyperlink{anzahl-spalten-zeilen}{Anzahl Spalten und Zeilen} eines Tibbles. Das Gleiche bekommen wir in einem Schwung mit der Funktion \texttt{dim}.
+\item
+  Einen schnellen \protect\hyperlink{wertebereich-nominalskaliert}{Überblick über eine nominalskalierte Spalte und deren Werte} bekommen wir mit \texttt{distinct} (eindeutige Werte) oder \texttt{count} (zusätzlich die Häufigkeiten).
+\item
+  Für \protect\hyperlink{wertebereich-intervallskaliert}{intervallskalierte Werte} können wir besser mit \texttt{min} und \texttt{max} die Spannweite ermitteln oder mit einem \protect\hyperlink{wertebereich-intervallskaliert-histogramm}{Histogramm die Verteilung der Werte visualisieren}.
+\item
+  Mit \texttt{is.na} können wir prüfen, ob ein Wert NA ist (nicht vorhanden) und so auch die Anzahl fehlender Werte ermitteln.
+\item
+  Mit der \texttt{summary} Funktion erzeugen wir eine Übersicht wichtiger statistischer Kennzahlen für eine Spalte.
+\item
+  Mit \texttt{head} und \texttt{tail} erhalten wir die ersten oder letzten 10 Zeilen eines Tibble. Mit dem einzigen Parameter der Funktion können wir auch eine andere Anzahl zurückgeben.
+\end{itemize}
+
 \hypertarget{alle-daten-anzeigen}{%
 \section{Alle Daten anzeigen}\label{alle-daten-anzeigen}}
 
-Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion \texttt{view()} verwenden. Der Funktion übergeben wir den Tibble \texttt{food\_production}:
+Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion \texttt{view()} verwenden. Der Funktion übergeben wir den Tibble \texttt{pokemon}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{view}\NormalTok{(food\_production)}
+\FunctionTok{view}\NormalTok{(pokemon)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -330,6 +353,358 @@ Mit ⌨ Strg + Enter oder über den Button „Run`` in der rechten oberen Ecke d
 \begin{figure}
 \includegraphics[width=1\linewidth]{fig/view_result_rstudio} \caption{Die Anzeige eines Tibbles in RStudio mit `view`.}\label{fig:fig-view-rstudio}
 \end{figure}
+
+\hypertarget{spaltennamen-ermitteln}{%
+\section{Spaltenamen ermitteln}\label{spaltennamen-ermitteln}}
+
+Um mit einem Datensatz arbeiten zu können, benötigen wir eine Übersicht über seine Spalten. Diese liefert und die Funktion \texttt{colnames}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{colnames}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "abilities"         "against_bug"       "against_dark"     
+##  [4] "against_dragon"    "against_electric"  "against_fairy"    
+##  [7] "against_fight"     "against_fire"      "against_flying"   
+## [10] "against_ghost"     "against_grass"     "against_ground"   
+## [13] "against_ice"       "against_normal"    "against_poison"   
+## [16] "against_psychic"   "against_rock"      "against_steel"    
+## [19] "against_water"     "attack"            "base_egg_steps"   
+## [22] "base_happiness"    "base_total"        "capture_rate"     
+## [25] "classfication"     "defense"           "experience_growth"
+## [28] "height_m"          "hp"                "japanese_name"    
+## [31] "name"              "percentage_male"   "pokedex_number"   
+## [34] "sp_attack"         "sp_defense"        "speed"            
+## [37] "type1"             "type2"             "weight_kg"        
+## [40] "generation"        "is_legendary"
+\end{verbatim}
+
+Auf diese Information greifen wir zurück, wenn wir später Analysen mit dem Datensatz durchführen oder bestimmte Spalten genauer untersuchen wollen.
+
+\hypertarget{anzahl-spalten-zeilen}{%
+\section{Anzahl Spalten und Zeilen ermitteln}\label{anzahl-spalten-zeilen}}
+
+Einfache Informationen wie die Anzahl Spalten und Zeilen ermitteln wir mit den Funktionen \texttt{ncol}, \texttt{nrow} oder \texttt{dim}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ncol}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 41
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{nrow}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 801
+\end{verbatim}
+
+Wenn wir beide Werte in einer Ausgabe haben wollen können wir \texttt{dim} verwenden:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{dim}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 801  41
+\end{verbatim}
+
+\texttt{dim} gibt einen Vektor mit zwei Werten zurück. Der erste Wert steht für die Anzahl Zeilen, der zweite für die Anzahl Spalten. Wir können mit der Angabe der Position in eckigen Klammern auf jeden Wert einzeln zugreifen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dimensions }\OtherTok{\textless{}{-}}\NormalTok{ pokemon }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{dim}\NormalTok{()}
+
+\CommentTok{\# Anzahl Zeilen}
+\NormalTok{dimensions[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 801
+\end{verbatim}
+
+Und auf die Spalten:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Anzahl Spalten}
+\NormalTok{dimensions[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 41
+\end{verbatim}
+
+\hypertarget{wertebereich-von-spalten-bestimmen}{%
+\section{Wertebereich von Spalten bestimmen}\label{wertebereich-von-spalten-bestimmen}}
+
+\hypertarget{wertebereich-nominalskaliert}{%
+\subsection{Nominalskalierte Spalten}\label{wertebereich-nominalskaliert}}
+
+\hypertarget{eindeutige-werte-mit-distinct}{%
+\subsubsection{\texorpdfstring{Eindeutige Werte mit \texttt{distinct}}{Eindeutige Werte mit distinct}}\label{eindeutige-werte-mit-distinct}}
+
+Für nominalskalierte Spalten kann es interessant sein, alle Werte und eventuell deren Häufigkeit anzuzeigen. Die eindeutigen Werte bekommen wir mit der \texttt{distinct} Funktion:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{distinct}\NormalTok{(type2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 19 x 1
+##    type2   
+##    <chr>   
+##  1 poison  
+##  2 <NA>    
+##  3 flying  
+##  4 dark    
+##  5 electric
+...
+\end{verbatim}
+
+\hypertarget{eindeutige-werte-und-deren-huxe4ufigkeiten}{%
+\subsubsection{Eindeutige Werte und deren Häufigkeiten}\label{eindeutige-werte-und-deren-huxe4ufigkeiten}}
+
+Wenn wir zusätzlich noch die Häufigkeiten ermitteln wollen, können wir die Funktion \texttt{count} verwenden und als Parameter den Spaltennamen übergeben:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{count}\NormalTok{(type1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 18 x 2
+##    type1        n
+##    <chr>    <int>
+##  1 bug         72
+##  2 dark        29
+##  3 dragon      27
+##  4 electric    39
+##  5 fairy       18
+...
+\end{verbatim}
+
+Meist es nützlich, direkt nach Häufigkeiten zu sortieren:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{count}\NormalTok{(type1, }\AttributeTok{sort =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 18 x 2
+##    type1        n
+##    <chr>    <int>
+##  1 water      114
+##  2 normal     105
+##  3 grass       78
+##  4 bug         72
+##  5 psychic     53
+...
+\end{verbatim}
+
+\hypertarget{wertebereich-intervallskaliert}{%
+\subsection{Intervallskalierte Spalten}\label{wertebereich-intervallskaliert}}
+
+Für intervallskalierte Spalten, also Spalten mit Zahlenwerten, eignen sich die Funktionen \texttt{distinct} und \texttt{count} nur bedingt. Oft sind es zu viele unterschiedliche Werte und das reine Zählen bringt nicht viel Aufschluss. Wenn wir distinct auf die Spalte \texttt{weight\_kg} anwenden, erhalten wir zum Beispiel 422 unterschiedliche Werte:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{distinct}\NormalTok{(weight\_kg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 422 x 1
+##    weight_kg
+##        <dbl>
+##  1       6.9
+##  2      13  
+##  3     100  
+##  4       8.5
+##  5      19  
+##  6      90.5
+##  7       9  
+##  8      22.5
+##  9      85.5
+## 10       2.9
+## # ... with 412 more rows
+\end{verbatim}
+
+In diesem Fall ist es sinnvoller, den kleinsten und größten Wert zu kennen, um die \textbf{Spannweite} der Spalte zu ermitteln. Interessant wäre auch die Verteilung der Werte, etwa in Form eines Histogramm.
+
+\hypertarget{gruxf6uxdfter-und-kleinster-wert}{%
+\subsubsection{Größter und kleinster Wert}\label{gruxf6uxdfter-und-kleinster-wert}}
+
+Den größten oder kleinsten Wert können wir mit \texttt{max} und \texttt{min} ermitteln:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(weight\_kg) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{max}\NormalTok{(}\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 999.9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(weight\_kg) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{min}\NormalTok{(}\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1
+\end{verbatim}
+
+Wir wissen also, dass die Werte sich zwischen 0,1 und 999,9 bewegen. Wie aber sind die Werte dazwischen verteilt?
+
+\hypertarget{wertebereich-intervallskaliert-histogramm}{%
+\subsubsection{Verteilung der Werte als Histogramm}\label{wertebereich-intervallskaliert-histogramm}}
+
+Um die Verteilung der Werte innerhalb der Spalte \texttt{weight\_kg} sinnvoll zu ermitteln müssen wir an dieser Stelle einen Exkurs in die Visualisierung von Daten machen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(weight\_kg) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(weight\_kg)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weight\_kg) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{50}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+Das Historgramm zeigt uns, dass der größte Teil der Daten im kleineren Bereich liegt und nur wenige Ausnahmen große Werte jenseits der 300 aufweisen.
+
+\hypertarget{anzahl-fehlender-werte}{%
+\subsubsection{Anzahl fehlender Werte}\label{anzahl-fehlender-werte}}
+
+Die Anzahl fehlender Werte, die in R als \texttt{NA} dargestellt werden, ist ein wichtiges Merkmal für die Qualität der Daten einer Spalte. Um diese Zahl zu ermitteln filtern wir die Daten mit der Funktion \texttt{is.na} und zählen anschließend die übrig gebliebenen Werte:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(weight\_kg) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(weight\_kg)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##       n
+##   <int>
+## 1    20
+\end{verbatim}
+
+Insgesamt haben somit 20 Pokémon keine Gewichtsangabe.
+
+\hypertarget{zusammenfassung-einer-spalte-ausgeben}{%
+\subsubsection{Zusammenfassung einer Spalte ausgeben}\label{zusammenfassung-einer-spalte-ausgeben}}
+
+Um gleich mehrer statistische Größen zu berechnen und auszugeben können wir die Funktion \texttt{summary} verwenden:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(weight\_kg) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summary}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    weight_kg     
+##  Min.   :  0.10  
+##  1st Qu.:  9.00  
+##  Median : 27.30  
+##  Mean   : 61.38  
+##  3rd Qu.: 64.80  
+##  Max.   :999.90  
+##  NA's   :20
+\end{verbatim}
+
+\hypertarget{erste-oder-letzte-zeilen-anzeigen}{%
+\section{Erste oder letzte Zeilen anzeigen}\label{erste-oder-letzte-zeilen-anzeigen}}
+
+Die Funktion \texttt{head} gibt die ersten 10 Zeilen eines Tibbles zurück:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 41
+##   abilities             against_bug against_dark against_dragon against_electric
+##   <chr>                       <dbl>        <dbl>          <dbl>            <dbl>
+## 1 ['Overgrow', 'Chloro~        1               1              1              0.5
+## 2 ['Overgrow', 'Chloro~        1               1              1              0.5
+## 3 ['Overgrow', 'Chloro~        1               1              1              0.5
+## 4 ['Blaze', 'Solar Pow~        0.5             1              1              1  
+## 5 ['Blaze', 'Solar Pow~        0.5             1              1              1  
+## 6 ['Blaze', 'Solar Pow~        0.25            1              1              2  
+## # ... with 36 more variables: against_fairy <dbl>, against_fight <dbl>,
+## #   against_fire <dbl>, against_flying <dbl>, against_ghost <dbl>,
+## #   against_grass <dbl>, against_ground <dbl>, against_ice <dbl>,
+## #   against_normal <dbl>, against_poison <dbl>, against_psychic <dbl>,
+## #   against_rock <dbl>, against_steel <dbl>, against_water <dbl>, attack <dbl>,
+## #   base_egg_steps <dbl>, base_happiness <dbl>, base_total <dbl>,
+## #   capture_rate <chr>, classfication <chr>, defense <dbl>, ...
+\end{verbatim}
+
+Über den Parameter der Funktion können wir die Anzahl der Zeilen verändern, um etwa nur die erste Zeile zu erhalten:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{head}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Die Funktion \texttt{tail} ist das Pendant dazu und gibt die 10 letzten Zeilen aus. Genau wie bei der \texttt{head()} Funktion können wir den Parameter für die Angabe der konkreten Anzahl Zeilen verwenden:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tail}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{der-werkzeugkasten}{%
 \chapter{Der Werkzeugkasten}\label{der-werkzeugkasten}}
@@ -503,11 +878,11 @@ Sauer, Sebastian. Moderne Datenanalyse mit R: Daten einlesen, aufbereiten, visua
   \href{https://ourcodingclub.github.io/tutorials/data-manip-creative-dplyr/}{Weiterführende Anleitungen zur Datenmanipulation mit \texttt{dplyr} (Advanced Data Manipulation)}
 \end{itemize}
 
-\hypertarget{spalten-auswuxe4hlen}{%
-\chapter{Spalten auswählen}\label{spalten-auswuxe4hlen}}
+\hypertarget{spalten-auswuxe4hlen-mit-select}{%
+\chapter{\texorpdfstring{Spalten auswählen mit \texttt{select}}{Spalten auswählen mit select}}\label{spalten-auswuxe4hlen-mit-select}}
 
-\hypertarget{tldr-2}{%
-\section*{TL;DR}\label{tldr-2}}
+\hypertarget{tldr-3}{%
+\section*{TL;DR}\label{tldr-3}}
 
 \begin{itemize}
 \tightlist
@@ -525,8 +900,8 @@ Sauer, Sebastian. Moderne Datenanalyse mit R: Daten einlesen, aufbereiten, visua
   Wir können Spalten über die Zugehörigkeit zu einer Liste selektieren.
 \end{itemize}
 
-\hypertarget{beispieldaten-pokemon}{%
-\section{Beispieldaten: Pokemon}\label{beispieldaten-pokemon}}
+\hypertarget{beispieldaten-pokuxe9mon}{%
+\section{Beispieldaten: Pokémon}\label{beispieldaten-pokuxe9mon}}
 
 Es ist ratsam die verfügbaren Spalten eines Datensatzes zu kennen, bevor wir uns mit einigen Beispielen beschäftigen, wie wir Bestimmte davon auswählen können. Für dieses Kapitel verwenden wir den \href{https://www.kaggle.com/rounakbanik/pokemon/version/1}{Pokémon-Datensatz}, der auf \href{https://kaggle.com/}{Kaggle.com} bereitgestellt wird.
 
@@ -692,14 +1067,14 @@ Wollen wir fast alle verfügbaren Spalten auswählen, so ist es effizienter, die
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.51}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.33}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.16}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.15}}@{}}
 \caption{Datensätze in diesem Buch}\tabularnewline
 \toprule
 \endhead
 \textbf{Name} & \textbf{Download-Link} & \textbf{Kategorie} \\
 Online-Umfrage zum Kaufverhalten von Orangenlimonade & \href{datasets/limonade.csv}{Download} & Marktforschung \\
 Tweets ausgewählter deutscher Politiker:innen & Download & Soziale Medien \\
-Pokémon & Download & TV \\
+Pokémon & \href{datasets/pokemon.csv}{Download} & TV \\
 \bottomrule
 \end{longtable}
 

@@ -189,6 +189,14 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html"><i class="fa fa-check"></i><b>3</b> Einen Datensatz erkunden</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#alle-daten-anzeigen"><i class="fa fa-check"></i><b>3.1</b> Alle Daten anzeigen</a></li>
+<li class="chapter" data-level="3.2" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#spaltennamen-ermitteln"><i class="fa fa-check"></i><b>3.2</b> Spaltenamen ermitteln</a></li>
+<li class="chapter" data-level="3.3" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#anzahl-spalten-zeilen"><i class="fa fa-check"></i><b>3.3</b> Anzahl Spalten und Zeilen ermitteln</a></li>
+<li class="chapter" data-level="3.4" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#wertebereich-von-spalten-bestimmen"><i class="fa fa-check"></i><b>3.4</b> Wertebereich von Spalten bestimmen</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#wertebereich-nominalskaliert"><i class="fa fa-check"></i><b>3.4.1</b> Nominalskalierte Spalten</a></li>
+<li class="chapter" data-level="3.4.2" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#wertebereich-intervallskaliert"><i class="fa fa-check"></i><b>3.4.2</b> Intervallskalierte Spalten</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="einen-datensatz-erkunden.html"><a href="einen-datensatz-erkunden.html#erste-oder-letzte-zeilen-anzeigen"><i class="fa fa-check"></i><b>3.5</b> Erste oder letzte Zeilen anzeigen</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html"><i class="fa fa-check"></i><b>4</b> Der Werkzeugkasten</a>
 <ul>
@@ -209,12 +217,12 @@ div.csl-indent {
 <li class="chapter" data-level="5.4.2" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#online-dokumentationen"><i class="fa fa-check"></i><b>5.4.2</b> Online-Dokumentationen</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html"><i class="fa fa-check"></i><b>6</b> Spalten auswählen</a>
+<li class="chapter" data-level="6" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html"><i class="fa fa-check"></i><b>6</b> Spalten auswählen mit <code>select</code></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#beispieldaten-pokemon"><i class="fa fa-check"></i><b>6.1</b> Beispieldaten: Pokemon</a></li>
-<li class="chapter" data-level="6.2" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#bestimmte-spalten-nach-namen-auswählen"><i class="fa fa-check"></i><b>6.2</b> Bestimmte Spalten nach Namen auswählen</a></li>
-<li class="chapter" data-level="6.3" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#spalten-aus-der-auswahl-ausschließen"><i class="fa fa-check"></i><b>6.3</b> Spalten aus der Auswahl ausschließen</a></li>
-<li class="chapter" data-level="6.4" data-path="spalten-auswählen.html"><a href="spalten-auswählen.html#die-letzte-oder-n-letzten-spalten-auswählen"><i class="fa fa-check"></i><b>6.4</b> Die letzte oder n-letzten Spalten auswählen</a></li>
+<li class="chapter" data-level="6.1" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#beispieldaten-pokémon"><i class="fa fa-check"></i><b>6.1</b> Beispieldaten: Pokémon</a></li>
+<li class="chapter" data-level="6.2" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#bestimmte-spalten-nach-namen-auswählen"><i class="fa fa-check"></i><b>6.2</b> Bestimmte Spalten nach Namen auswählen</a></li>
+<li class="chapter" data-level="6.3" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#spalten-aus-der-auswahl-ausschließen"><i class="fa fa-check"></i><b>6.3</b> Spalten aus der Auswahl ausschließen</a></li>
+<li class="chapter" data-level="6.4" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#die-letzte-oder-n-letzten-spalten-auswählen"><i class="fa fa-check"></i><b>6.4</b> Die letzte oder n-letzten Spalten auswählen</a></li>
 </ul></li>
 <li class="part"><span><b>Anhang</b></span></li>
 <li class="chapter" data-level="" data-path="datensaetze.html"><a href="datensaetze.html"><i class="fa fa-check"></i>Datensätze</a></li>
@@ -241,10 +249,23 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="einen-datensatz-erkunden" class="section level1" number="3">
 <h1><span class="header-section-number">Kapitel 3</span> Einen Datensatz erkunden</h1>
+<div id="tldr-2" class="section level2 unlisted unnumbered">
+<h2>TL;DR</h2>
+<ul>
+<li>In RStudio können wir mit <code>view</code> den gesamten Dataframe oder Tibble <a href="einen-datensatz-erkunden.html#alle-daten-anzeigen">im Skripteditor anzeigen</a>.</li>
+<li>Die <a href="einen-datensatz-erkunden.html#spaltennamen-ermitteln">Spaltennamen</a> eines Tibble erhalten wir mit <code>colnames</code>.</li>
+<li>Mit <code>ncol</code> und <code>nrow</code> erhalten wir die <a href="einen-datensatz-erkunden.html#anzahl-spalten-zeilen">Anzahl Spalten und Zeilen</a> eines Tibbles. Das Gleiche bekommen wir in einem Schwung mit der Funktion <code>dim</code>.</li>
+<li>Einen schnellen <a href="einen-datensatz-erkunden.html#wertebereich-nominalskaliert">Überblick über eine nominalskalierte Spalte und deren Werte</a> bekommen wir mit <code>distinct</code> (eindeutige Werte) oder <code>count</code> (zusätzlich die Häufigkeiten).</li>
+<li>Für <a href="einen-datensatz-erkunden.html#wertebereich-intervallskaliert">intervallskalierte Werte</a> können wir besser mit <code>min</code> und <code>max</code> die Spannweite ermitteln oder mit einem <a href="einen-datensatz-erkunden.html#wertebereich-intervallskaliert-histogramm">Histogramm die Verteilung der Werte visualisieren</a>.</li>
+<li>Mit <code>is.na</code> können wir prüfen, ob ein Wert NA ist (nicht vorhanden) und so auch die Anzahl fehlender Werte ermitteln.</li>
+<li>Mit der <code>summary</code> Funktion erzeugen wir eine Übersicht wichtiger statistischer Kennzahlen für eine Spalte.</li>
+<li>Mit <code>head</code> und <code>tail</code> erhalten wir die ersten oder letzten 10 Zeilen eines Tibble. Mit dem einzigen Parameter der Funktion können wir auch eine andere Anzahl zurückgeben.</li>
+</ul>
+</div>
 <div id="alle-daten-anzeigen" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Alle Daten anzeigen</h2>
-<p>Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion <code>view()</code> verwenden. Der Funktion übergeben wir den Tibble <code>food_production</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="einen-datensatz-erkunden.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(food_production)</span></code></pre></div>
+<p>Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion <code>view()</code> verwenden. Der Funktion übergeben wir den Tibble <code>pokemon</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="einen-datensatz-erkunden.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(pokemon)</span></code></pre></div>
 <p>Mit ⌨ Strg + Enter oder über den Button „Run“ in der rechten oberen Ecke des Skriptfensters führen wir die Zeile aus. Es öffnet sich ein neuer Tab mit einer tabellarischen Ansicht der Daten.</p>
 <div class="figure"><span style="display:block;" id="fig:fig-view-rstudio"></span>
 <img src="fig/view_result_rstudio.png" alt="Die Anzeige eines Tibbles in RStudio mit `view`." width="100%" />
@@ -252,6 +273,201 @@ div.csl-indent {
 Figure 3.1: Die Anzeige eines Tibbles in RStudio mit <code>view</code>.
 </p>
 </div>
+</div>
+<div id="spaltennamen-ermitteln" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Spaltenamen ermitteln</h2>
+<p>Um mit einem Datensatz arbeiten zu können, benötigen wir eine Übersicht über seine Spalten. Diese liefert und die Funktion <code>colnames</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="einen-datensatz-erkunden.html#cb5-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="einen-datensatz-erkunden.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;abilities&quot;         &quot;against_bug&quot;       &quot;against_dark&quot;     
+##  [4] &quot;against_dragon&quot;    &quot;against_electric&quot;  &quot;against_fairy&quot;    
+##  [7] &quot;against_fight&quot;     &quot;against_fire&quot;      &quot;against_flying&quot;   
+## [10] &quot;against_ghost&quot;     &quot;against_grass&quot;     &quot;against_ground&quot;   
+## [13] &quot;against_ice&quot;       &quot;against_normal&quot;    &quot;against_poison&quot;   
+## [16] &quot;against_psychic&quot;   &quot;against_rock&quot;      &quot;against_steel&quot;    
+## [19] &quot;against_water&quot;     &quot;attack&quot;            &quot;base_egg_steps&quot;   
+## [22] &quot;base_happiness&quot;    &quot;base_total&quot;        &quot;capture_rate&quot;     
+## [25] &quot;classfication&quot;     &quot;defense&quot;           &quot;experience_growth&quot;
+## [28] &quot;height_m&quot;          &quot;hp&quot;                &quot;japanese_name&quot;    
+## [31] &quot;name&quot;              &quot;percentage_male&quot;   &quot;pokedex_number&quot;   
+## [34] &quot;sp_attack&quot;         &quot;sp_defense&quot;        &quot;speed&quot;            
+## [37] &quot;type1&quot;             &quot;type2&quot;             &quot;weight_kg&quot;        
+## [40] &quot;generation&quot;        &quot;is_legendary&quot;</code></pre>
+<p>Auf diese Information greifen wir zurück, wenn wir später Analysen mit dem Datensatz durchführen oder bestimmte Spalten genauer untersuchen wollen.</p>
+</div>
+<div id="anzahl-spalten-zeilen" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Anzahl Spalten und Zeilen ermitteln</h2>
+<p>Einfache Informationen wie die Anzahl Spalten und Zeilen ermitteln wir mit den Funktionen <code>ncol</code>, <code>nrow</code> oder <code>dim</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="einen-datensatz-erkunden.html#cb7-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="einen-datensatz-erkunden.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ncol</span>()</span></code></pre></div>
+<pre><code>## [1] 41</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="einen-datensatz-erkunden.html#cb9-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="einen-datensatz-erkunden.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code></pre></div>
+<pre><code>## [1] 801</code></pre>
+<p>Wenn wir beide Werte in einer Ausgabe haben wollen können wir <code>dim</code> verwenden:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="einen-datensatz-erkunden.html#cb11-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="einen-datensatz-erkunden.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span></code></pre></div>
+<pre><code>## [1] 801  41</code></pre>
+<p><code>dim</code> gibt einen Vektor mit zwei Werten zurück. Der erste Wert steht für die Anzahl Zeilen, der zweite für die Anzahl Spalten. Wir können mit der Angabe der Position in eckigen Klammern auf jeden Wert einzeln zugreifen:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="einen-datensatz-erkunden.html#cb13-1" aria-hidden="true" tabindex="-1"></a>dimensions <span class="ot">&lt;-</span> pokemon <span class="sc">%&gt;%</span> <span class="fu">dim</span>()</span>
+<span id="cb13-2"><a href="einen-datensatz-erkunden.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="einen-datensatz-erkunden.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Anzahl Zeilen</span></span>
+<span id="cb13-4"><a href="einen-datensatz-erkunden.html#cb13-4" aria-hidden="true" tabindex="-1"></a>dimensions[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 801</code></pre>
+<p>Und auf die Spalten:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="einen-datensatz-erkunden.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Anzahl Spalten</span></span>
+<span id="cb15-2"><a href="einen-datensatz-erkunden.html#cb15-2" aria-hidden="true" tabindex="-1"></a>dimensions[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 41</code></pre>
+</div>
+<div id="wertebereich-von-spalten-bestimmen" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Wertebereich von Spalten bestimmen</h2>
+<div id="wertebereich-nominalskaliert" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Nominalskalierte Spalten</h3>
+<div id="eindeutige-werte-mit-distinct" class="section level4" number="3.4.1.1">
+<h4><span class="header-section-number">3.4.1.1</span> Eindeutige Werte mit <code>distinct</code></h4>
+<p>Für nominalskalierte Spalten kann es interessant sein, alle Werte und eventuell deren Häufigkeit anzuzeigen. Die eindeutigen Werte bekommen wir mit der <code>distinct</code> Funktion:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="einen-datensatz-erkunden.html#cb17-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="einen-datensatz-erkunden.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(type2)</span></code></pre></div>
+<pre><code>## # A tibble: 19 x 1
+##    type2   
+##    &lt;chr&gt;   
+##  1 poison  
+##  2 &lt;NA&gt;    
+##  3 flying  
+##  4 dark    
+##  5 electric
+...</code></pre>
+</div>
+<div id="eindeutige-werte-und-deren-häufigkeiten" class="section level4" number="3.4.1.2">
+<h4><span class="header-section-number">3.4.1.2</span> Eindeutige Werte und deren Häufigkeiten</h4>
+<p>Wenn wir zusätzlich noch die Häufigkeiten ermitteln wollen, können wir die Funktion <code>count</code> verwenden und als Parameter den Spaltennamen übergeben:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="einen-datensatz-erkunden.html#cb19-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="einen-datensatz-erkunden.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type1)</span></code></pre></div>
+<pre><code>## # A tibble: 18 x 2
+##    type1        n
+##    &lt;chr&gt;    &lt;int&gt;
+##  1 bug         72
+##  2 dark        29
+##  3 dragon      27
+##  4 electric    39
+##  5 fairy       18
+...</code></pre>
+<p>Meist es nützlich, direkt nach Häufigkeiten zu sortieren:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="einen-datensatz-erkunden.html#cb21-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="einen-datensatz-erkunden.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type1, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 18 x 2
+##    type1        n
+##    &lt;chr&gt;    &lt;int&gt;
+##  1 water      114
+##  2 normal     105
+##  3 grass       78
+##  4 bug         72
+##  5 psychic     53
+...</code></pre>
+</div>
+</div>
+<div id="wertebereich-intervallskaliert" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Intervallskalierte Spalten</h3>
+<p>Für intervallskalierte Spalten, also Spalten mit Zahlenwerten, eignen sich die Funktionen <code>distinct</code> und <code>count</code> nur bedingt. Oft sind es zu viele unterschiedliche Werte und das reine Zählen bringt nicht viel Aufschluss. Wenn wir distinct auf die Spalte <code>weight_kg</code> anwenden, erhalten wir zum Beispiel 422 unterschiedliche Werte:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="einen-datensatz-erkunden.html#cb23-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="einen-datensatz-erkunden.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(weight_kg)</span></code></pre></div>
+<pre><code>## # A tibble: 422 x 1
+##    weight_kg
+##        &lt;dbl&gt;
+##  1       6.9
+##  2      13  
+##  3     100  
+##  4       8.5
+##  5      19  
+##  6      90.5
+##  7       9  
+##  8      22.5
+##  9      85.5
+## 10       2.9
+## # ... with 412 more rows</code></pre>
+<p>In diesem Fall ist es sinnvoller, den kleinsten und größten Wert zu kennen, um die <strong>Spannweite</strong> der Spalte zu ermitteln. Interessant wäre auch die Verteilung der Werte, etwa in Form eines Histogramm.</p>
+<div id="größter-und-kleinster-wert" class="section level4" number="3.4.2.1">
+<h4><span class="header-section-number">3.4.2.1</span> Größter und kleinster Wert</h4>
+<p>Den größten oder kleinsten Wert können wir mit <code>max</code> und <code>min</code> ermitteln:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="einen-datensatz-erkunden.html#cb25-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="einen-datensatz-erkunden.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(weight_kg) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="einen-datensatz-erkunden.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">max</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 999.9</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="einen-datensatz-erkunden.html#cb27-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="einen-datensatz-erkunden.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(weight_kg) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="einen-datensatz-erkunden.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">min</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.1</code></pre>
+<p>Wir wissen also, dass die Werte sich zwischen 0,1 und 999,9 bewegen. Wie aber sind die Werte dazwischen verteilt?</p>
+</div>
+<div id="wertebereich-intervallskaliert-histogramm" class="section level4" number="3.4.2.2">
+<h4><span class="header-section-number">3.4.2.2</span> Verteilung der Werte als Histogramm</h4>
+<p>Um die Verteilung der Werte innerhalb der Spalte <code>weight_kg</code> sinnvoll zu ermitteln müssen wir an dieser Stelle einen Exkurs in die Visualisierung von Daten machen:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="einen-datensatz-erkunden.html#cb29-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="einen-datensatz-erkunden.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(weight_kg) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="einen-datensatz-erkunden.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(weight_kg)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a href="einen-datensatz-erkunden.html#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb29-5"><a href="einen-datensatz-erkunden.html#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> weight_kg) <span class="sc">+</span></span>
+<span id="cb29-6"><a href="einen-datensatz-erkunden.html#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>Das Historgramm zeigt uns, dass der größte Teil der Daten im kleineren Bereich liegt und nur wenige Ausnahmen große Werte jenseits der 300 aufweisen.</p>
+</div>
+<div id="anzahl-fehlender-werte" class="section level4" number="3.4.2.3">
+<h4><span class="header-section-number">3.4.2.3</span> Anzahl fehlender Werte</h4>
+<p>Die Anzahl fehlender Werte, die in R als <code>NA</code> dargestellt werden, ist ein wichtiges Merkmal für die Qualität der Daten einer Spalte. Um diese Zahl zu ermitteln filtern wir die Daten mit der Funktion <code>is.na</code> und zählen anschließend die übrig gebliebenen Werte:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="einen-datensatz-erkunden.html#cb30-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="einen-datensatz-erkunden.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(weight_kg) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="einen-datensatz-erkunden.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(weight_kg)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-4"><a href="einen-datensatz-erkunden.html#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 1
+##       n
+##   &lt;int&gt;
+## 1    20</code></pre>
+<p>Insgesamt haben somit 20 Pokémon keine Gewichtsangabe.</p>
+</div>
+<div id="zusammenfassung-einer-spalte-ausgeben" class="section level4" number="3.4.2.4">
+<h4><span class="header-section-number">3.4.2.4</span> Zusammenfassung einer Spalte ausgeben</h4>
+<p>Um gleich mehrer statistische Größen zu berechnen und auszugeben können wir die Funktion <code>summary</code> verwenden:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="einen-datensatz-erkunden.html#cb32-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="einen-datensatz-erkunden.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(weight_kg) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="einen-datensatz-erkunden.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>##    weight_kg     
+##  Min.   :  0.10  
+##  1st Qu.:  9.00  
+##  Median : 27.30  
+##  Mean   : 61.38  
+##  3rd Qu.: 64.80  
+##  Max.   :999.90  
+##  NA&#39;s   :20</code></pre>
+</div>
+</div>
+</div>
+<div id="erste-oder-letzte-zeilen-anzeigen" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Erste oder letzte Zeilen anzeigen</h2>
+<p>Die Funktion <code>head</code> gibt die ersten 10 Zeilen eines Tibbles zurück:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="einen-datensatz-erkunden.html#cb34-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="einen-datensatz-erkunden.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 41
+##   abilities             against_bug against_dark against_dragon against_electric
+##   &lt;chr&gt;                       &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;            &lt;dbl&gt;
+## 1 [&#39;Overgrow&#39;, &#39;Chloro~        1               1              1              0.5
+## 2 [&#39;Overgrow&#39;, &#39;Chloro~        1               1              1              0.5
+## 3 [&#39;Overgrow&#39;, &#39;Chloro~        1               1              1              0.5
+## 4 [&#39;Blaze&#39;, &#39;Solar Pow~        0.5             1              1              1  
+## 5 [&#39;Blaze&#39;, &#39;Solar Pow~        0.5             1              1              1  
+## 6 [&#39;Blaze&#39;, &#39;Solar Pow~        0.25            1              1              2  
+## # ... with 36 more variables: against_fairy &lt;dbl&gt;, against_fight &lt;dbl&gt;,
+## #   against_fire &lt;dbl&gt;, against_flying &lt;dbl&gt;, against_ghost &lt;dbl&gt;,
+## #   against_grass &lt;dbl&gt;, against_ground &lt;dbl&gt;, against_ice &lt;dbl&gt;,
+## #   against_normal &lt;dbl&gt;, against_poison &lt;dbl&gt;, against_psychic &lt;dbl&gt;,
+## #   against_rock &lt;dbl&gt;, against_steel &lt;dbl&gt;, against_water &lt;dbl&gt;, attack &lt;dbl&gt;,
+## #   base_egg_steps &lt;dbl&gt;, base_happiness &lt;dbl&gt;, base_total &lt;dbl&gt;,
+## #   capture_rate &lt;chr&gt;, classfication &lt;chr&gt;, defense &lt;dbl&gt;, ...</code></pre>
+<p>Über den Parameter der Funktion können wir die Anzahl der Zeilen verändern, um etwa nur die erste Zeile zu erhalten:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="einen-datensatz-erkunden.html#cb36-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href="einen-datensatz-erkunden.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">1</span>)</span></code></pre></div>
+<p>Die Funktion <code>tail</code> ist das Pendant dazu und gibt die 10 letzten Zeilen aus. Genau wie bei der <code>head()</code> Funktion können wir den Parameter für die Angabe der konkreten Anzahl Zeilen verwenden:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="einen-datensatz-erkunden.html#cb37-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="einen-datensatz-erkunden.html#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(<span class="dv">1</span>)</span></code></pre></div>
 
 </div>
 </div>

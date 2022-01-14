@@ -13,6 +13,11 @@ link-citations: yes
 github-repo: winf-hsos/book-data-science-for-the-normal-user
 ---
 
+```{r, setup, include=FALSE}
+library(tidyverse)
+```
+
+
 # Übersicht{-}
 
 ## Zielgruppe{-}

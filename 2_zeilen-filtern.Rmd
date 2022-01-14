@@ -1,0 +1,72 @@
+# Zeilen filtern mit `filter`
+
+## TL;DR{.unlisted .unnumbered}
+
+- Mit dem `filter` Befehl können wir eine Untermenge der gesamten Zeilen eines Datensatzes auswählen.
+- Alphanumersiche nominalskalierte Spalten können wir mit dem `==` Operator auf einen bestimmten Wert filtern.
+
+```{r, include=FALSE}
+library(knitr)
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+
+library(tidyverse)
+pokemon <- read_csv("datasets/pokemon.csv")
+```
+
+## Filtern von alphanumerischen Werten (Zeichenketten)
+
+### Filtern auf Gleichheit
+
+```{r, output.lines = 8}
+pokemon %>%
+  select(name, type1) %>%
+  filter(type1 == "electric")
+```
+### Filtern über eine Liste von Werten
+
+```{r, filter-by-list, output.lines = 9}
+pokemon %>%
+  select(name, type1) %>%
+  filter(type1 %in% c("electric", "poison", "fire"))
+
+```
+Wenn wir die Liste im mehreren Operationen wiederverwenden wollen, können wir sie auch einmal auf einer Variable speichern und in der `filter` Funktion darauf zugreifen:
+
+```{r, output.lines = 8}
+search_types <- c("electric", "poison", "fire")
+
+pokemon %>%
+  select(name, type1) %>%
+  filter(type1 %in% search_types)
+```
+
+
+### Suchen nach dem Vorkommen eines Wertes in einem String
+
+Um einen String auf das Vorhandensein eines bestimmten Wertes zu durchsuchen können wir auf die `str_detect` Funktion aus dem `stringr` Paket zurückgreifen. `stringr` ist ebenfalls im Tidyverse enthalten:
+
+```{r}
+pokemon %>%
+  select(name) %>%
+  filter(str_detect(name, "chu"))
+```
+

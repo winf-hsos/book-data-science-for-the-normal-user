@@ -1,12 +1,52 @@
 # Einen Datensatz erkunden
 
-## Alle Daten anzeigen
+```{r, echo=FALSE}
+library(knitr)
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+``` 
 
-Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion `view()` verwenden. Der Funktion übergeben wir den Tibble `food_production`:
+## TL;DR{.unlisted .unnumbered}
 
+- In RStudio können wir mit `view` den gesamten Dataframe oder Tibble [im Skripteditor anzeigen](#alle-daten-anzeigen).
+- Die [Spaltennamen](#spaltennamen-ermitteln) eines Tibble erhalten wir mit `colnames`.
+- Mit `ncol` und `nrow` erhalten wir die [Anzahl Spalten und Zeilen](#anzahl-spalten-zeilen) eines Tibbles. Das Gleiche bekommen wir in einem Schwung mit der Funktion `dim`.
+- Einen schnellen [Überblick über eine nominalskalierte Spalte und deren Werte](#wertebereich-nominalskaliert) bekommen wir mit `distinct` (eindeutige Werte) oder `count` (zusätzlich die Häufigkeiten).
+- Für [intervallskalierte Werte](#wertebereich-intervallskaliert) können wir besser mit `min` und `max` die Spannweite ermitteln oder mit einem [Histogramm die Verteilung der Werte visualisieren](#wertebereich-intervallskaliert-histogramm).
+- Mit `is.na` können wir prüfen, ob ein Wert NA ist (nicht vorhanden) und so auch die Anzahl fehlender Werte ermitteln.
+-  Mit der `summary` Funktion erzeugen wir eine Übersicht wichtiger statistischer Kennzahlen für eine Spalte.
+- Mit `head` und `tail` erhalten wir die ersten oder letzten 10 Zeilen eines Tibble. Mit dem einzigen Parameter der Funktion können wir auch eine andere Anzahl zurückgeben.
+
+
+## Alle Daten anzeigen{#alle-daten-anzeigen}
+
+Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion `view()` verwenden. Der Funktion übergeben wir den Tibble `pokemon`:
+
+```{r, include=FALSE}
+library(tidyverse)
+pokemon <- read_csv("datasets/pokemon.csv")
+```
 
 ```r
-view(food_production)
+view(pokemon)
 ```
 
 Mit  ⌨ Strg + Enter oder über den Button „Run“ in der rechten oberen Ecke des Skriptfensters führen wir die Zeile aus. Es öffnet sich ein neuer Tab mit einer tabellarischen Ansicht der Daten.
@@ -14,3 +54,165 @@ Mit  ⌨ Strg + Enter oder über den Button „Run“ in der rechten oberen Ecke
 ```{r echo = FALSE, fig-view-rstudio, out.width='100%', fig.show='hold', fig.cap='Die Anzeige eines Tibbles in RStudio mit `view`.'}
 knitr::include_graphics(rep('fig/view_result_rstudio.png', 1))
 ```
+
+## Spaltenamen ermitteln{#spaltennamen-ermitteln}
+
+Um mit einem Datensatz arbeiten zu können, benötigen wir eine Übersicht über seine Spalten. Diese liefert und die Funktion `colnames`:
+
+```{r}
+pokemon %>%
+  colnames()
+```
+Auf diese Information greifen wir zurück, wenn wir später Analysen mit dem Datensatz durchführen oder bestimmte Spalten genauer untersuchen wollen.
+
+## Anzahl Spalten und Zeilen ermitteln{#anzahl-spalten-zeilen}
+
+Einfache Informationen wie die Anzahl Spalten und Zeilen ermitteln wir mit den Funktionen `ncol`, `nrow` oder `dim`.
+
+```{r}
+pokemon %>%
+  ncol()
+```
+
+```{r}
+pokemon %>%
+  nrow()
+```
+Wenn wir beide Werte in einer Ausgabe haben wollen können wir `dim` verwenden:
+
+```{r}
+pokemon %>%
+  dim()
+```
+`dim` gibt einen Vektor mit zwei Werten zurück. Der erste Wert steht für die Anzahl Zeilen, der zweite für die Anzahl Spalten. Wir können mit der Angabe der Position in eckigen Klammern auf jeden Wert einzeln zugreifen:
+
+```{r}
+dimensions <- pokemon %>% dim()
+
+# Anzahl Zeilen
+dimensions[1]
+```
+Und auf die Spalten:
+
+```{r}
+# Anzahl Spalten
+dimensions[2]
+```
+
+## Wertebereich von Spalten bestimmen
+
+### Nominalskalierte Spalten{#wertebereich-nominalskaliert}
+
+#### Eindeutige Werte mit `distinct`
+
+Für nominalskalierte Spalten kann es interessant sein, alle Werte und eventuell deren Häufigkeit anzuzeigen. Die eindeutigen Werte bekommen wir mit der `distinct` Funktion:
+
+```{r, output.lines = 8}
+pokemon %>%
+  distinct(type2)
+```
+#### Eindeutige Werte und deren Häufigkeiten
+
+Wenn wir zusätzlich noch die Häufigkeiten ermitteln wollen, können wir die Funktion `count` verwenden und als Parameter den Spaltennamen übergeben:
+
+```{r, output.lines = 8}
+pokemon %>% 
+  count(type1)
+```
+
+Meist es nützlich, direkt nach Häufigkeiten zu sortieren:
+
+```{r output.lines = 8}
+pokemon %>% 
+  count(type1, sort = TRUE)
+```
+
+
+### Intervallskalierte Spalten{#wertebereich-intervallskaliert}
+
+Für intervallskalierte Spalten, also Spalten mit Zahlenwerten, eignen sich die Funktionen `distinct` und `count` nur bedingt. Oft sind es zu viele unterschiedliche Werte und das reine Zählen bringt nicht viel Aufschluss. Wenn wir distinct auf die Spalte `weight_kg` anwenden, erhalten wir zum Beispiel 422 unterschiedliche Werte:
+
+```{r}
+pokemon %>%
+  distinct(weight_kg)
+```
+
+In diesem Fall ist es sinnvoller, den kleinsten und größten Wert zu kennen, um die **Spannweite** der Spalte zu ermitteln. Interessant wäre auch die Verteilung der Werte, etwa in Form eines Histogramm.
+
+#### Größter und kleinster Wert
+
+Den größten oder kleinsten Wert können wir mit `max` und `min` ermitteln:
+
+```{r}
+pokemon %>%
+  select(weight_kg) %>%
+  max(na.rm = TRUE)
+```
+```{r}
+pokemon %>%
+  select(weight_kg) %>%
+  min(na.rm = TRUE)
+```
+Wir wissen also, dass die Werte sich zwischen 0,1 und 999,9 bewegen. Wie aber sind die Werte dazwischen verteilt?
+
+#### Verteilung der Werte als Histogramm{#wertebereich-intervallskaliert-histogramm}
+
+Um die Verteilung der Werte innerhalb der Spalte `weight_kg` sinnvoll zu ermitteln müssen wir an dieser Stelle einen Exkurs in die Visualisierung von Daten machen:
+
+```{r, warning=FALSE}
+pokemon %>%
+  select(weight_kg) %>%
+  filter(!is.na(weight_kg)) %>%
+  ggplot() +
+  aes(x = weight_kg) +
+  geom_histogram(bins = 50)
+```
+
+Das Historgramm zeigt uns, dass der größte Teil der Daten im kleineren Bereich liegt und nur wenige Ausnahmen große Werte jenseits der 300 aufweisen.
+
+#### Anzahl fehlender Werte
+
+Die Anzahl fehlender Werte, die in R als `NA` dargestellt werden, ist ein wichtiges Merkmal für die Qualität der Daten einer Spalte. Um diese Zahl zu ermitteln filtern wir die Daten mit der Funktion `is.na` und zählen anschließend die übrig gebliebenen Werte:
+
+```{r}
+pokemon %>%
+  select(weight_kg) %>%
+  filter(is.na(weight_kg)) %>%
+  count()
+```
+Insgesamt haben somit 20 Pokémon keine Gewichtsangabe.
+
+
+#### Zusammenfassung einer Spalte ausgeben
+
+Um gleich mehrer statistische Größen zu berechnen und auszugeben können wir die Funktion `summary` verwenden:
+
+```{r}
+pokemon %>%
+  select(weight_kg) %>%
+  summary()
+```
+
+## Erste oder letzte Zeilen anzeigen
+
+Die Funktion `head` gibt die ersten 10 Zeilen eines Tibbles zurück:
+
+```{r}
+pokemon %>%
+  head()
+```
+
+Über den Parameter der Funktion können wir die Anzahl der Zeilen verändern, um etwa nur die erste Zeile zu erhalten:
+
+```{r, results='hide'}
+pokemon %>% 
+  head(1)
+```
+Die Funktion `tail` ist das Pendant dazu und gibt die 10 letzten Zeilen aus. Genau wie bei der `head()` Funktion können wir den Parameter für die Angabe der konkreten Anzahl Zeilen verwenden:
+
+```{r, results='hide'}
+pokemon %>%
+  tail(1)
+
+```
+
