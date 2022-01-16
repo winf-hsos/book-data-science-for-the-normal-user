@@ -1076,6 +1076,97 @@ Wollen wir fast alle verfügbaren Spalten auswählen, so ist es effizienter, die
 \hypertarget{filtern-auf-gleichheit}{%
 \subsection{Filtern auf Gleichheit}\label{filtern-auf-gleichheit}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(name, type1) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(type1 }\SpecialCharTok{==} \StringTok{"electric"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 39 x 2
+##    name       type1   
+##    <chr>      <chr>   
+##  1 Pikachu    electric
+##  2 Raichu     electric
+##  3 Magnemite  electric
+##  4 Magneton   electric
+##  5 Voltorb    electric
+...
+\end{verbatim}
+
+\hypertarget{filtern-uxfcber-eine-liste-von-werten}{%
+\subsection{Filtern über eine Liste von Werten}\label{filtern-uxfcber-eine-liste-von-werten}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(name, type1) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(type1 }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"electric"}\NormalTok{, }\StringTok{"poison"}\NormalTok{, }\StringTok{"fire"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 123 x 2
+##    name       type1   
+##    <chr>      <chr>   
+##  1 Charmander fire    
+##  2 Charmeleon fire    
+##  3 Charizard  fire    
+##  4 Ekans      poison  
+##  5 Arbok      poison  
+##  6 Pikachu    electric
+...
+\end{verbatim}
+
+Wenn wir die Liste im mehreren Operationen wiederverwenden wollen, können wir sie auch einmal auf einer Variable speichern und in der \texttt{filter} Funktion darauf zugreifen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{search\_types }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"electric"}\NormalTok{, }\StringTok{"poison"}\NormalTok{, }\StringTok{"fire"}\NormalTok{)}
+
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(name, type1) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(type1 }\SpecialCharTok{\%in\%}\NormalTok{ search\_types)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 123 x 2
+##    name       type1   
+##    <chr>      <chr>   
+##  1 Charmander fire    
+##  2 Charmeleon fire    
+##  3 Charizard  fire    
+##  4 Ekans      poison  
+##  5 Arbok      poison  
+...
+\end{verbatim}
+
+\hypertarget{suchen-nach-dem-vorkommen-eines-wertes-in-einem-string}{%
+\subsection{Suchen nach dem Vorkommen eines Wertes in einem String}\label{suchen-nach-dem-vorkommen-eines-wertes-in-einem-string}}
+
+Um einen String auf das Vorhandensein eines bestimmten Wertes zu durchsuchen können wir auf die \texttt{str\_detect} Funktion aus dem \texttt{stringr} Paket zurückgreifen. \texttt{stringr} ist ebenfalls im Tidyverse enthalten:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(name) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{str\_detect}\NormalTok{(name, }\StringTok{"chu"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 1
+##   name    
+##   <chr>   
+## 1 Pikachu 
+## 2 Raichu  
+## 3 Pichu   
+## 4 Smoochum
+\end{verbatim}
+
 \hypertarget{part-anhang}{%
 \part*{Anhang}\label{part-anhang}}
 \addcontentsline{toc}{part}{Anhang}

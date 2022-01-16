@@ -229,6 +229,8 @@ div.csl-indent {
 <li class="chapter" data-level="7.1" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html#filtern-von-alphanumerischen-werten-zeichenketten"><i class="fa fa-check"></i><b>7.1</b> Filtern von alphanumerischen Werten (Zeichenketten)</a>
 <ul>
 <li class="chapter" data-level="7.1.1" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html#filtern-auf-gleichheit"><i class="fa fa-check"></i><b>7.1.1</b> Filtern auf Gleichheit</a></li>
+<li class="chapter" data-level="7.1.2" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html#filtern-über-eine-liste-von-werten"><i class="fa fa-check"></i><b>7.1.2</b> Filtern über eine Liste von Werten</a></li>
+<li class="chapter" data-level="7.1.3" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html#suchen-nach-dem-vorkommen-eines-wertes-in-einem-string"><i class="fa fa-check"></i><b>7.1.3</b> Suchen nach dem Vorkommen eines Wertes in einem String</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>Anhang</b></span></li>
@@ -267,6 +269,63 @@ div.csl-indent {
 <h2><span class="header-section-number">7.1</span> Filtern von alphanumerischen Werten (Zeichenketten)</h2>
 <div id="filtern-auf-gleichheit" class="section level3" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Filtern auf Gleichheit</h3>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="zeilen-filtern-mit-filter.html#cb52-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb52-2"><a href="zeilen-filtern-mit-filter.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type1) <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href="zeilen-filtern-mit-filter.html#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type1 <span class="sc">==</span> <span class="st">&quot;electric&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 39 x 2
+##    name       type1   
+##    &lt;chr&gt;      &lt;chr&gt;   
+##  1 Pikachu    electric
+##  2 Raichu     electric
+##  3 Magnemite  electric
+##  4 Magneton   electric
+##  5 Voltorb    electric
+...</code></pre>
+</div>
+<div id="filtern-über-eine-liste-von-werten" class="section level3" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Filtern über eine Liste von Werten</h3>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="zeilen-filtern-mit-filter.html#cb54-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb54-2"><a href="zeilen-filtern-mit-filter.html#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type1) <span class="sc">%&gt;%</span></span>
+<span id="cb54-3"><a href="zeilen-filtern-mit-filter.html#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;electric&quot;</span>, <span class="st">&quot;poison&quot;</span>, <span class="st">&quot;fire&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 123 x 2
+##    name       type1   
+##    &lt;chr&gt;      &lt;chr&gt;   
+##  1 Charmander fire    
+##  2 Charmeleon fire    
+##  3 Charizard  fire    
+##  4 Ekans      poison  
+##  5 Arbok      poison  
+##  6 Pikachu    electric
+...</code></pre>
+<p>Wenn wir die Liste im mehreren Operationen wiederverwenden wollen, können wir sie auch einmal auf einer Variable speichern und in der <code>filter</code> Funktion darauf zugreifen:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="zeilen-filtern-mit-filter.html#cb56-1" aria-hidden="true" tabindex="-1"></a>search_types <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;electric&quot;</span>, <span class="st">&quot;poison&quot;</span>, <span class="st">&quot;fire&quot;</span>)</span>
+<span id="cb56-2"><a href="zeilen-filtern-mit-filter.html#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="zeilen-filtern-mit-filter.html#cb56-3" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb56-4"><a href="zeilen-filtern-mit-filter.html#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type1) <span class="sc">%&gt;%</span></span>
+<span id="cb56-5"><a href="zeilen-filtern-mit-filter.html#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type1 <span class="sc">%in%</span> search_types)</span></code></pre></div>
+<pre><code>## # A tibble: 123 x 2
+##    name       type1   
+##    &lt;chr&gt;      &lt;chr&gt;   
+##  1 Charmander fire    
+##  2 Charmeleon fire    
+##  3 Charizard  fire    
+##  4 Ekans      poison  
+##  5 Arbok      poison  
+...</code></pre>
+</div>
+<div id="suchen-nach-dem-vorkommen-eines-wertes-in-einem-string" class="section level3" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Suchen nach dem Vorkommen eines Wertes in einem String</h3>
+<p>Um einen String auf das Vorhandensein eines bestimmten Wertes zu durchsuchen können wir auf die <code>str_detect</code> Funktion aus dem <code>stringr</code> Paket zurückgreifen. <code>stringr</code> ist ebenfalls im Tidyverse enthalten:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="zeilen-filtern-mit-filter.html#cb58-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
+<span id="cb58-2"><a href="zeilen-filtern-mit-filter.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb58-3"><a href="zeilen-filtern-mit-filter.html#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(name, <span class="st">&quot;chu&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 1
+##   name    
+##   &lt;chr&gt;   
+## 1 Pikachu 
+## 2 Raichu  
+## 3 Pichu   
+## 4 Smoochum</code></pre>
 
 </div>
 </div>

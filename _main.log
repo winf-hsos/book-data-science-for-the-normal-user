@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.1.13)  16 JAN 2022 16:44
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.1.13)  16 JAN 2022 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -942,23 +942,28 @@ Overfull \hbox (6.75pt too wide) in paragraph at lines 937--937
 Chapter 7.
 [41
 
-] [42
+] [42]
+Overfull \hbox (16.60564pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.1.  FILTERN VON ALPHANUMERISCHEN WERTEN (ZEICHENKETTEN) \TU/lmr/m/n/10 43
+ []
 
-] [43] [44]
-Overfull \hbox (0.89197pt too wide) in paragraph at lines 1094--1095
+[43] [44
+
+] [45] [46]
+Overfull \hbox (0.89197pt too wide) in paragraph at lines 1185--1186
 []|\TU/lmr/bx/n/10 Kategorie|  
  []
 
 
-Overfull \hbox (20.59196pt too wide) in paragraph at lines 1095--1096
+Overfull \hbox (20.59196pt too wide) in paragraph at lines 1186--1187
 []|\TU/lmr/m/n/10 Marktforschung|  
  []
 
-(./_main.bbl [45
+(./_main.bbl [47
 
-] [46
+] [48
 
-]) [47] (./_main.aux)
+]) [49] (./_main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -966,12 +971,12 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: 406A76F84784500FCF655482E4FF9809;6424.
  ) 
 Here is how much of TeX's memory you used:
- 17554 strings out of 478189
- 323909 string characters out of 5852888
- 767683 words of memory out of 5000000
- 37905 multiletter control sequences out of 15000+600000
+ 17556 strings out of 478189
+ 324004 string characters out of 5852888
+ 767841 words of memory out of 5000000
+ 37907 multiletter control sequences out of 15000+600000
  475758 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,7n,121p,758b,475s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (47 pages).
+Output written on _main.pdf (49 pages).
