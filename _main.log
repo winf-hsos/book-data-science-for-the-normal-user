@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.1.13)  14 JAN 2022 16:35
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.1.13)  16 JAN 2022 16:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -938,36 +938,40 @@ Overfull \hbox (6.75pt too wide) in paragraph at lines 937--937
 []\TU/lmtt/m/n/10 ## [25] "classfication"     "defense"           "experience_growth"[] 
  []
 
-[38] [39] [40] [41
+[38] [39] [40]
+Chapter 7.
+[41
 
-] [42]
-Overfull \hbox (0.89197pt too wide) in paragraph at lines 1074--1075
+] [42
+
+] [43] [44]
+Overfull \hbox (0.89197pt too wide) in paragraph at lines 1094--1095
 []|\TU/lmr/bx/n/10 Kategorie|  
  []
 
 
-Overfull \hbox (20.59196pt too wide) in paragraph at lines 1075--1076
+Overfull \hbox (20.59196pt too wide) in paragraph at lines 1095--1096
 []|\TU/lmr/m/n/10 Marktforschung|  
  []
 
-(./_main.bbl [43
+(./_main.bbl [45
 
-] [44
+] [46
 
-]) [45] (./_main.aux)
+]) [47] (./_main.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 9B2E899FE00343512A2104A457C8D49A;5911.
+(rerunfilecheck)             Checksum: 406A76F84784500FCF655482E4FF9809;6424.
  ) 
 Here is how much of TeX's memory you used:
- 17549 strings out of 478189
- 323788 string characters out of 5852888
- 767430 words of memory out of 5000000
- 37900 multiletter control sequences out of 15000+600000
+ 17554 strings out of 478189
+ 323909 string characters out of 5852888
+ 767683 words of memory out of 5000000
+ 37905 multiletter control sequences out of 15000+600000
  475758 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,7n,121p,758b,475s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (45 pages).
+Output written on _main.pdf (47 pages).

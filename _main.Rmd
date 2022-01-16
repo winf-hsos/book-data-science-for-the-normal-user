@@ -1,0 +1,652 @@
+--- 
+title: "Data Science für normale Anwender*innen"
+author: "Prof. Dr. Nicolas Meseth"
+date: "Aktualisiert am `r format(Sys.time(), '%d.%m.%Y')`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+url: https://book-data-science-for-the-normal-user.netlify.app/
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist.
+link-citations: yes
+github-repo: winf-hsos/book-data-science-for-the-normal-user
+---
+
+```{r, setup, include=FALSE}
+library(tidyverse)
+```
+
+
+# Übersicht{-}
+
+## Zielgruppe{-}
+
+Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch _normale_ Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist.
+
+In genau diese Zielgruppe fallen mehr als 95% der Studierenden, die an der [Hochschule Osnabrück](https://hs-osnabrueck.de) in jedem Semester an meinen Vorlesungen und Seminaren teilnehmen. Sie studieren einen Studiengang aus der Fachrichtung Agrar- oder Lebensmittelwirtschaft und haben in meinen Veranstaltungen die Möglichkeit, zusätzliche Kompetenzen zu digitalen Themen zu entwickeln. Sie arbeiten später aber nicht in IT-Berufen oder als Data Scientist. Sie sind aber dafür gerüstet, mit diesen Abteilungen (IT / Data Scientists) besser zusammenzuarbeiten und viele Dinge können sie auch in Eigenregie umsetzen. Dazu zählen beispielsweise Datenanalysen und -visualisierungen mit R.
+
+## Didaktisches Konzept{-}
+
+Das Buch ist in fortlaufend nummerierte Kapitel gegliedert. Man folgt meinem didaktischen Konzept, wenn man diese Reihenfolge einhält. Dieses Konzept beruht darauf, sich zuerst _hands-on_ mit einem Thema auseinanderzusetzen, bevor die relevanen theoretischen Hintergründe eingeführt werden. Meiner Erfahrung nach sind theoretische Hintergründe einfacher zu verstehen, wenn das Subjekt der Betrachtung bereits in den Händen war. Der Kontext ist präsent und man weiß bei fachlichen Begriffen sofort die richtige Assoziation herzustellen.
+
+Ein zweiter wichtiger Gedanke beim didaktischen Aufbau des Buches ist die Verwendung von Beispielen aus der Praxis. Dazu zählen insbesodere Datensätze und Fragen an diese Daten. Jedes Kapitel beinhaltet Beispiele und Übungen mit Bezug zu Daten aus der Praxis. Die Anwendungsfälle hinter den Daten reichen von Onlineumfragen aus der Markforschung über Daten aus Laborexperimenten bis hin zu Datensätzen aus sozialen Medien wie Twitter. Alle Datensätze, die in diesem Buch verwendet werden, sind im Kapitel [Datensätze](#datensaetze) gelistet.
+
+Nicht immer ist es sinnvoll, ein neues Konzept anhand eines Datensatzes aus der Praxis einzuführen. In diesem Fall greife ich auf synthetische Datensätze zurück, um die Idee oder das Konzept möglichst plastisch darstellen zu können. Die Anwendung des eingeführten Konzepts auf Datensätze aus der Praxis erfolgt dann anschließend. Es sollte in diesem Buch kein Konzept eingeführt werden, das nicht in der Praxis relevant ist. 
+
+Das Buch kann selbstverständlich abseits des didaktischen Konzepts verwendet werden. Ich habe beim Verfassen darauf geachtet, das jedes Kapitel in sich geschlossen ist und einzeln gelesen und bearbeitet werden kann. Das gilt auch für die Übungen für die Anwendung mit R.
+
+<!--chapter:end:index.Rmd-->
+
+# (PART\*) Erste Schritte mit R {- .mt} 
+
+# Die Arbeitsumgebung
+
+## TL;DR{.unlisted .unnumbered}
+
+- Für die Arbeit mit R benötigen wir eine Installation von R auf unserem Computer. 
+- R ist für alle Betriebssysteme [verfügbar](https://cran.r-project.org/).
+- Mit R bekommen wir auch eine einfache grafische Benutzeroberfläche (RGui) mitgeliefert. Diese bietet aber wenig Funktionen.
+- Mit dem kostenlosen [RStudio](https://www.rstudio.com/) bekommen wir eine vollwertige integrierte Entwicklungsumgebung (IDE) für die Arbeit R.
+
+## R installieren
+
+R ist eine Open-Source-Software und für alle gängigen Betriebssysteme verfügbar. Ladet euch zunächst die neueste Version von R für euer Betriebssystem herunter und installiert es anschließend:
+
+* [R für Windows](https://cran.r-project.org/bin/windows/base/)
+* [R für macOS](https://cran.r-project.org/bin/macosx/)
+* [R für Linux](https://cran.r-project.org/bin/linux/)
+
+Neben der Sprache und dem Interpreter für R erhaltet ihr mit der Installation auch eine rudimentäre grafische Oberfläche mit dem Namen _RGui_ (GUI = Graphical User Interface). Diese besteht aus einer einfachen Konsole, über die ihr R-Befehle eingeben und ausführen könnt.
+
+```{r echo = FALSE, screenshot-r-console, out.width='100%', fig.show='hold', fig.cap='Die RGui bietet einen rudimentären Editor für R-Befehle.'}
+knitr::include_graphics(rep('fig/screenshot_r_console.png', 1))
+```
+
+Erweiterte Funktionen wie Autovervollständigung beim Schreiben von R-Code, ein integrierter Debugger für die Fehlersuche, eine Echtzeit-Vorschau für R-Markdown und viele andere Features mehr bietet dieses einfache Tool nicht. Deshalb verwenden wir für die Arbeit mit R nicht die RGui, sondern das ebenfalls kostenlos nutzbare [RStudio](https://www.rstudio.com/products/rstudio/).
+
+## RStudio installieren
+
+Das [RStudio](https://www.rstudio.com/) ist das Standardwerkzeug für die Arbeit mit R und bietet dafür viele nützliche Funktionen. Das RStudio ist ein sogenanntes **Integrated Development Environment (IDE)** für R. Einen schnellen Überblick über die grafische Benutzeroberfläche findet ihr in dem offiziellen [RStudio Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf).
+
+Klickt auf den Link unten und wählt RStudio für euer Betriebssystem aus. Installiert RStudio und öffnet es:
+
+- [RStudio herunterladen](https://www.rstudio.com/products/rstudio/download/#download)
+
+Nach dem Öffnen seht ihr die Oberfläche des RStudio, die wie auf dem Screenshot unten aussieht:
+
+```{r echo = FALSE, screenshot-rstudio, out.width='100%', fig.show='hold', fig.cap='Das RStudio ist in vier Bereiche eingeteilt.'}
+knitr::include_graphics(rep('fig/screenshot_r_console.png', 1))
+```
+
+## Überblick über RStudio
+
+Das Werkzeug besteht in der Standardansicht aus vier Bereichen (s. Screenshot oben):
+
+### Der Skripteditor
+
+Der wichtigste Bereich ist der Skripteditor. Hier schreiben wir unseren R-Code und speichern ihn in Dateien auf unserem Computer. Dabei unterstützt uns RStudio mit vielen nützlichen Funktionen.
+
+Wir können in RStudio unterschiedliche Arten von Dateien verwenden, um unsere Skripte zu speichern. Die einfachste Art sind sogenannte **R-Skripte** mit der Dateiendung `.R`. Wenn wir nicht nur R-Code, sondern auch Visualisierungen und formatierten Text in einem Dokument verwenden und anzeigen wollen, bietet sich die Verwendung eines **R-Notebooks** an. Eine R-Notebook-Datei endet auf `.Rmd` (R-Markdown) und wir können neben R-Code auch Markdown verwenden. Über Markdown lernen wir zu einem späteren Zeitpunkt mehr. 
+
+<!-- TODO: Referenz auf Markdown einfügen -->
+
+### Informationen zur aktuellen R-Umgebung
+
+R erstellt für die Ausführung von Skripten eine sogenannte Session. In einer Session werden alle Objekte, wie die momentan verwendeten Daten, eigene Variablen oder Funktionen, im Arbeitsspeicher des lokalen Rechners gespeichert. In dem zweiten Fenster können im Tab _Environment_ alle Objekte, die es in der aktuellen Session gibt, in der Übersicht und im Detail betrachtet werden. Der _History_ Tab enthält eine Liste aller ausgeführten Befehle in der aktuellen Session. Daneben gibt es noch den _Connections_ Tab für die Verbindung zu unterschiedlichen Datenquellen, wie Datenbanken oder Webservices, sowie den _Tutorial_ Tab, in dem direkt in RStudio unterschiedliche Anleitungen angezeigt werden können.
+
+{% hint style="info" %}
+Für die Anzeige von Tutorials direkt in RStudio muss das Paket `learnr` installiert werden. Ihr müsst der Installation einmalig zustimmen und das Paket installieren.
+{% endhint %}
+
+### Konsole und Terminal
+
+Die Konsole ermöglicht, R-Befehle einzugeben und mit der Taste Enter auszuführen. Die Konsole in RStudio ist fast identisch zu der RGui. Für das schnelle Ausprobieren von Befehlen kann die Konsole nützlich sein. Für die strukturierte Arbeit mit den Daten sollten wir aber den Skripteditor verwenden, weil wir dort unsere Arbeit speichern und mit Kommentaren versehen können.
+
+### Dateien, Vorschau und Plots
+
+In diesem Bereich werden Vorschauen unterschiedlicher Artefakte angezeigt. Dazu gehören gerenderte R-Notebooks, Markdown, aber auch Visualisierungen. In diesem Bereich gibt es auch einen rudimentären Datei-Explorer, um Dateien wie Skripte oder Datendateien zu finden und von dort zu öffnen.
+
+<!--chapter:end:1_die-arbeitsumgebung.Rmd-->
+
+# Einen Datensatz laden
+
+Nachdem die Arbeitsumgebung eingerichtet ist, können wir mit den ersten Schritten in R beginnen. Wir steigen direkt ein und lernen, wie wir mit Daten in R arbeiten.
+
+## TL;DR{.unlisted .unnumbered}
+
+- R bietet verschiedene Möglichkeiten, um mit Daten zu arbeiten.
+- Für strukturierte Daten in Tabellenform (Zeilen und Spalten) verwenden wir in R den [Dataframe](#der-dataframe).
+- Eine modernere Version des klassischen Dataframe ist das [Tibble](#tibbles) aus dem [Tidyverse](#das-tidyverse).
+
+## Tabellarische Daten in R
+
+### Der Dataframe
+
+In R gibt es verschiedene Strukturen für die Speicherung von Daten. Darunter sind beispielsweise Vektoren, Listen oder Matritzen. Um tabellarische Daten abzubilden, die in Spalten und Zeilen organisiert sind, verwenden wir in R den sogenannten **Dataframe**.
+
+<!-- TODO: Referenz zu weiteren Datenstrukturen einfügen, wenn bekannt -->
+
+### Tibbles
+
+Der Tibble ist eine Weiterentwicklung des klassischen Dataframe in R. Tibbles werden im Tidyverse standardmäßig verwendet und mit dem Paket `tibble` eingeführt.
+
+
+## Das CSV-Format
+In den meisten Fällen erzeugen wir einen Dataframe oder Tibble, indem wir einen Datensatz aus einer Datenquelle laden. Häufig ist die Quelle eine einfache Texdatei, in der Daten zeilenweise gespeichert sind und jede Zeile aus mehreren einzelnen Werten besteht, die durch ein bestimmtes **Trennzeichen** voneinander getrennt sind. Wenn die Werte mit einem Komma voneinander getrennt sind, nennt man das Format **CSV**. CSV steht für **Comma Separated Values**, was auf Deutsch so viel wie _Durch Kommata getrennte Werte_ bedeutet.
+
+Unten seht ihr ein Beispiel für Daten im CSV-Format.
+
+```
+id,firstname,lastname
+1,Boris,Becker
+2,Steffi,Graf
+3,Rafael, Nadal
+```
+
+Die erste Zeile nennen wir auch Kopfzeile oder *Header*. Sie beinhaltet die Spaltennamen. Jede nachfolgende Zeile stellt einen Datensatz oder *Record* dar. Dabei müssen die Werte in jeder Zeile mit Komma getrennt in der selben Reihenfolge wie im Header aufgeführt werden. Nur so ist eindeutig erkennbar, welcher Wert zu welcher Spalte gehört.
+
+Manchmal fehlen Werte für eine bestimmte Spalte. In diesem Fall werden einfach zwei (oder mehrere) Kommata hintereinander gesetzt.
+
+```
+id,firstname,lastname,height,weight,gender
+1,Boris,Becker,,,male
+2,Steffi,Graf,175,64,female
+3,Rafael,Nadal,185,,male
+```
+
+## CSV-Daten laden
+
+```r
+library(readr)
+food_production <- read_csv("food_production.csv")
+```
+
+
+<!--chapter:end:1_daten-laden.Rmd-->
+
+# Einen Datensatz erkunden
+
+```{r, echo=FALSE}
+library(knitr)
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+``` 
+
+## TL;DR{.unlisted .unnumbered}
+
+- In RStudio können wir mit `view` den gesamten Dataframe oder Tibble [im Skripteditor anzeigen](#alle-daten-anzeigen).
+- Die [Spaltennamen](#spaltennamen-ermitteln) eines Tibble erhalten wir mit `colnames`.
+- Mit `ncol` und `nrow` erhalten wir die [Anzahl Spalten und Zeilen](#anzahl-spalten-zeilen) eines Tibbles. Das Gleiche bekommen wir in einem Schwung mit der Funktion `dim`.
+- Einen schnellen [Überblick über eine nominalskalierte Spalte und deren Werte](#wertebereich-nominalskaliert) bekommen wir mit `distinct` (eindeutige Werte) oder `count` (zusätzlich die Häufigkeiten).
+- Für [intervallskalierte Werte](#wertebereich-intervallskaliert) können wir besser mit `min` und `max` die Spannweite ermitteln oder mit einem [Histogramm die Verteilung der Werte visualisieren](#wertebereich-intervallskaliert-histogramm).
+- Mit `is.na` können wir prüfen, ob ein Wert NA ist (nicht vorhanden) und so auch die Anzahl fehlender Werte ermitteln.
+-  Mit der `summary` Funktion erzeugen wir eine Übersicht wichtiger statistischer Kennzahlen für eine Spalte.
+- Mit `head` und `tail` erhalten wir die ersten oder letzten 10 Zeilen eines Tibble. Mit dem einzigen Parameter der Funktion können wir auch eine andere Anzahl zurückgeben.
+
+
+## Alle Daten anzeigen{#alle-daten-anzeigen}
+
+Oft ist es hilfreich, einen schnellen Blick in einen Datensatz zu werfen, um beispielsweise die Werte einer Spalte zu überprüfen. Dafür können wir in RStudio die Funktion `view()` verwenden. Der Funktion übergeben wir den Tibble `pokemon`:
+
+```{r, include=FALSE}
+library(tidyverse)
+pokemon <- read_csv("datasets/pokemon.csv")
+```
+
+```r
+view(pokemon)
+```
+
+Mit  ⌨ Strg + Enter oder über den Button „Run“ in der rechten oberen Ecke des Skriptfensters führen wir die Zeile aus. Es öffnet sich ein neuer Tab mit einer tabellarischen Ansicht der Daten.
+
+```{r echo = FALSE, fig-view-rstudio, out.width='100%', fig.show='hold', fig.cap='Die Anzeige eines Tibbles in RStudio mit `view`.'}
+knitr::include_graphics(rep('fig/view_result_rstudio.png', 1))
+```
+
+## Spaltenamen ermitteln{#spaltennamen-ermitteln}
+
+Um mit einem Datensatz arbeiten zu können, benötigen wir eine Übersicht über seine Spalten. Diese liefert und die Funktion `colnames`:
+
+```{r}
+pokemon %>%
+  colnames()
+```
+Auf diese Information greifen wir zurück, wenn wir später Analysen mit dem Datensatz durchführen oder bestimmte Spalten genauer untersuchen wollen.
+
+## Anzahl Spalten und Zeilen ermitteln{#anzahl-spalten-zeilen}
+
+Einfache Informationen wie die Anzahl Spalten und Zeilen ermitteln wir mit den Funktionen `ncol`, `nrow` oder `dim`.
+
+```{r}
+pokemon %>%
+  ncol()
+```
+
+```{r}
+pokemon %>%
+  nrow()
+```
+Wenn wir beide Werte in einer Ausgabe haben wollen können wir `dim` verwenden:
+
+```{r}
+pokemon %>%
+  dim()
+```
+`dim` gibt einen Vektor mit zwei Werten zurück. Der erste Wert steht für die Anzahl Zeilen, der zweite für die Anzahl Spalten. Wir können mit der Angabe der Position in eckigen Klammern auf jeden Wert einzeln zugreifen:
+
+```{r}
+dimensions <- pokemon %>% dim()
+
+# Anzahl Zeilen
+dimensions[1]
+```
+Und auf die Spalten:
+
+```{r}
+# Anzahl Spalten
+dimensions[2]
+```
+
+## Wertebereich von Spalten bestimmen
+
+### Nominalskalierte Spalten{#wertebereich-nominalskaliert}
+
+#### Eindeutige Werte mit `distinct`
+
+Für nominalskalierte Spalten kann es interessant sein, alle Werte und eventuell deren Häufigkeit anzuzeigen. Die eindeutigen Werte bekommen wir mit der `distinct` Funktion:
+
+```{r, output.lines = 8}
+pokemon %>%
+  distinct(type2)
+```
+#### Eindeutige Werte und deren Häufigkeiten
+
+Wenn wir zusätzlich noch die Häufigkeiten ermitteln wollen, können wir die Funktion `count` verwenden und als Parameter den Spaltennamen übergeben:
+
+```{r, output.lines = 8}
+pokemon %>% 
+  count(type1)
+```
+
+Meist es nützlich, direkt nach Häufigkeiten zu sortieren:
+
+```{r output.lines = 8}
+pokemon %>% 
+  count(type1, sort = TRUE)
+```
+
+
+### Intervallskalierte Spalten{#wertebereich-intervallskaliert}
+
+Für intervallskalierte Spalten, also Spalten mit Zahlenwerten, eignen sich die Funktionen `distinct` und `count` nur bedingt. Oft sind es zu viele unterschiedliche Werte und das reine Zählen bringt nicht viel Aufschluss. Wenn wir distinct auf die Spalte `weight_kg` anwenden, erhalten wir zum Beispiel 422 unterschiedliche Werte:
+
+```{r}
+pokemon %>%
+  distinct(weight_kg)
+```
+
+In diesem Fall ist es sinnvoller, den kleinsten und größten Wert zu kennen, um die **Spannweite** der Spalte zu ermitteln. Interessant wäre auch die Verteilung der Werte, etwa in Form eines Histogramm.
+
+#### Größter und kleinster Wert
+
+Den größten oder kleinsten Wert können wir mit `max` und `min` ermitteln:
+
+```{r}
+pokemon %>%
+  select(weight_kg) %>%
+  max(na.rm = TRUE)
+```
+```{r}
+pokemon %>%
+  select(weight_kg) %>%
+  min(na.rm = TRUE)
+```
+Wir wissen also, dass die Werte sich zwischen 0,1 und 999,9 bewegen. Wie aber sind die Werte dazwischen verteilt?
+
+#### Verteilung der Werte als Histogramm{#wertebereich-intervallskaliert-histogramm}
+
+Um die Verteilung der Werte innerhalb der Spalte `weight_kg` sinnvoll zu ermitteln müssen wir an dieser Stelle einen Exkurs in die Visualisierung von Daten machen:
+
+```{r, warning=FALSE}
+pokemon %>%
+  select(weight_kg) %>%
+  filter(!is.na(weight_kg)) %>%
+  ggplot() +
+  aes(x = weight_kg) +
+  geom_histogram(bins = 50)
+```
+
+Das Historgramm zeigt uns, dass der größte Teil der Daten im kleineren Bereich liegt und nur wenige Ausnahmen große Werte jenseits der 300 aufweisen.
+
+#### Anzahl fehlender Werte
+
+Die Anzahl fehlender Werte, die in R als `NA` dargestellt werden, ist ein wichtiges Merkmal für die Qualität der Daten einer Spalte. Um diese Zahl zu ermitteln filtern wir die Daten mit der Funktion `is.na` und zählen anschließend die übrig gebliebenen Werte:
+
+```{r}
+pokemon %>%
+  select(weight_kg) %>%
+  filter(is.na(weight_kg)) %>%
+  count()
+```
+Insgesamt haben somit 20 Pokémon keine Gewichtsangabe.
+
+
+#### Zusammenfassung einer Spalte ausgeben
+
+Um gleich mehrer statistische Größen zu berechnen und auszugeben können wir die Funktion `summary` verwenden:
+
+```{r}
+pokemon %>%
+  select(weight_kg) %>%
+  summary()
+```
+
+## Erste oder letzte Zeilen anzeigen
+
+Die Funktion `head` gibt die ersten 10 Zeilen eines Tibbles zurück:
+
+```{r}
+pokemon %>%
+  head()
+```
+
+Über den Parameter der Funktion können wir die Anzahl der Zeilen verändern, um etwa nur die erste Zeile zu erhalten:
+
+```{r, results='hide'}
+pokemon %>% 
+  head(1)
+```
+Die Funktion `tail` ist das Pendant dazu und gibt die 10 letzten Zeilen aus. Genau wie bei der `head()` Funktion können wir den Parameter für die Angabe der konkreten Anzahl Zeilen verwenden:
+
+```{r, results='hide'}
+pokemon %>%
+  tail(1)
+
+```
+
+
+<!--chapter:end:1_daten-erkunden.Rmd-->
+
+# Der Werkzeugkasten
+
+Bei der Arbeit mit Daten ist es wichtig zu wissen, welches Werkzeug (hier: R-Paket oder Funktion) wir für welche Aufgabe verwenden. Genauso wie in einer Werkstatt, in der es eine Vielzahl an Werkzeugen gibt, die für unterschiedliche Zwecke geeignet sind.
+
+```{r echo = FALSE, fig-werkzeuge, out.width='100%', fig.show='hold', fig.cap='Verschiedene Werkzeuge für unterschiedliche Aufgaben.'}
+knitr::include_graphics(rep('fig/tool_set.jpg', 1))
+```
+
+Die Tabelle unten listet wichtige Werkzeuge auf, die wir im weiteren Verlauf dieses Buches kennenlernen werden.
+
+| **Paket** | **Funktion**                                                               | **Aufgabe**                                                                                                            |
+| --------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `tibble`  | `as.tibble`                                                                | [Erstellt einen modernen Dataframe für tabellarische Daten](14-daten-laden-und-sichten/tidyverse-und-tibbles.md).      |
+| `readr`   | `read_csv`                                                                 | [Lesen von tabellarischen Datenformaten wie CSV-Dateien](14-daten-laden-und-sichten/laden-eines-datensatzes.md).       |
+| `dplyr`   | `select`                                                                   | [Auswählen von Spalten (Variablen) eines Datensatzes](15-daten-veraendern/spalten-auswaehlen.md).                      |
+| `dplyr`   | `filter`                                                                   | [Filtern von Daten auf Basis fast beliebiger Ausdrücke](15-daten-veraendern/zeilen-filtern.md).                        |
+| `dplyr`   | `mutate`                                                                   | [Hinzufügen neuer Spalten (Variablen)](15-daten-veraendern/spalten-veraendern/).                                       |
+| `dplyr`   | `recode`                                                                   | [Spaltenwerte neu kodieren](15-daten-veraendern/spalten-veraendern/spalten-neu-kodieren.md).                           |
+| `dplyr`   | `arrange`                                                                  | [Die Reihenfolge von Zeilen verändern](15-daten-veraendern/zeilen-sortieren.md).                                       |
+| `dplyr`   | `group_by`                                                                 | [Gruppieren von Daten](15-daten-veraendern/daten-zusammenfassen.md#zusammenfassen-und-gruppieren).                     |
+| `dplyr`   | `summarise`                                                                | [Zusammenfassen von Daten](15-daten-veraendern/daten-zusammenfassen.md#viele-zeilen-zu-einer-kennzahl-zusammenfassen). |
+| `ggplot2` | `ggplot`, `aes`, `geom_line`_,_ `geom_bar`, `geom_col` `geom_point` u.v.m. | [Visualisieren von Daten](16-daten-visualisieren-mit-ggplot2/).                                                        |
+
+## Das Paket `tibble`
+
+Das Paket `tibble` führt das moderne Pendant zum klassischen Dataframe in R ein.
+
+- [Zur offiziellen Webseite des `tibble` Pakets](https://tibble.tidyverse.org/)
+
+## Das Paket `readr`
+
+Das Paket `readr` beinhaltet Funktionen für das Laden von Daten aus strukturierten Datenformaten wie CSV-Dateien. Alle Funktionen zum Datenimport aus readr erzeugen automatisch einen `tibble`.
+
+- [Zur offiziellen Webseite des `readr` Pakets](https://readr.tidyverse.org/)
+
+## Das Paket `dplyr`
+
+Das Paket [`dplyr`](https://dplyr.tidyverse.org) hat einen etwas merkwürdigen Namen. Er setzt sich aus dem Buchstaben „d“ und dem abgekürzten Wort „plyr“ zusammen. Das „d“ steht für Dataframe, während „plyr“ für den englischen Begriff „plier“ steht, was auf Deutsch „Zange“ bedeutet. Passend dazu bildet das offizielle Symbol des Pakets mehrere Zangen ab.
+
+- [Zur offiziellen Dokumentation des `dplyr` Pakets](https://dplyr.tidyverse.org/)
+
+`dplyr` liefert uns eine Vielzahl wichtiger Funktionen für die Manipulation von Daten, die in Form eines Tibble vorliegen. Eine Übersicht der Funktionen findet ihr in dem Cheat Sheet [Data Transformation wit dplyr](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf).
+
+
+## Das Paket `ggplot2`
+
+`ggplot2` ist eines der umfassendsten Pakete für die professionelle Visualisierung von Daten mit R:
+
+- [Zur offiziellemn Dokumentation des `ggplot2` Pakets](https://ggplot2.tidyverse.org/)
+
+Das Cheat Sheet [Data Visualization with ggplot2](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf) beinhaltet alle wichtigen Funktionen im Überblick.
+
+<!--chapter:end:1_der-werkzeugkasten.Rmd-->
+
+# (PART\*) Explorative Datenanalyse mit R{-}
+
+# Der explorative Analyseprozess
+
+Dieser Abschnitt führt euch in die Grundlagen der **explorativen Datenanalyse** mit R ein. In der explorativen Datenanalyse versuchen wir einen unbekannten Datensatz mit geeigneten Verfahren kennenzulernen und schnell Muster in den Daten zu erkennen. Auf Basis dieser Muster formulieren wir **Hypothesen**. Diese Hypothesen können anschließend mit statistischen Modellen aus dem Bereich der schließenden Statistik auf ihre Gültigkeit überprüft werden. Die statistische Überprüfung ist jedoch nicht Teil der explorativen Datenanalyse nach dem Verständnis dieses Buches.
+
+Eine ausgezeichnete Einführung in die explorative Datenanalyse mit R gibt auch das Buch [R for Data Science](https://r4ds.had.co.nz) von @wickham_r_2016. Das Buch ist online frei zugänglich.
+
+```{r echo = FALSE, der-explorative-analyse-prozess, out.width='60%', fig.show='hold', fig.cap='Der Datenanalyseprozess.', fig.align = 'center'}
+knitr::include_graphics(rep('fig/prozess_explorative_datenanalyse.png', 1))
+```
+
+@wickham_r_2016 definieren den Datenanalyseprozess durch eine Abfolge bestimmter Schritte, wie in der Abbildung \ref{@der-explorative-analyse-prozess} gezeigt. In diesem Abschnitt stehen die rot markierten Schritte im Fokus.
+
+
+## Daten laden
+
+Jeder Analyseprozess beginnt mit dem [Laden eines Datensatzes](). Dabei gibt es verschiedene Datenquellen, die in Betracht gezogen werden müssen. Ein häufig verwendetes Format sind Komma-separierte Werte (**C**omma **S**eparated **V**alues = CSV) in einfachen Textdateien. Dieses Format steht auch hier im Vordergrund.
+
+
+Gemäß der Abbildung aus @wickham_r_2016 folgt auf das Laden der Daten der Arbeitsschritt „Tidy“. Dieser ist dann notwendig, wenn die Daten nicht in der typischen Form bestehend aus Spalten und Zeilen vorliegen. Leider ist das in der Praxis oft der Fall. In diesem Buch wird aber zunächst davon ausgegangen, dass die Daten das entsprechende Format aufweisen. Die interessierte Leserin verweise ich auf das [Kapitel 12 im Buch „R for Data Science“](https://r4ds.had.co.nz/tidy-data.html).
+
+## Daten transformieren
+
+Das Ziel der explorativen Datenanalyse ist die Visualisierung der Daten mit geeigneten Diagrammen, um interessante Muster sichtbar werden zu lassen. Visualisierungen benötigen häufig nur einen Teil der Daten (wenige Spalten oder bestimmte Zeilen). Auch müssen wir oft neue Spalten berechnen oder bestehende Daten aggregieren, bevor wir sie visualisieren können. Alle diese Aufgaben können wir unter dem Bereich der **Datentransformation** zusammenfassen.
+
+Für diese Aufgaben bietet R mit dem Paket `dplyr` mächtige Funktionen. Insbesondere lernen wir in dem Abschnitt:
+
+* Wie wir bestimmte Spalten auswählen können (dplyr-Verb: `select`).
+* Wie wir Zeilen fast beliebig filtern können (dplyr-Verb: `filter`).
+* Wie wir neue, berechnete Spalten hinzufügen können (dplyr-Verb: `mutate`).
+* Wie wir Zeilen sortieren können (dplyr-Verb: `arrange`).
+* Wie wir Zeilen zusammenfassen und gruppieren können (dplyr-Verben: `summarize` und `group_by`)
+
+## Daten visualisieren
+
+Das wichtigste Werkzeug in der explorativen Datenanalyse ist die **Visualisierung von Daten**. In R steht uns dafür mit `ggplot2` ein leistungsfähiges Instrument zur Verfügung. Wir lernen für bestimmte Anwendungsfälle die richtigen Visualisierungen zu identifizieren und mit `ggplot2` umzusetzen.
+
+<!-- TODO: Referenz einfügen -->
+
+## Literatur
+
+### Bücher
+
+Wickham, Hadley, and Garrett Grolemund. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. First edition, O’Reilly, 2016. Online verfügbar: [https://r4ds.had.co.nz/](https://r4ds.had.co.nz)
+
+Wickham, Hadley. ggplot2. Springer Science+Business Media, LLC, 2016. Online verfügbar: [https://ggplot2-book.org/](https://ggplot2-book.org)
+
+Kabacoff, Robert. R in Action: Data Analysis and Graphics with R. Second edition, Manning, 2015.
+
+Sauer, Sebastian. Moderne Datenanalyse mit R: Daten einlesen, aufbereiten, visualisieren, modellieren und kommunizieren. Springer Gabler, 2019. Online verfügbar: [https://link.springer.com/book/10.1007/978-3-658-21587-3](https://link.springer.com/book/10.1007/978-3-658-21587-3)
+
+### Online-Dokumentationen
+
+- [Die offizielle Dokumentation der Tidyverse-Bibliotheken](https://www.tidyverse.org/)
+- [Ein Tutorial für die Einführung in R mit RStudio](https://ourcodingclub.github.io/tutorials/intro-to-r/)
+- [Ein Tutorial zu den Grundlagen der Datenmanipulation mit R, `tidyr` und `dplyr`](https://ourcodingclub.github.io/tutorials/data-manip-intro/)
+- [Weiterführende Anleitungen zur Datenmanipulation mit `dplyr` (Efficient Data Manipulation)](https://ourcodingclub.github.io/tutorials/data-manip-efficient/)
+- [Weiterführende Anleitungen zur Datenmanipulation mit `dplyr` (Advanced Data Manipulation)](https://ourcodingclub.github.io/tutorials/data-manip-creative-dplyr/)
+
+<!--chapter:end:2_der-analyseprozess.Rmd-->
+
+# Spalten auswählen mit `select`
+
+## TL;DR{.unlisted .unnumbered}
+
+- Mit dem `select` Befehl können wir aus allen Spalten einer Tabelle eine Untermenge auswählen.
+- Neben einer Liste von gewünschten Spaltennamen können wir die Untermenge auch über den Ausschluss von nicht gewollten Spalten eingrenzen. Dafür verwenden wir das Zeichen `-` vor dem Spaltennamen.
+- Mit der Funktion `last_col()` können wir die letzte oder die n-letzte Spalte auswählen
+- Mit dem Semikolon können wir Spaltenbereiche auswählen und so beispielsweise alle Spalten von der 5. bis zur vorletzten selektieren (`select(5 : last_col(2))`).
+- Wir können Spalten anhand ihres Datentyps selektieren.
+- Wir können Spalten über die Zugehörigkeit zu einer Liste selektieren.
+
+## Beispieldaten: Pokémon
+
+Es ist ratsam die verfügbaren Spalten eines Datensatzes zu kennen, bevor wir uns mit einigen Beispielen beschäftigen, wie wir Bestimmte davon auswählen können. Für dieses Kapitel verwenden wir den [Pokémon-Datensatz](https://www.kaggle.com/rounakbanik/pokemon/version/1), der auf [Kaggle.com](https://kaggle.com/) bereitgestellt wird.
+
+```{r, include=FALSE}
+library(tidyverse)
+```
+
+```{r, results = 'hide', message = FALSE}
+pokemon <- read_csv("datasets/pokemon.csv")
+```
+
+Nach dem Laden des Datensatzes lassen wir uns mit `colnames()` die Spalten anzeigen:
+
+```{r}
+pokemon %>% colnames()
+```
+
+Das sind mehr als 40 Spalten. Wie viele genau?
+
+```{r}
+pokemon %>% dim()
+```
+Oder mit `ncol()`:
+
+```{r}
+pokemon %>% ncol()
+```
+Es sind also 41 Spalten. Genug um die wichtigsten Funktionen für das Auswählen von Spalten zu zeigen.
+
+## Bestimmte Spalten nach Namen auswählen
+
+Die Funktion `select` verwenden wir für das Auswählen einer Untermenge an Spalten. Wir können im einfachsten Fall einfach die gewünschten Spalten mit Kommata getrennt auflisten:
+
+```{r}
+pokemon %>%
+  select(name, type1)
+```
+
+Dabei können wir beliebig viele Spalten in die Liste aufnehmen:
+
+```{r}
+pokemon %>%
+  select(name, type1, type2, is_legendary)
+```
+## Spalten aus der Auswahl ausschließen
+
+Wollen wir fast alle verfügbaren Spalten auswählen, so ist es effizienter, die Spalten zu nennen, die wir ausschließen wollen. Das können wir mit dem Minus-Symbol erreichen:
+
+```{r results = 'hide'}
+pokemon %>%
+  select(-is_legendary)
+```
+
+## Die letzte oder n-letzten Spalten auswählen
+
+```{r}
+pokemon %>%
+  select(last_col())
+```
+
+
+<!--chapter:end:2_spalten-auswaehlen.Rmd-->
+
+# Zeilen filtern mit `filter`
+
+## TL;DR{.unlisted .unnumbered}
+
+- Mit dem `filter` Befehl können wir eine Untermenge der gesamten Zeilen eines Datensatzes auswählen.
+- Alphanumersiche nominalskalierte Spalten können wir mit dem `==` Operator auf einen bestimmten Wert filtern.
+
+```{r, echo=FALSE}
+library(knitr)
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+``` 
+
+
+```{r, include=FALSE}
+library(tidyverse)
+```
+
+```{r, include=FALSE}
+pokemon <- read_csv("datasets/pokemon.csv")
+```
+
+## Filtern von alphanumerischen Werten (Zeichenketten)
+
+### Filtern auf Gleichheit
+
+```{r}
+pokemon %>%
+  select(name)
+```
+
+
+<!--chapter:end:2_zeilen-filtern.Rmd-->
+
+# (PART\*) Anhang {.unnumbered}
+
+# Datensätze {#datensaetze .unnumbered}
+
+|                                                      |                                   |                |
+|:-----------------------------------------------------|:----------------------------------|:---------------|
+| **Name**                                             | **Download-Link**                 | **Kategorie**  |
+| Online-Umfrage zum Kaufverhalten von Orangenlimonade | [Download](datasets/limonade.csv) | Marktforschung |
+| Tweets ausgewählter deutscher Politiker:innen        | Download                          | Soziale Medien |
+| Pokémon                                              | [Download](datasets/pokemon.csv)  | TV             |
+
+: Datensätze in diesem Buch
+
+<!--chapter:end:99_datensaetze.Rmd-->
+
+`r if (knitr::is_html_output()) '
+# Literaturverzeichnis {-}
+'`
+
+<!--chapter:end:99_references.Rmd-->
+

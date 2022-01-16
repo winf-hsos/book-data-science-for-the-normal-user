@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 6 Zeilen filtern mit filter | Data Science für normale Anwender*innen</title>
+  <title>Kapitel 7 Zeilen filtern mit filter | Data Science für normale Anwender*innen</title>
   <meta name="description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 6 Zeilen filtern mit filter | Data Science für normale Anwender*innen" />
+  <meta property="og:title" content="Kapitel 7 Zeilen filtern mit filter | Data Science für normale Anwender*innen" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://book-data-science-for-the-normal-user.netlify.app/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="winf-hsos/book-data-science-for-the-normal-user" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 6 Zeilen filtern mit filter | Data Science für normale Anwender*innen" />
+  <meta name="twitter:title" content="Kapitel 7 Zeilen filtern mit filter | Data Science für normale Anwender*innen" />
   
   <meta name="twitter:description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
   
@@ -119,6 +119,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -136,21 +158,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Data Science mit R für den normalen Anwender</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> cover-image: path to the social sharing image like images/cover.jpg</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Übersicht</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#zielgruppe"><i class="fa fa-check"></i>Zielgruppe</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#didaktisches-konzept"><i class="fa fa-check"></i>Didaktisches Konzept</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path=""><a href="#part-erste-schritte-mit-r"><i class="fa fa-check"></i>(PART*) Erste Schritte mit R</a>
+<li class="part"><span><b>Erste Schritte mit R</b></span></li>
+<li class="chapter" data-level="1" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html"><i class="fa fa-check"></i><b>1</b> Die Arbeitsumgebung</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#r-installieren"><i class="fa fa-check"></i><b>1.1</b> R installieren</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#rstudio-installieren"><i class="fa fa-check"></i><b>1.2</b> RStudio installieren</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#überblick-über-rstudio"><i class="fa fa-check"></i><b>1.3</b> Überblick über RStudio</a>
+<li class="chapter" data-level="1.1" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#r-installieren"><i class="fa fa-check"></i><b>1.1</b> R installieren</a></li>
+<li class="chapter" data-level="1.2" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#rstudio-installieren"><i class="fa fa-check"></i><b>1.2</b> RStudio installieren</a></li>
+<li class="chapter" data-level="1.3" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#überblick-über-rstudio"><i class="fa fa-check"></i><b>1.3</b> Überblick über RStudio</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#der-skripteditor"><i class="fa fa-check"></i><b>1.3.1</b> Der Skripteditor</a></li>
-<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#informationen-zur-aktuellen-r-umgebung"><i class="fa fa-check"></i><b>1.3.2</b> Informationen zur aktuellen R-Umgebung</a></li>
-<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#konsole-und-terminal"><i class="fa fa-check"></i><b>1.3.3</b> Konsole und Terminal</a></li>
-<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#dateien-vorschau-und-plots"><i class="fa fa-check"></i><b>1.3.4</b> Dateien, Vorschau und Plots</a></li>
+<li class="chapter" data-level="1.3.1" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#der-skripteditor"><i class="fa fa-check"></i><b>1.3.1</b> Der Skripteditor</a></li>
+<li class="chapter" data-level="1.3.2" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#informationen-zur-aktuellen-r-umgebung"><i class="fa fa-check"></i><b>1.3.2</b> Informationen zur aktuellen R-Umgebung</a></li>
+<li class="chapter" data-level="1.3.3" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#konsole-und-terminal"><i class="fa fa-check"></i><b>1.3.3</b> Konsole und Terminal</a></li>
+<li class="chapter" data-level="1.3.4" data-path="die-arbeitsumgebung.html"><a href="die-arbeitsumgebung.html#dateien-vorschau-und-plots"><i class="fa fa-check"></i><b>1.3.4</b> Dateien, Vorschau und Plots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="einen-datensatz-laden.html"><a href="einen-datensatz-laden.html"><i class="fa fa-check"></i><b>2</b> Einen Datensatz laden</a>
@@ -182,31 +205,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-dplyr"><i class="fa fa-check"></i><b>4.3</b> Das Paket <code>dplyr</code></a></li>
 <li class="chapter" data-level="4.4" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#das-paket-ggplot2"><i class="fa fa-check"></i><b>4.4</b> Das Paket <code>ggplot2</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path=""><a href="#part-explorative-datenanalyse-mit-r"><i class="fa fa-check"></i>(PART*) Explorative Datenanalyse mit R</a>
+<li class="part"><span><b>Explorative Datenanalyse mit R</b></span></li>
+<li class="chapter" data-level="5" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html"><i class="fa fa-check"></i><b>5</b> Der explorative Analyseprozess</a>
 <ul>
-<li class="chapter" data-level="4.5" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#daten-laden"><i class="fa fa-check"></i><b>4.5</b> Daten laden</a></li>
-<li class="chapter" data-level="4.6" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#daten-transformieren"><i class="fa fa-check"></i><b>4.6</b> Daten transformieren</a></li>
-<li class="chapter" data-level="4.7" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#daten-visualisieren"><i class="fa fa-check"></i><b>4.7</b> Daten visualisieren</a></li>
-<li class="chapter" data-level="4.8" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#literatur"><i class="fa fa-check"></i><b>4.8</b> Literatur</a>
+<li class="chapter" data-level="5.1" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-laden"><i class="fa fa-check"></i><b>5.1</b> Daten laden</a></li>
+<li class="chapter" data-level="5.2" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-transformieren"><i class="fa fa-check"></i><b>5.2</b> Daten transformieren</a></li>
+<li class="chapter" data-level="5.3" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#daten-visualisieren"><i class="fa fa-check"></i><b>5.3</b> Daten visualisieren</a></li>
+<li class="chapter" data-level="5.4" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#literatur"><i class="fa fa-check"></i><b>5.4</b> Literatur</a>
 <ul>
-<li class="chapter" data-level="4.8.1" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#bücher"><i class="fa fa-check"></i><b>4.8.1</b> Bücher</a></li>
-<li class="chapter" data-level="4.8.2" data-path="der-werkzeugkasten.html"><a href="der-werkzeugkasten.html#online-dokumentationen"><i class="fa fa-check"></i><b>4.8.2</b> Online-Dokumentationen</a></li>
+<li class="chapter" data-level="5.4.1" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#bücher"><i class="fa fa-check"></i><b>5.4.1</b> Bücher</a></li>
+<li class="chapter" data-level="5.4.2" data-path="der-explorative-analyseprozess.html"><a href="der-explorative-analyseprozess.html#online-dokumentationen"><i class="fa fa-check"></i><b>5.4.2</b> Online-Dokumentationen</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html"><i class="fa fa-check"></i><b>5</b> Spalten auswählen mit <code>select</code></a>
+<li class="chapter" data-level="6" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html"><i class="fa fa-check"></i><b>6</b> Spalten auswählen mit <code>select</code></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#beispieldaten-pokémon"><i class="fa fa-check"></i><b>5.1</b> Beispieldaten: Pokémon</a></li>
-<li class="chapter" data-level="5.2" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#bestimmte-spalten-nach-namen-auswählen"><i class="fa fa-check"></i><b>5.2</b> Bestimmte Spalten nach Namen auswählen</a></li>
-<li class="chapter" data-level="5.3" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#spalten-aus-der-auswahl-ausschließen"><i class="fa fa-check"></i><b>5.3</b> Spalten aus der Auswahl ausschließen</a></li>
-<li class="chapter" data-level="5.4" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#die-letzte-oder-n-letzten-spalten-auswählen"><i class="fa fa-check"></i><b>5.4</b> Die letzte oder n-letzten Spalten auswählen</a></li>
+<li class="chapter" data-level="6.1" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#beispieldaten-pokémon"><i class="fa fa-check"></i><b>6.1</b> Beispieldaten: Pokémon</a></li>
+<li class="chapter" data-level="6.2" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#bestimmte-spalten-nach-namen-auswählen"><i class="fa fa-check"></i><b>6.2</b> Bestimmte Spalten nach Namen auswählen</a></li>
+<li class="chapter" data-level="6.3" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#spalten-aus-der-auswahl-ausschließen"><i class="fa fa-check"></i><b>6.3</b> Spalten aus der Auswahl ausschließen</a></li>
+<li class="chapter" data-level="6.4" data-path="spalten-auswählen-mit-select.html"><a href="spalten-auswählen-mit-select.html#die-letzte-oder-n-letzten-spalten-auswählen"><i class="fa fa-check"></i><b>6.4</b> Die letzte oder n-letzten Spalten auswählen</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html"><i class="fa fa-check"></i><b>6</b> Zeilen filtern mit <code>filter</code></a>
+<li class="chapter" data-level="7" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html"><i class="fa fa-check"></i><b>7</b> Zeilen filtern mit <code>filter</code></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html#filtern-von-alphanumerischen-werten-zeichenketten"><i class="fa fa-check"></i><b>6.1</b> Filtern von alphanumerischen Werten (Zeichenketten)</a>
+<li class="chapter" data-level="7.1" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html#filtern-von-alphanumerischen-werten-zeichenketten"><i class="fa fa-check"></i><b>7.1</b> Filtern von alphanumerischen Werten (Zeichenketten)</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html#filtern-auf-gleichheit"><i class="fa fa-check"></i><b>6.1.1</b> Filtern auf Gleichheit</a></li>
-<li class="chapter" data-level="6.1.2" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html#filtern-über-eine-liste-von-werten"><i class="fa fa-check"></i><b>6.1.2</b> Filtern über eine Liste von Werten</a></li>
-<li class="chapter" data-level="6.1.3" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html#suchen-nach-dem-vorkommen-eines-wertes-in-einem-string"><i class="fa fa-check"></i><b>6.1.3</b> Suchen nach dem Vorkommen eines Wertes in einem String</a></li>
+<li class="chapter" data-level="7.1.1" data-path="zeilen-filtern-mit-filter.html"><a href="zeilen-filtern-mit-filter.html#filtern-auf-gleichheit"><i class="fa fa-check"></i><b>7.1.1</b> Filtern auf Gleichheit</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>Anhang</b></span></li>
@@ -232,8 +254,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="zeilen-filtern-mit-filter" class="section level1" number="6">
-<h1><span class="header-section-number">Kapitel 6</span> Zeilen filtern mit <code>filter</code></h1>
+<div id="zeilen-filtern-mit-filter" class="section level1" number="7">
+<h1><span class="header-section-number">Kapitel 7</span> Zeilen filtern mit <code>filter</code></h1>
 <div id="tldr-4" class="section level2 unlisted unnumbered">
 <h2>TL;DR</h2>
 <ul>
@@ -241,72 +263,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Alphanumersiche nominalskalierte Spalten können wir mit dem <code>==</code> Operator auf einen bestimmten Wert filtern.</li>
 </ul>
 </div>
-<div id="filtern-von-alphanumerischen-werten-zeichenketten" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Filtern von alphanumerischen Werten (Zeichenketten)</h2>
-<div id="filtern-auf-gleichheit" class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Filtern auf Gleichheit</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="zeilen-filtern-mit-filter.html#cb1-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a href="zeilen-filtern-mit-filter.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type1) <span class="sc">%&gt;%</span></span>
-<span id="cb1-3"><a href="zeilen-filtern-mit-filter.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type1 <span class="sc">==</span> <span class="st">&quot;electric&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 39 x 2
-##    name       type1   
-##    &lt;chr&gt;      &lt;chr&gt;   
-##  1 Pikachu    electric
-##  2 Raichu     electric
-##  3 Magnemite  electric
-##  4 Magneton   electric
-##  5 Voltorb    electric
-...</code></pre>
-</div>
-<div id="filtern-über-eine-liste-von-werten" class="section level3" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Filtern über eine Liste von Werten</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="zeilen-filtern-mit-filter.html#cb3-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="zeilen-filtern-mit-filter.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type1) <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="zeilen-filtern-mit-filter.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;electric&quot;</span>, <span class="st">&quot;poison&quot;</span>, <span class="st">&quot;fire&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 123 x 2
-##    name       type1   
-##    &lt;chr&gt;      &lt;chr&gt;   
-##  1 Charmander fire    
-##  2 Charmeleon fire    
-##  3 Charizard  fire    
-##  4 Ekans      poison  
-##  5 Arbok      poison  
-##  6 Pikachu    electric
-...</code></pre>
-<p>Wenn wir die Liste im mehreren Operationen wiederverwenden wollen, können wir sie auch einmal auf einer Variable speichern und in der <code>filter</code> Funktion darauf zugreifen:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="zeilen-filtern-mit-filter.html#cb5-1" aria-hidden="true" tabindex="-1"></a>search_types <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;electric&quot;</span>, <span class="st">&quot;poison&quot;</span>, <span class="st">&quot;fire&quot;</span>)</span>
-<span id="cb5-2"><a href="zeilen-filtern-mit-filter.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="zeilen-filtern-mit-filter.html#cb5-3" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="zeilen-filtern-mit-filter.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type1) <span class="sc">%&gt;%</span></span>
-<span id="cb5-5"><a href="zeilen-filtern-mit-filter.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type1 <span class="sc">%in%</span> search_types)</span></code></pre></div>
-<pre><code>## # A tibble: 123 x 2
-##    name       type1   
-##    &lt;chr&gt;      &lt;chr&gt;   
-##  1 Charmander fire    
-##  2 Charmeleon fire    
-##  3 Charizard  fire    
-##  4 Ekans      poison  
-##  5 Arbok      poison  
-##  6 Pikachu    electric
-##  7 Raichu     electric
-##  8 Nidoran&lt;U+2640&gt;   poison  
-##  9 Nidorina   poison  
-## 10 Nidoqueen  poison  
-## # ... with 113 more rows</code></pre>
-</div>
-<div id="suchen-nach-dem-vorkommen-eines-wertes-in-einem-string" class="section level3" number="6.1.3">
-<h3><span class="header-section-number">6.1.3</span> Suchen nach dem Vorkommen eines Wertes in einem String</h3>
-<p>Um einen String auf das Vorhandensein eines bestimmten Wertes zu durchsuchen können wir auf die <code>str_detect</code> Funktion aus dem <code>stringr</code> Paket zurückgreifen. <code>stringr</code> ist ebenfalls im Tidyverse enthalten:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="zeilen-filtern-mit-filter.html#cb7-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="zeilen-filtern-mit-filter.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name) <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="zeilen-filtern-mit-filter.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(name, <span class="st">&quot;chu&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 4 x 1
-##   name    
-##   &lt;chr&gt;   
-## 1 Pikachu 
-## 2 Raichu  
-## 3 Pichu   
-## 4 Smoochum</code></pre>
+<div id="filtern-von-alphanumerischen-werten-zeichenketten" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Filtern von alphanumerischen Werten (Zeichenketten)</h2>
+<div id="filtern-auf-gleichheit" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Filtern auf Gleichheit</h3>
 
 </div>
 </div>
