@@ -6,7 +6,7 @@
 ]{book}
 \title{Data Science für normale Anwender*innen}
 \author{Prof.~Dr.~Nicolas Meseth}
-\date{Aktualisiert am 16.01.2022}
+\date{Aktualisiert am 18.01.2022}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -118,6 +118,7 @@
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+\nocite{wickham_r_2016}
 
 \begin{document}
 \maketitle
@@ -324,6 +325,8 @@ id,firstname,lastname,height,weight,gender
 \item
   Die \protect\hyperlink{spaltennamen-ermitteln}{Spaltennamen} eines Tibble erhalten wir mit \texttt{colnames}.
 \item
+  Mit \texttt{glimpse} können wir einen Überblick der Spalten und enthaltenen Werte anzeigen.
+\item
   Mit \texttt{ncol} und \texttt{nrow} erhalten wir die \protect\hyperlink{anzahl-spalten-zeilen}{Anzahl Spalten und Zeilen} eines Tibbles. Das Gleiche bekommen wir in einem Schwung mit der Funktion \texttt{dim}.
 \item
   Einen schnellen \protect\hyperlink{wertebereich-nominalskaliert}{Überblick über eine nominalskalierte Spalte und deren Werte} bekommen wir mit \texttt{distinct} (eindeutige Werte) oder \texttt{count} (zusätzlich die Häufigkeiten).
@@ -384,6 +387,27 @@ Um mit einem Datensatz arbeiten zu können, benötigen wir eine Übersicht über
 \end{verbatim}
 
 Auf diese Information greifen wir zurück, wenn wir später Analysen mit dem Datensatz durchführen oder bestimmte Spalten genauer untersuchen wollen.
+
+\hypertarget{schnelle-uxfcbersicht-der-spalten-datentypen-und-werte}{%
+\section{Schnelle Übersicht der Spalten, Datentypen und Werte}\label{schnelle-uxfcbersicht-der-spalten-datentypen-und-werte}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(pokemon)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 801
+## Columns: 41
+## $ abilities         <chr> "['Overgrow', 'Chlorophyll']", "['Overgrow', 'Chloro~
+## $ against_bug       <dbl> 1.00, 1.00, 1.00, 0.50, 0.50, 0.25, 1.00, 1.00, 1.00~
+## $ against_dark      <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
+## $ against_dragon    <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
+## $ against_electric  <dbl> 0.5, 0.5, 0.5, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 1.0, 1.~
+## $ against_fairy     <dbl> 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 1.~
+...
+\end{verbatim}
 
 \hypertarget{anzahl-spalten-zeilen}{%
 \section{Anzahl Spalten und Zeilen ermitteln}\label{anzahl-spalten-zeilen}}
@@ -606,7 +630,7 @@ Um die Verteilung der Werte innerhalb der Spalte \texttt{weight\_kg} sinnvoll zu
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-15-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-16-1.pdf}
 
 Das Historgramm zeigt uns, dass der größte Teil der Daten im kleineren Bereich liegt und nur wenige Ausnahmen große Werte jenseits der 300 aufweisen.
 
@@ -895,9 +919,9 @@ Sauer, Sebastian. Moderne Datenanalyse mit R: Daten einlesen, aufbereiten, visua
 \item
   Mit dem Semikolon können wir Spaltenbereiche auswählen und so beispielsweise alle Spalten von der 5. bis zur vorletzten selektieren (\texttt{select(5\ :\ last\_col(2))}).
 \item
-  Wir können Spalten anhand ihres Datentyps selektieren.
+  Wir können Spalten anhand ihres Datentyps selektieren (\texttt{is.numeric}, \texttt{is.character}, etc.).
 \item
-  Wir können Spalten über die Zugehörigkeit zu einer Liste selektieren.
+  Wir können Spalten über die Zugehörigkeit zu einer Liste selektieren (\texttt{all\_of}, \texttt{any\_of}).
 \end{itemize}
 
 \hypertarget{beispieldaten-pokuxe9mon}{%
@@ -1017,8 +1041,8 @@ Dabei können wir beliebig viele Spalten in die Liste aufnehmen:
 ## # ... with 791 more rows
 \end{verbatim}
 
-\hypertarget{spalten-aus-der-auswahl-ausschlieuxdfen}{%
-\section{Spalten aus der Auswahl ausschließen}\label{spalten-aus-der-auswahl-ausschlieuxdfen}}
+\hypertarget{minus-operator}{%
+\section{Spalten aus der Auswahl ausschließen}\label{minus-operator}}
 
 Wollen wir fast alle verfügbaren Spalten auswählen, so ist es effizienter, die Spalten zu nennen, die wir ausschließen wollen. Das können wir mit dem Minus-Symbol erreichen:
 
@@ -1055,6 +1079,163 @@ Wollen wir fast alle verfügbaren Spalten auswählen, so ist es effizienter, die
 ## 10            0
 ## # ... with 791 more rows
 \end{verbatim}
+
+\hypertarget{spalten-nach-datentyp-selektieren}{%
+\section{Spalten nach Datentyp selektieren}\label{spalten-nach-datentyp-selektieren}}
+
+Manchmal möchten wir Spalten nach ihrem Datentyp auswählen. Für die Prüfung, ob eine Spalte oder ein Wert einem bestimmten Datentyp entspricht, gibt es Funktionen in R:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{is.numeric} prüft, ob eine Spalte oder ein Wert numerisch ist.
+\item
+  \texttt{is.character} prüft, ob es sich um eine alphanumerische Spalte handelt (Zeichenketten oder Strings).
+\item
+  \texttt{is.logical} prüft, ob es sich um eine Spalte mit Wahrheitswerten handelt (Bool'scher Datentyp).
+\item
+  \texttt{is.factor} prüft, ob es sich bei einer Spalte um einen Faktor mit einer fest definierten Anzahl von Ausprägungen handelt.
+\end{itemize}
+
+Um beispielsweise alle numersichen Spalten im Pokémon-Datensatz auszuwählen, können wir den folgenden Aufruf verwenden:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 801 x 34
+##    against_bug against_dark against_dragon against_electric against_fairy
+##          <dbl>        <dbl>          <dbl>            <dbl>         <dbl>
+##  1        1               1              1              0.5           0.5
+##  2        1               1              1              0.5           0.5
+##  3        1               1              1              0.5           0.5
+##  4        0.5             1              1              1             0.5
+##  5        0.5             1              1              1             0.5
+##  6        0.25            1              1              2             0.5
+##  7        1               1              1              2             1  
+##  8        1               1              1              2             1  
+##  9        1               1              1              2             1  
+## 10        1               1              1              1             1  
+## # ... with 791 more rows, and 29 more variables: against_fight <dbl>,
+## #   against_fire <dbl>, against_flying <dbl>, against_ghost <dbl>,
+## #   against_grass <dbl>, against_ground <dbl>, against_ice <dbl>,
+## #   against_normal <dbl>, against_poison <dbl>, against_psychic <dbl>,
+## #   against_rock <dbl>, against_steel <dbl>, against_water <dbl>, attack <dbl>,
+## #   base_egg_steps <dbl>, base_happiness <dbl>, base_total <dbl>,
+## #   defense <dbl>, experience_growth <dbl>, height_m <dbl>, hp <dbl>, ...
+\end{verbatim}
+
+Der \texttt{where} Funktion können wir eine Funktion übergeben, die in Bezug auf eine Spalte wahr oder falsch zurückliefert.
+
+Leider existiert keine Standardfunktion, um Spalten auf den Datentyp \texttt{date} zu prüfen. Wir können uns diese aber einfach selbst schreiben:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Funktion, um Datumsspalten zu erkennen}
+\NormalTok{is.date }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}
+  \FunctionTok{inherits}\NormalTok{(x, }\FunctionTok{c}\NormalTok{(}\StringTok{"Date"}\NormalTok{, }\StringTok{"POSIXt"}\NormalTok{))}
+\NormalTok{\}}
+
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.date))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 801 x 0
+\end{verbatim}
+
+Für den Pokémon-Datensatz ist das Ergebnis leer, das heißt es existiert keine Spalte vom Typ Datum.
+
+\hypertarget{spaltenmengen-definieren-und-selektieren}{%
+\section{Spaltenmengen definieren und selektieren}\label{spaltenmengen-definieren-und-selektieren}}
+
+Häufig benötigt man in unterschiedlichen Abfragen die gleichen Spalten. Um nicht jedes Mal die gesamte Liste aufführen zu müssen, können wir in diesem Fall einen Vektor definieren, der die Namen der Spalten enthält. Mit der \texttt{all\_of} Funktion können wir dann alle Spalten in diesem Vektor auswählen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Erstellen eines Vektors mit gewünschten Spaltennamen}
+\NormalTok{vars }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"type1"}\NormalTok{, }\StringTok{"type2"}\NormalTok{)}
+
+\CommentTok{\# Selektieren auf Basis dieser Menge}
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{all\_of}\NormalTok{(vars))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 801 x 3
+##    name       type1 type2 
+##    <chr>      <chr> <chr> 
+##  1 Bulbasaur  grass poison
+##  2 Ivysaur    grass poison
+##  3 Venusaur   grass poison
+##  4 Charmander fire  <NA>  
+##  5 Charmeleon fire  <NA>  
+...
+\end{verbatim}
+
+Wir können bei Bedarf auch einzelne Elemente der Menge über den \protect\hyperlink{minus-operator}{Minus-Operator} ausschließen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Selektieren auf Basis dieser Menge, aber ohne "type2"}
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{all\_of}\NormalTok{(vars), }\SpecialCharTok{{-}}\NormalTok{type2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 801 x 2
+##    name       type1
+##    <chr>      <chr>
+##  1 Bulbasaur  grass
+##  2 Ivysaur    grass
+##  3 Venusaur   grass
+##  4 Charmander fire 
+##  5 Charmeleon fire 
+...
+\end{verbatim}
+
+Mit \texttt{any\_of} können wir auch Spalten im Vektor aufnehmen, die nicht existieren. Es werden dann alle Spalten selektiert, die in der Liste vorkommen und auch tatsächlich im Tibble vorhanden sind. So können wir einen Vektor erstellen, der Spaltennamen aus unterschiedlichen Datensätzen beinhaltet:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Erstellen eines Vektors mit gewünschten Spaltennamen, "type3" existiert nicht im Tibble}
+\NormalTok{vars }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"name"}\NormalTok{, }\StringTok{"type1"}\NormalTok{, }\StringTok{"type2"}\NormalTok{, }\StringTok{"type3"}\NormalTok{)}
+
+\CommentTok{\# Selektieren auf Basis dieser Menge, "type3" ist jedoch nicht vorhanden}
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{any\_of}\NormalTok{(vars))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 801 x 3
+##    name       type1 type2 
+##    <chr>      <chr> <chr> 
+##  1 Bulbasaur  grass poison
+##  2 Ivysaur    grass poison
+##  3 Venusaur   grass poison
+##  4 Charmander fire  <NA>  
+##  5 Charmeleon fire  <NA>  
+...
+\end{verbatim}
+
+\hypertarget{weitere-online-quellen}{%
+\section{Weitere Online-Quellen}\label{weitere-online-quellen}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://dplyr.tidyverse.org/reference/select.html}{Offizielle Dokumentation des \texttt{select} Befehls im Tidyverse}.
+\item
+  \href{https://r4ds.had.co.nz/transform.html\#select}{Kapitel 5.4} aus \citet{wickham_r_2016}
+\end{itemize}
 
 \hypertarget{zeilen-filtern-mit-filter}{%
 \chapter{\texorpdfstring{Zeilen filtern mit \texttt{filter}}{Zeilen filtern mit filter}}\label{zeilen-filtern-mit-filter}}
@@ -1165,6 +1346,90 @@ Um einen String auf das Vorhandensein eines bestimmten Wertes zu durchsuchen kö
 ## 2 Raichu  
 ## 3 Pichu   
 ## 4 Smoochum
+\end{verbatim}
+
+\hypertarget{suchen-nach-mustern-in-einem-string}{%
+\subsection{Suchen nach Mustern in einem String}\label{suchen-nach-mustern-in-einem-string}}
+
+Wir können auch nach Mustern suchen, ähnlich was der SQL-Befehl \texttt{like} erlaubt:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(stringr)}
+\NormalTok{pokemon }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(name) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{str\_like}\NormalTok{(name, }\StringTok{\textquotesingle{}\%chu\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 1
+##   name   
+##   <chr>  
+## 1 Pikachu
+## 2 Raichu 
+## 3 Pichu
+\end{verbatim}
+
+\hypertarget{part-fallstudien}{%
+\part*{Fallstudien}\label{part-fallstudien}}
+\addcontentsline{toc}{part}{Fallstudien}
+
+\hypertarget{fallstudie-orangenlimonade}{%
+\chapter{Fallstudie Orangenlimonade}\label{fallstudie-orangenlimonade}}
+
+\hypertarget{einfuxfchrung}{%
+\section{Einführung}\label{einfuxfchrung}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{limo }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"datasets/limonade.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{limo }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(f44\_studiengang) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{head}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{kable}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{r}
+\hline
+f44\_studiengang\\
+\hline
+1\\
+\hline
+1\\
+\hline
+1\\
+\hline
+2\\
+\hline
+2\\
+\hline
+2\\
+\hline
+\end{tabular}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{limo }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{colnames}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] "id"                                 "f1_gekauft"                        
+##   [3] "f1_getrunken"                       "f1_weder_noch"                     
+##   [5] "f2_grund_nichtkauf"                 "f3_discounter"                     
+##   [7] "f3_getraenkemarkt"                  "f3_kaufhaus"                       
+##   [9] "f3_kiosk"                           "f3_sonstige"                       
+##  [11] "f3_supermarkt"                      "f4_konsumhaeufigkeit"              
+##  [13] "f5_flaschenzahl_025_AB"             "f5_flaschenzahl_033_AB"            
+##  [15] "f5_flaschenzahl_050_AB"             "f5_flaschenzahl_075_AB"            
+...
 \end{verbatim}
 
 \hypertarget{part-anhang}{%

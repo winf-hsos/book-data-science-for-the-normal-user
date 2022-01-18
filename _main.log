@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.1.13)  16 JAN 2022 17:05
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.1.13)  18 JAN 2022 22:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -395,43 +395,48 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip64
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count317
-) (./_main.aux)
+)
+\citation{wickham_r_2016}
+
+Package natbib Warning: Citation `wickham_r_2016' undefined on input line 121.
+
+(./_main.aux)
 \openout1 = `_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 122.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 122.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 122.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 122.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 122.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 122.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 122.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 123.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -457,7 +462,7 @@ Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 122.
+(Font)              scaled to size 10.0pt on input line 123.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -489,15 +494,15 @@ Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 122.
+(Font)              scaled to size 10.0pt on input line 123.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 122.
+(Font)              `operators' in the math version `normal' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 122.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 123.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 122.
+(Font)              `operators' in the math version `bold' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 122.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 123.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -576,13 +581,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 122.
+(Font)              `symbols' in the math version `normal' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 122.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 123.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 122.
+(Font)              `symbols' in the math version `bold' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 122.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 123.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -643,14 +648,14 @@ Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 122.
+(Font)              `largesymbols' in the math version `normal' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 122.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 123.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 122.
+(Font)              `largesymbols' in the math version `bold' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 122.
-Package hyperref Info: Link coloring OFF on input line 122.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 123.
+Package hyperref Info: Link coloring OFF on input line 123.
 (c:/Users/nimeseth/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (c:/Users/nimeseth/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -660,40 +665,40 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count318
 )
-LaTeX Info: Redefining \ref on input line 122.
-LaTeX Info: Redefining \pageref on input line 122.
-LaTeX Info: Redefining \nameref on input line 122.
+LaTeX Info: Redefining \ref on input line 123.
+LaTeX Info: Redefining \pageref on input line 123.
+LaTeX Info: Redefining \nameref on input line 123.
 (./_main.out) (./_main.out)
 \@outlinefile=\write4
 \openout4 = `_main.out'.
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 124.
+(Font)              scaled to size 12.0pt on input line 125.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 124.
+(Font)              scaled to size 8.0pt on input line 125.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 124.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 124.
+(Font)              scaled to size 6.0pt on input line 125.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 125.
 (c:/Users/nimeseth/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 124.
+(Font)              scaled to size 12.0011pt on input line 125.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 124.
+(Font)              scaled to size 8.00073pt on input line 125.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 124.
+(Font)              scaled to size 6.00055pt on input line 125.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 124.
+(Font)              scaled to size 11.99872pt on input line 125.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 124.
+(Font)              scaled to size 7.99915pt on input line 125.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 124.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 124.
+(Font)              scaled to size 5.99936pt on input line 125.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 125.
 (c:/Users/nimeseth/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 124.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 125.
 (c:/Users/nimeseth/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -720,263 +725,423 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 2.
 [3]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 46.
-)
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 47.
+[4])
 \tf@toc=\write5
 \openout5 = `_main.toc'.
 
-[4] [5
+[5] [6
 
-] [6] [7
+] [7] [8] [9
 
-] [8]
+] [10]
 Chapter 1.
 File: fig/screenshot_r_console.png Graphic file (type bmp)
 <fig/screenshot_r_console.png>
-[9
+[11
 
-] [10]
+] [12]
 File: fig/screenshot_r_console.png Graphic file (type bmp)
 <fig/screenshot_r_console.png>
-[11]
-Underfull \hbox (badness 1019) in paragraph at lines 241--242
+[13]
+Underfull \hbox (badness 1019) in paragraph at lines 242--243
 \TU/lmr/m/n/10 Die Konsole ermöglicht, R-Befehle einzugeben und mit der Taste Enter
  []
 
-[12] [13] [14
+[14] [15] [16
 
 ]
 Chapter 2.
-[15] [16]
+[17] [18]
 Chapter 3.
-[17
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[19
 
 ]
 Missing character: There is no ⌨ (U+2328) in font [lmroman10-regular]:mapping=tex-text;!
 File: fig/view_result_rstudio.png Graphic file (type bmp)
 <fig/view_result_rstudio.png>
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 384--384
+[20]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 387--387
 []\TU/lmtt/m/n/10 ## [25] "classfication"     "defense"           "experience_growth"[] 
  []
 
-[18] [19] [20] [21]
-File: _main_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type pdf)
-<use _main_files/figure-latex/unnamed-chunk-15-1.pdf>
 
-Underfull \vbox (badness 1048) has occurred while \output is active []
+Overfull \hbox (85.5pt too wide) in paragraph at lines 410--410
+[]\TU/lmtt/m/n/10 ## $ abilities         <chr> "['Overgrow', 'Chlorophyll']", "['Overgrow', 'Chloro~[] 
+ []
 
-[22] [23]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 689--689
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 410--410
+[]\TU/lmtt/m/n/10 ## $ against_bug       <dbl> 1.00, 1.00, 1.00, 0.50, 0.50, 0.25, 1.00, 1.00, 1.00~[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 410--410
+[]\TU/lmtt/m/n/10 ## $ against_dark      <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 410--410
+[]\TU/lmtt/m/n/10 ## $ against_dragon    <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 410--410
+[]\TU/lmtt/m/n/10 ## $ against_electric  <dbl> 0.5, 0.5, 0.5, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 1.0, 1.~[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 410--410
+[]\TU/lmtt/m/n/10 ## $ against_fairy     <dbl> 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 1.~[] 
+ []
+
+
+Overfull \hbox (16.19455pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 3.3.  SCHNELLE ÜBERSICHT DER SPALTEN, DATENTYPEN UND WERTE \TU/lmr/m/n/10 21
+ []
+
+[21] [22] [23] [24]
+File: _main_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
+<use _main_files/figure-latex/unnamed-chunk-16-1.pdf>
+[25] [26]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ##   abilities             against_bug against_dark against_dragon against_electric[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 689--689
+Overfull \hbox (90.75pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ##   <chr>                       <dbl>        <dbl>          <dbl>            <dbl>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 689--689
+Overfull \hbox (90.75pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## 1 ['Overgrow', 'Chloro~        1               1              1              0.5[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 689--689
+Overfull \hbox (90.75pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## 2 ['Overgrow', 'Chloro~        1               1              1              0.5[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 689--689
+Overfull \hbox (90.75pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## 3 ['Overgrow', 'Chloro~        1               1              1              0.5[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 689--689
+Overfull \hbox (80.25pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## 4 ['Blaze', 'Solar Pow~        0.5             1              1              1[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 689--689
+Overfull \hbox (80.25pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## 5 ['Blaze', 'Solar Pow~        0.5             1              1              1[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 689--689
+Overfull \hbox (80.25pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## 6 ['Blaze', 'Solar Pow~        0.25            1              1              2[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 689--689
+Overfull \hbox (43.5pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## # ... with 36 more variables: against_fairy <dbl>, against_fight <dbl>,[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 689--689
+Overfull \hbox (17.25pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## #   against_fire <dbl>, against_flying <dbl>, against_ghost <dbl>,[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 689--689
+Overfull \hbox (12.0pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## #   against_grass <dbl>, against_ground <dbl>, against_ice <dbl>,[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 689--689
+Overfull \hbox (38.25pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## #   against_normal <dbl>, against_poison <dbl>, against_psychic <dbl>,[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 689--689
+Overfull \hbox (85.5pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## #   against_rock <dbl>, against_steel <dbl>, against_water <dbl>, attack <dbl>,[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 689--689
+Overfull \hbox (12.0pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## #   base_egg_steps <dbl>, base_happiness <dbl>, base_total <dbl>,[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 689--689
+Overfull \hbox (1.5pt too wide) in paragraph at lines 713--713
 []\TU/lmtt/m/n/10 ## #   capture_rate <chr>, classfication <chr>, defense <dbl>, ...[] 
  []
 
-[24] [25] [26
+[27] [28
 
 ]
 Chapter 4.
 File: fig/tool_set.jpg Graphic file (type bmp)
 <fig/tool_set.jpg>
 
-Overfull \hbox (15.78215pt too wide) in paragraph at lines 726--727
+Overfull \hbox (15.78215pt too wide) in paragraph at lines 750--751
 []\TU/lmr/bx/n/10 Paket  
  []
 
 
-Overfull \hbox (18.66216pt too wide) in paragraph at lines 734--734
+Overfull \hbox (18.66216pt too wide) in paragraph at lines 758--758
 []|\TU/lmtt/m/n/10 tibble|  
  []
 
 
-Overfull \hbox (13.41216pt too wide) in paragraph at lines 735--735
+Overfull \hbox (13.41216pt too wide) in paragraph at lines 759--759
 []|\TU/lmtt/m/n/10 readr|  
  []
 
 
-Overfull \hbox (13.41216pt too wide) in paragraph at lines 736--736
+Overfull \hbox (13.41216pt too wide) in paragraph at lines 760--760
 []|\TU/lmtt/m/n/10 dplyr|  
  []
 
 
-Overfull \hbox (13.41216pt too wide) in paragraph at lines 737--737
+Overfull \hbox (13.41216pt too wide) in paragraph at lines 761--761
 []|\TU/lmtt/m/n/10 dplyr|  
  []
 
 
-Overfull \hbox (13.41216pt too wide) in paragraph at lines 738--738
+Overfull \hbox (13.41216pt too wide) in paragraph at lines 762--762
 []|\TU/lmtt/m/n/10 dplyr|  
  []
 
 
-Overfull \hbox (13.41216pt too wide) in paragraph at lines 739--739
+Overfull \hbox (13.41216pt too wide) in paragraph at lines 763--763
 []|\TU/lmtt/m/n/10 dplyr|  
  []
 
 
-Overfull \hbox (13.41216pt too wide) in paragraph at lines 740--740
+Overfull \hbox (13.41216pt too wide) in paragraph at lines 764--764
 []|\TU/lmtt/m/n/10 dplyr|  
  []
 
 
-Overfull \hbox (13.41216pt too wide) in paragraph at lines 741--741
+Overfull \hbox (13.41216pt too wide) in paragraph at lines 765--765
 []|\TU/lmtt/m/n/10 dplyr|  
  []
 
 
-Overfull \hbox (13.41216pt too wide) in paragraph at lines 742--742
+Overfull \hbox (13.41216pt too wide) in paragraph at lines 766--766
 []|\TU/lmtt/m/n/10 dplyr|  
  []
 
 
-Overfull \hbox (23.91216pt too wide) in paragraph at lines 743--743
+Overfull \hbox (23.91216pt too wide) in paragraph at lines 767--767
 []|\TU/lmtt/m/n/10 ggplot2|  
  []
 
-[27]
+[29]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 748.
-[28] [29] [30
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 772.
+[30] [31] [32
 
-] [31] [32]
+] [33] [34]
 Chapter 5.
 File: fig/prozess_explorative_datenanalyse.png Graphic file (type bmp)
 <fig/prozess_explorative_datenanalyse.png>
 
-LaTeX Warning: Reference `@der-explorative-analyse-prozess' on page 33 undefined on input line 815.
+LaTeX Warning: Reference `@der-explorative-analyse-prozess' on page 35 undefined on input line 839.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 820.
+Package hyperref Warning: Suppressing link with empty target on input line 844.
 
 
 Underfull \vbox (badness 1231) has occurred while \output is active []
 
-[33
+[35
 
 ]
-Underfull \hbox (badness 1635) in paragraph at lines 838--840
+Underfull \hbox (badness 1635) in paragraph at lines 862--864
 []\TU/lmr/m/n/10 Wie wir neue, berechnete Spalten hinzufügen können (dplyr-Verb:
  []
 
-[34] [35] [36
+[36] [37] [38
 
 ]
 Chapter 6.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <24.88> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 882.
-[37]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 937--937
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 906.
+[39]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 961--961
 []\TU/lmtt/m/n/10 ## [25] "classfication"     "defense"           "experience_growth"[] 
  []
 
-[38] [39] [40]
-Chapter 7.
-[41
-
-] [42]
-Overfull \hbox (16.60564pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 7.1.  FILTERN VON ALPHANUMERISCHEN WERTEN (ZEICHENKETTEN) \TU/lmr/m/n/10 43
+[40] [41]
+Underfull \hbox (badness 10000) in paragraph at lines 1100--1101
+[]\TU/lmr/m/n/10 Um beispielsweise alle numersichen Spalten im Pokémon-Datensatz
  []
 
-[43] [44
+[42]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##    against_bug against_dark against_dragon against_electric against_fairy[] 
+ []
 
-] [45] [46]
-Overfull \hbox (0.89197pt too wide) in paragraph at lines 1185--1186
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##          <dbl>        <dbl>          <dbl>            <dbl>         <dbl>[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##  1        1               1              1              0.5           0.5[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##  2        1               1              1              0.5           0.5[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##  3        1               1              1              0.5           0.5[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##  4        0.5             1              1              1             0.5[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##  5        0.5             1              1              1             0.5[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##  6        0.25            1              1              2             0.5[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##  7        1               1              1              2             1[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##  8        1               1              1              2             1[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ##  9        1               1              1              2             1[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ## 10        1               1              1              1             1[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ## # ... with 791 more rows, and 29 more variables: against_fight <dbl>,[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ## #   against_fire <dbl>, against_flying <dbl>, against_ghost <dbl>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ## #   against_grass <dbl>, against_ground <dbl>, against_ice <dbl>,[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ## #   against_normal <dbl>, against_poison <dbl>, against_psychic <dbl>,[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ## #   against_rock <dbl>, against_steel <dbl>, against_water <dbl>, attack <dbl>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ## #   base_egg_steps <dbl>, base_happiness <dbl>, base_total <dbl>,[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1130--1130
+[]\TU/lmtt/m/n/10 ## #   defense <dbl>, experience_growth <dbl>, height_m <dbl>, hp <dbl>, ...[] 
+ []
+
+[43] [44] [45] [46
+
+]
+Chapter 7.
+[47] [48]
+Overfull \hbox (16.60564pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.1.  FILTERN VON ALPHANUMERISCHEN WERTEN (ZEICHENKETTEN) \TU/lmr/m/n/10 49
+ []
+
+[49] [50
+
+] [51] [52]
+Chapter 8.
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1433--1433
+[]\TU/lmtt/m/n/10 ##  [11] "f3_supermarkt"                      "f4_konsumhaeufigkeit"[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1433--1433
+[]\TU/lmtt/m/n/10 ##  [13] "f5_flaschenzahl_025_AB"             "f5_flaschenzahl_033_AB"[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1433--1433
+[]\TU/lmtt/m/n/10 ##  [15] "f5_flaschenzahl_050_AB"             "f5_flaschenzahl_075_AB"[] 
+ []
+
+[53
+
+] [54
+
+] [55] [56]
+Overfull \hbox (0.89197pt too wide) in paragraph at lines 1450--1451
 []|\TU/lmr/bx/n/10 Kategorie|  
  []
 
 
-Overfull \hbox (20.59196pt too wide) in paragraph at lines 1186--1187
+Overfull \hbox (20.59196pt too wide) in paragraph at lines 1451--1452
 []|\TU/lmr/m/n/10 Marktforschung|  
  []
 
-(./_main.bbl [47
+(./_main.bbl [57
 
-] [48
+] [58
 
-]) [49] (./_main.aux)
+])
+
+Package natbib Warning: There were undefined citations.
+
+[59] (./_main.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 406A76F84784500FCF655482E4FF9809;6424.
+(rerunfilecheck)             Checksum: 1E11145DC6DC3B5058AE5F48952B1101;7813.
  ) 
 Here is how much of TeX's memory you used:
- 17556 strings out of 478189
- 324004 string characters out of 5852888
- 767841 words of memory out of 5000000
- 37907 multiletter control sequences out of 15000+600000
+ 17566 strings out of 478189
+ 324255 string characters out of 5852888
+ 772172 words of memory out of 5000000
+ 37917 multiletter control sequences out of 15000+600000
  475758 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,7n,121p,758b,475s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (49 pages).
+Output written on _main.pdf (59 pages).

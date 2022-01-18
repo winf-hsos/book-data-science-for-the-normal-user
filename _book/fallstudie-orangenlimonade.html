@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapitel 5 Der explorative Analyseprozess | Data Science für normale Anwender*innen</title>
+  <title>Kapitel 8 Fallstudie Orangenlimonade | Data Science für normale Anwender*innen</title>
   <meta name="description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapitel 5 Der explorative Analyseprozess | Data Science für normale Anwender*innen" />
+  <meta property="og:title" content="Kapitel 8 Fallstudie Orangenlimonade | Data Science für normale Anwender*innen" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://book-data-science-for-the-normal-user.netlify.app/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="winf-hsos/book-data-science-for-the-normal-user" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapitel 5 Der explorative Analyseprozess | Data Science für normale Anwender*innen" />
+  <meta name="twitter:title" content="Kapitel 8 Fallstudie Orangenlimonade | Data Science für normale Anwender*innen" />
   
   <meta name="twitter:description" content="Dieses Buch gibt eine Einführung in wichtige Themen bei der Arbeit mit Daten. Wie der Titel schon ahnen lässt, adressiert dieses Buch normale Anwender*innen. Damit meine ich Personen, die in ihrem beruflichen (oder privaten) Alltag von Kenntnissen in der Analyse von Daten (über Excel hinaus) profitieren, diese aber nicht deren Haupttätigkeit ist." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="der-werkzeugkasten.html"/>
-<link rel="next" href="spalten-auswählen-mit-select.html"/>
+<link rel="prev" href="zeilen-filtern-mit-filter.html"/>
+<link rel="next" href="datensaetze.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -268,74 +268,68 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="der-explorative-analyseprozess" class="section level1" number="5">
-<h1><span class="header-section-number">Kapitel 5</span> Der explorative Analyseprozess</h1>
-<p>Dieser Abschnitt führt euch in die Grundlagen der <strong>explorativen Datenanalyse</strong> mit R ein. In der explorativen Datenanalyse versuchen wir einen unbekannten Datensatz mit geeigneten Verfahren kennenzulernen und schnell Muster in den Daten zu erkennen. Auf Basis dieser Muster formulieren wir <strong>Hypothesen</strong>. Diese Hypothesen können anschließend mit statistischen Modellen aus dem Bereich der schließenden Statistik auf ihre Gültigkeit überprüft werden. Die statistische Überprüfung ist jedoch nicht Teil der explorativen Datenanalyse nach dem Verständnis dieses Buches.</p>
-<p>Eine ausgezeichnete Einführung in die explorative Datenanalyse mit R gibt auch das Buch <a href="https://r4ds.had.co.nz">R for Data Science</a> von <span class="citation"><a href="#ref-wickham_r_2016" role="doc-biblioref">Wickham and Grolemund</a> (<a href="#ref-wickham_r_2016" role="doc-biblioref">2016</a>)</span>. Das Buch ist online frei zugänglich.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:der-explorative-analyse-prozess"></span>
-<img src="fig/prozess_explorative_datenanalyse.png" alt="Der Datenanalyseprozess." width="60%" />
-<p class="caption">
-Figure 5.1: Der Datenanalyseprozess.
-</p>
+<div id="fallstudie-orangenlimonade" class="section level1" number="8">
+<h1><span class="header-section-number">Kapitel 8</span> Fallstudie Orangenlimonade</h1>
+<div id="einführung" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Einführung</h2>
+<p>In dieser Fallstudie steht der Datensatz aus der Online-Umfrage zum Kaufverhalten von Orangenlimonade im Fokus. Der Datensatz entstand am Fachgebiet Agrarmarketing von <a href="https://www.hs-osnabrueck.de/prof-dr-ulrich-enneking/">Prof. Dr. Ulrich Enneking</a> und wurde freundlicherweise für die Verwendung in diesem Buch freigegeben.</p>
 </div>
-<p><span class="citation"><a href="#ref-wickham_r_2016" role="doc-biblioref">Wickham and Grolemund</a> (<a href="#ref-wickham_r_2016" role="doc-biblioref">2016</a>)</span> definieren den Datenanalyseprozess durch eine Abfolge bestimmter Schritte, wie in der Abbildung  gezeigt. In diesem Abschnitt stehen die rot markierten Schritte im Fokus.</p>
-<div id="daten-laden" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Daten laden</h2>
-<p>Jeder Analyseprozess beginnt mit dem <a href="">Laden eines Datensatzes</a>. Dabei gibt es verschiedene Datenquellen, die in Betracht gezogen werden müssen. Ein häufig verwendetes Format sind Komma-separierte Werte (<strong>C</strong>omma <strong>S</strong>eparated <strong>V</strong>alues = CSV) in einfachen Textdateien. Dieses Format steht auch hier im Vordergrund.</p>
-<p>Gemäß der Abbildung aus <span class="citation"><a href="#ref-wickham_r_2016" role="doc-biblioref">Wickham and Grolemund</a> (<a href="#ref-wickham_r_2016" role="doc-biblioref">2016</a>)</span> folgt auf das Laden der Daten der Arbeitsschritt „Tidy“. Dieser ist dann notwendig, wenn die Daten nicht in der typischen Form bestehend aus Spalten und Zeilen vorliegen. Leider ist das in der Praxis oft der Fall. In diesem Buch wird aber zunächst davon ausgegangen, dass die Daten das entsprechende Format aufweisen. Die interessierte Leserin verweise ich auf das <a href="https://r4ds.had.co.nz/tidy-data.html">Kapitel 12 im Buch „R for Data Science“</a>.</p>
+<div id="datensatz-laden" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Datensatz laden</h2>
+<p>Die Daten liegen im <a href="einen-datensatz-laden.html#das-csv-format">CSV-Format</a> vor und können somit <a href="einen-datensatz-laden.html#csv-daten-laden">einfach geladen werden</a>:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="fallstudie-orangenlimonade.html#cb74-1" aria-hidden="true" tabindex="-1"></a>limo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;datasets/limonade.csv&quot;</span>)</span></code></pre></div>
 </div>
-<div id="daten-transformieren" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Daten transformieren</h2>
-<p>Das Ziel der explorativen Datenanalyse ist die Visualisierung der Daten mit geeigneten Diagrammen, um interessante Muster sichtbar werden zu lassen. Visualisierungen benötigen häufig nur einen Teil der Daten (wenige Spalten oder bestimmte Zeilen). Auch müssen wir oft neue Spalten berechnen oder bestehende Daten aggregieren, bevor wir sie visualisieren können. Alle diese Aufgaben können wir unter dem Bereich der <strong>Datentransformation</strong> zusammenfassen.</p>
-<p>Für diese Aufgaben bietet R mit dem Paket <code>dplyr</code> mächtige Funktionen. Insbesondere lernen wir in dem Abschnitt:</p>
-<ul>
-<li>Wie wir bestimmte Spalten auswählen können (dplyr-Verb: <code>select</code>).</li>
-<li>Wie wir Zeilen fast beliebig filtern können (dplyr-Verb: <code>filter</code>).</li>
-<li>Wie wir neue, berechnete Spalten hinzufügen können (dplyr-Verb: <code>mutate</code>).</li>
-<li>Wie wir Zeilen sortieren können (dplyr-Verb: <code>arrange</code>).</li>
-<li>Wie wir Zeilen zusammenfassen und gruppieren können (dplyr-Verben: <code>summarize</code> und <code>group_by</code>)</li>
-</ul>
-</div>
-<div id="daten-visualisieren" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Daten visualisieren</h2>
-<p>Das wichtigste Werkzeug in der explorativen Datenanalyse ist die <strong>Visualisierung von Daten</strong>. In R steht uns dafür mit <code>ggplot2</code> ein leistungsfähiges Instrument zur Verfügung. Wir lernen für bestimmte Anwendungsfälle die richtigen Visualisierungen zu identifizieren und mit <code>ggplot2</code> umzusetzen.</p>
-<!-- TODO: Referenz einfügen -->
-</div>
-<div id="literatur" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Literatur</h2>
-<div id="bücher" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Bücher</h3>
-<p>Wickham, Hadley, and Garrett Grolemund. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. First edition, O’Reilly, 2016. Online verfügbar: <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz/</a></p>
-<p>Wickham, Hadley. ggplot2. Springer Science+Business Media, LLC, 2016. Online verfügbar: <a href="https://ggplot2-book.org">https://ggplot2-book.org/</a></p>
-<p>Kabacoff, Robert. R in Action: Data Analysis and Graphics with R. Second edition, Manning, 2015.</p>
-<p>Sauer, Sebastian. Moderne Datenanalyse mit R: Daten einlesen, aufbereiten, visualisieren, modellieren und kommunizieren. Springer Gabler, 2019. Online verfügbar: <a href="https://link.springer.com/book/10.1007/978-3-658-21587-3">https://link.springer.com/book/10.1007/978-3-658-21587-3</a></p>
-</div>
-<div id="online-dokumentationen" class="section level3" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> Online-Dokumentationen</h3>
-<ul>
-<li><a href="https://www.tidyverse.org/">Die offizielle Dokumentation der Tidyverse-Bibliotheken</a></li>
-<li><a href="https://ourcodingclub.github.io/tutorials/intro-to-r/">Ein Tutorial für die Einführung in R mit RStudio</a></li>
-<li><a href="https://ourcodingclub.github.io/tutorials/data-manip-intro/">Ein Tutorial zu den Grundlagen der Datenmanipulation mit R, <code>tidyr</code> und <code>dplyr</code></a></li>
-<li><a href="https://ourcodingclub.github.io/tutorials/data-manip-efficient/">Weiterführende Anleitungen zur Datenmanipulation mit <code>dplyr</code> (Efficient Data Manipulation)</a></li>
-<li><a href="https://ourcodingclub.github.io/tutorials/data-manip-creative-dplyr/">Weiterführende Anleitungen zur Datenmanipulation mit <code>dplyr</code> (Advanced Data Manipulation)</a></li>
-</ul>
+<div id="datensatz-erkunden" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Datensatz erkunden</h2>
+<p>Im ersten Schritt interessiert uns der Umfang der Daten, sowohl was die Anzahl der Zeilen als auch der Spalten angeht. Wir verwenden deshalb die Funktion <code>dim</code>:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="fallstudie-orangenlimonade.html#cb75-1" aria-hidden="true" tabindex="-1"></a>limo <span class="sc">%&gt;%</span> <span class="fu">dim</span>()</span></code></pre></div>
+<pre><code>## [1] 421 272</code></pre>
+<p>Die erste Zahl entspricht der Anzahl Zeilen, während die zweite für die Spalten steht. Die große Anzahl Spalten fällt sofort ins Auge, was typisch für umfangreichere Fragebögen in der Marktforschung ist. Um das genauer zu verstehen, betrachten wir als nächstes die Spaltennamen:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="fallstudie-orangenlimonade.html#cb77-1" aria-hidden="true" tabindex="-1"></a>limo <span class="sc">%&gt;%</span> <span class="fu">colnames</span>()</span></code></pre></div>
+<pre><code>##   [1] &quot;id&quot;                                 &quot;f1_gekauft&quot;                        
+##   [3] &quot;f1_getrunken&quot;                       &quot;f1_weder_noch&quot;                     
+##   [5] &quot;f2_grund_nichtkauf&quot;                 &quot;f3_discounter&quot;                     
+##   [7] &quot;f3_getraenkemarkt&quot;                  &quot;f3_kaufhaus&quot;                       
+##   [9] &quot;f3_kiosk&quot;                           &quot;f3_sonstige&quot;                       
+##  [11] &quot;f3_supermarkt&quot;                      &quot;f4_konsumhaeufigkeit&quot;              
+##  [13] &quot;f5_flaschenzahl_025_AB&quot;             &quot;f5_flaschenzahl_033_AB&quot;            
+##  [15] &quot;f5_flaschenzahl_050_AB&quot;             &quot;f5_flaschenzahl_075_AB&quot;            
+##  [17] &quot;f5_flaschenzahl_100_AB&quot;             &quot;f5_flaschenzahl_150_AB&quot;            
+##  [19] &quot;f6_gebindeart&quot;                      &quot;f7_muell_einweg&quot;                   
+##  [21] &quot;f7_muellbergreduz_mehrweg&quot;          &quot;f7_umweltschutz_mehrweg&quot;           
+##  [23] &quot;f8_info_beimKauf&quot;                   &quot;f8_info_empfehlung&quot;                
+...</code></pre>
+<p>Der Aufbau der Spaltennamen gibt Aufschluss darüber, warum der Datensatz so viele Spalten beinhaltet. Jede Frage und deren Antworten sind in mehr als einer Spalte gespeichert. Das lässt sich an der ersten Frage bereits gut zeigen. Für sie sind die Spalten <code>f1_gekauft</code>, <code>f1_getrunken</code> und <code>f1_weder_noch</code> reserviert. Für jede Antwortoption der Frage 1 “Haben Sie in den letzten 12 Monaten Orangenlimonade gekauft oder getrunken? (Mehrfachnennung möglich)” ist eine Spalte vorgesehen. Wurde die entsprechende Antwortoption angekreuzt, beinhaltet die Spalte den Wert 1. Wenn nicht, den Wert 0. Das können wir überprüfen, indem wir <a href="">alle Spalten auswählen, die mit “f1_” beginnen</a>.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="fallstudie-orangenlimonade.html#cb79-1" aria-hidden="true" tabindex="-1"></a>limo <span class="sc">%&gt;%</span></span>
+<span id="cb79-2"><a href="fallstudie-orangenlimonade.html#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;f1_&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 421 x 3
+##    f1_gekauft f1_getrunken f1_weder_noch
+##         &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;
+##  1          1            1             0
+##  2          1            1             0
+##  3          1            1             0
+##  4          1            1             0
+##  5          0            1             0
+##  6          1            1             0
+##  7          0            1             0
+##  8          1            1             0
+##  9          1            1             0
+## 10          1            0             0
+## # ... with 411 more rows</code></pre>
+<p>Diese Art der Speicherung ist typisch für Fragebögen in der Marktforschung.</p>
 
 </div>
 </div>
-</div>
-<h3>Literaturverzeichnis</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-wickham_r_2016" class="csl-entry">
-Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. First edition. Sebastopol, CA: O’Reilly.
-</div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="der-werkzeugkasten.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="spalten-auswählen-mit-select.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="zeilen-filtern-mit-filter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datensaetze.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -366,7 +360,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/winf-hsos/intro_to_data_science_with_r_for_the_normal_user/edit/BRANCH/2_der-analyseprozess.Rmd",
+"link": "https://github.com/winf-hsos/intro_to_data_science_with_r_for_the_normal_user/edit/BRANCH/50_fallstudie_limo.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -20,6 +20,7 @@ csv-daten-laden
 einen-datensatz-erkunden
 alle-daten-anzeigen
 spaltennamen-ermitteln
+schnelle-übersicht-der-spalten-datentypen-und-werte
 anzahl-spalten-zeilen
 wertebereich-von-spalten-bestimmen
 wertebereich-nominalskaliert
@@ -46,10 +47,18 @@ online-dokumentationen
 spalten-auswählen-mit-select
 beispieldaten-pokémon
 bestimmte-spalten-nach-namen-auswählen
-spalten-aus-der-auswahl-ausschließen
+minus-operator
 die-letzte-oder-n-letzten-spalten-auswählen
+spalten-nach-datentyp-selektieren
+spaltenmengen-definieren-und-selektieren
+weitere-online-quellen
 zeilen-filtern-mit-filter
 filtern-von-alphanumerischen-werten-zeichenketten
 filtern-auf-gleichheit
 filtern-über-eine-liste-von-werten
 suchen-nach-dem-vorkommen-eines-wertes-in-einem-string
+suchen-nach-mustern-in-einem-string
+fallstudie-orangenlimonade
+einführung
+datensatz-laden
+datensatz-erkunden

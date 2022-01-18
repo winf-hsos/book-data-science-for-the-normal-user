@@ -12,6 +12,10 @@ rmd_files: ["index.Rmd",
             "2_spalten-auswaehlen.Rmd",
             "2_zeilen-filtern.Rmd",
 
+            "50_fallstudie_limo.Rmd",
+
             "99_datensaetze.Rmd",
-            "99_references.Rmd"
+            "99_references.Rmd",
+
+
             ]

@@ -28,6 +28,7 @@ knit_hooks$set(output = function(x, options) {
 
 - In RStudio können wir mit `view` den gesamten Dataframe oder Tibble [im Skripteditor anzeigen](#alle-daten-anzeigen).
 - Die [Spaltennamen](#spaltennamen-ermitteln) eines Tibble erhalten wir mit `colnames`.
+- Mit `glimpse` können wir einen Überblick der Spalten und enthaltenen Werte anzeigen. 
 - Mit `ncol` und `nrow` erhalten wir die [Anzahl Spalten und Zeilen](#anzahl-spalten-zeilen) eines Tibbles. Das Gleiche bekommen wir in einem Schwung mit der Funktion `dim`.
 - Einen schnellen [Überblick über eine nominalskalierte Spalte und deren Werte](#wertebereich-nominalskaliert) bekommen wir mit `distinct` (eindeutige Werte) oder `count` (zusätzlich die Häufigkeiten).
 - Für [intervallskalierte Werte](#wertebereich-intervallskaliert) können wir besser mit `min` und `max` die Spannweite ermitteln oder mit einem [Histogramm die Verteilung der Werte visualisieren](#wertebereich-intervallskaliert-histogramm).
@@ -64,6 +65,13 @@ pokemon %>%
   colnames()
 ```
 Auf diese Information greifen wir zurück, wenn wir später Analysen mit dem Datensatz durchführen oder bestimmte Spalten genauer untersuchen wollen.
+
+## Schnelle Übersicht der Spalten, Datentypen und Werte
+
+```{r, output.lines = 8}
+glimpse(pokemon)
+```
+
 
 ## Anzahl Spalten und Zeilen ermitteln{#anzahl-spalten-zeilen}
 

@@ -1,3 +1,8 @@
+---
+nocite: |
+  @wickham_r_2016
+---
+
 # Spalten auswählen mit `select`
 
 ## TL;DR{.unlisted .unnumbered}
@@ -6,8 +11,8 @@
 - Neben einer Liste von gewünschten Spaltennamen können wir die Untermenge auch über den Ausschluss von nicht gewollten Spalten eingrenzen. Dafür verwenden wir das Zeichen `-` vor dem Spaltennamen.
 - Mit der Funktion `last_col()` können wir die letzte oder die n-letzte Spalte auswählen
 - Mit dem Semikolon können wir Spaltenbereiche auswählen und so beispielsweise alle Spalten von der 5. bis zur vorletzten selektieren (`select(5 : last_col(2))`).
-- Wir können Spalten anhand ihres Datentyps selektieren.
-- Wir können Spalten über die Zugehörigkeit zu einer Liste selektieren.
+- Wir können Spalten anhand ihres Datentyps selektieren (`is.numeric`, `is.character`, etc.).
+- Wir können Spalten über die Zugehörigkeit zu einer Liste selektieren (`all_of`, `any_of`).
 
 ## Beispieldaten: Pokémon
 
@@ -54,11 +59,12 @@ Dabei können wir beliebig viele Spalten in die Liste aufnehmen:
 pokemon %>%
   select(name, type1, type2, is_legendary)
 ```
-## Spalten aus der Auswahl ausschließen
+
+## Spalten aus der Auswahl ausschließen{#minus-operator}
 
 Wollen wir fast alle verfügbaren Spalten auswählen, so ist es effizienter, die Spalten zu nennen, die wir ausschließen wollen. Das können wir mit dem Minus-Symbol erreichen:
 
-```{r results = 'hide'}
+```{r, results = 'hide'}
 pokemon %>%
   select(-is_legendary)
 ```
@@ -69,4 +75,78 @@ pokemon %>%
 pokemon %>%
   select(last_col())
 ```
+
+## Spalten nach Datentyp selektieren
+
+Manchmal möchten wir Spalten nach ihrem Datentyp auswählen. Für die Prüfung, ob eine Spalte oder ein Wert einem bestimmten Datentyp entspricht, gibt es Funktionen in R:
+
+- `is.numeric` prüft, ob eine Spalte oder ein Wert numerisch ist.
+- `is.character` prüft, ob es sich um eine alphanumerische Spalte handelt (Zeichenketten oder Strings).
+- `is.logical` prüft, ob es sich um eine Spalte mit Wahrheitswerten handelt (Bool'scher Datentyp).
+- `is.factor` prüft, ob es sich bei einer Spalte um einen Faktor mit einer fest definierten Anzahl von Ausprägungen handelt.
+
+Um beispielsweise alle numersichen Spalten im Pokémon-Datensatz auszuwählen, können wir den folgenden Aufruf verwenden:
+
+```{r, output.line = 8}
+pokemon %>% 
+  select(where(is.numeric))
+
+```
+
+Der `where` Funktion können wir eine Funktion übergeben, die in Bezug auf eine Spalte wahr oder falsch zurückliefert.
+
+Leider existiert keine Standardfunktion, um Spalten auf den Datentyp `date` zu prüfen. Wir können uns diese aber einfach selbst schreiben:
+
+```{r, output.lines = 8}
+# Funktion, um Datumsspalten zu erkennen
+is.date <- function(x) {
+  inherits(x, c("Date", "POSIXt"))
+}
+
+pokemon %>% 
+  select(where(is.date))
+```
+Für den Pokémon-Datensatz ist das Ergebnis leer, das heißt es existiert keine Spalte vom Typ Datum.
+
+## Spaltenmengen definieren und selektieren
+
+Häufig benötigt man in unterschiedlichen Abfragen die gleichen Spalten. Um nicht jedes Mal die gesamte Liste aufführen zu müssen, können wir in diesem Fall einen Vektor definieren, der die Namen der Spalten enthält. Mit der `all_of` Funktion können wir dann alle Spalten in diesem Vektor auswählen:
+
+```{r, output.lines = 8}
+# Erstellen eines Vektors mit gewünschten Spaltennamen
+vars <- c("name", "type1", "type2")
+
+# Selektieren auf Basis dieser Menge
+pokemon %>%
+  select(all_of(vars))
+```
+
+Wir können bei Bedarf auch einzelne Elemente der Menge über den [Minus-Operator](#minus-operator) ausschließen:
+
+```{r, output.lines = 8}
+# Selektieren auf Basis dieser Menge, aber ohne "type2"
+pokemon %>% 
+  select(all_of(vars), -type2)
+
+```
+
+Mit `any_of` können wir auch Spalten im Vektor aufnehmen, die nicht existieren. Es werden dann alle Spalten selektiert, die in der Liste vorkommen und auch tatsächlich im Tibble vorhanden sind. So können wir einen Vektor erstellen, der Spaltennamen aus unterschiedlichen Datensätzen beinhaltet:
+
+```{r, output.lines = 8}
+# Erstellen eines Vektors mit gewünschten Spaltennamen, "type3" existiert nicht im Tibble
+vars <- c("name", "type1", "type2", "type3")
+
+# Selektieren auf Basis dieser Menge, "type3" ist jedoch nicht vorhanden
+pokemon %>%
+  select(any_of(vars))
+```
+
+## Weitere Online-Quellen
+
+- [Offizielle Dokumentation des `select` Befehls im Tidyverse](https://dplyr.tidyverse.org/reference/select.html).
+- [Kapitel 5.4](https://r4ds.had.co.nz/transform.html#select) aus @wickham_r_2016
+
+<hr>
+
+
 

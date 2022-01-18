@@ -1,0 +1,43 @@
+# (PART\*) Fallstudien {- .mt} 
+
+# Fallstudie Orangenlimonade
+
+
+```{r, include=FALSE}
+library(tidyverse)
+library(knitr)
+```
+
+## Einführung
+
+In dieser Fallstudie steht der Datensatz aus der Online-Umfrage zum Kaufverhalten von Orangenlimonade im Fokus. Der Datensatz entstand am Fachgebiet Agrarmarketing von [Prof. Dr. Ulrich Enneking](https://www.hs-osnabrueck.de/prof-dr-ulrich-enneking/) und wurde freundlicherweise für die Verwendung in diesem Buch freigegeben.
+
+## Datensatz laden
+
+Die Daten liegen im [CSV-Format](#das-csv-format) vor und können somit [einfach geladen werden](#csv-daten-laden):
+
+
+```{r, results = 'hide', message=FALSE}
+limo <- read_csv("datasets/limonade.csv")
+```
+## Datensatz erkunden
+
+Im ersten Schritt interessiert uns der Umfang der Daten, sowohl was die Anzahl der Zeilen als auch der Spalten angeht. Wir verwenden deshalb die Funktion `dim`:
+
+```{r}
+limo %>% dim()
+```
+
+Die erste Zahl entspricht der Anzahl Zeilen, während die zweite für die Spalten steht. Die große Anzahl Spalten fällt sofort ins Auge, was typisch für umfangreichere Fragebögen in der Marktforschung ist. Um das genauer zu verstehen, betrachten wir als nächstes die Spaltennamen:
+
+```{r, output.lines = 12}
+limo %>% colnames()
+```
+
+Der Aufbau der Spaltennamen gibt Aufschluss darüber, warum der Datensatz so viele Spalten beinhaltet. Jede Frage und deren Antworten sind in mehr als einer Spalte gespeichert. Das lässt sich an der ersten Frage bereits gut zeigen. Für sie sind die Spalten `f1_gekauft`, `f1_getrunken` und `f1_weder_noch` reserviert. Für jede Antwortoption der Frage 1 "Haben Sie in den letzten 12 Monaten Orangenlimonade gekauft oder getrunken? (Mehrfachnennung möglich)" ist eine Spalte vorgesehen. Wurde die entsprechende Antwortoption angekreuzt, beinhaltet die Spalte den Wert 1. Wenn nicht, den Wert 0. Das können wir überprüfen, indem wir [alle Spalten auswählen, die mit "f1_" beginnen]().
+
+```{r}
+limo %>%
+  select(starts_with("f1_"))
+```
+Diese Art der Speicherung ist typisch für Fragebögen in der Marktforschung.

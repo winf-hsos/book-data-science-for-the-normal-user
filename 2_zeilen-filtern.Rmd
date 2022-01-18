@@ -44,3 +44,16 @@ pokemon %>%
   filter(str_detect(name, "chu"))
 ```
 
+### Suchen nach Mustern in einem String
+
+Wir können auch nach Mustern suchen, ähnlich was der SQL-Befehl `like` erlaubt:
+
+```{r}
+library(stringr)
+pokemon %>%
+  select(name) %>%
+  filter(str_like(name, '%chu'))
+```
+
+
+
