@@ -36,7 +36,7 @@ pokemon %>%
 
 ### Suchen nach dem Vorkommen eines Wertes in einem String
 
-Um einen String auf das Vorhandensein eines bestimmten Wertes zu durchsuchen können wir auf die `str_detect` Funktion aus dem `stringr` Paket zurückgreifen. `stringr` ist ebenfalls im Tidyverse enthalten:
+Um einen String auf das Vorhandensein eines bestimmten Wertes zu durchsuchen, können wir auf die `str_detect` Funktion aus dem `stringr` Paket zurückgreifen. `stringr` ist ebenfalls im Tidyverse enthalten:
 
 ```{r}
 pokemon %>%

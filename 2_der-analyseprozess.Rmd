@@ -22,7 +22,12 @@ Gemäß der Abbildung aus @wickham_r_2016 folgt auf das Laden der Daten der Arbe
 
 ## Daten transformieren
 
-Das Ziel der explorativen Datenanalyse ist die Visualisierung der Daten mit geeigneten Diagrammen, um interessante Muster sichtbar werden zu lassen. Visualisierungen benötigen häufig nur einen Teil der Daten (wenige Spalten oder bestimmte Zeilen). Auch müssen wir oft neue Spalten berechnen oder bestehende Daten aggregieren, bevor wir sie visualisieren können. Alle diese Aufgaben können wir unter dem Bereich der **Datentransformation** zusammenfassen.
+Das Ziel der explorativen Datenanalyse ist die Visualisierung der Daten mit geeigneten Diagrammen, um interessante Muster zu erkennen. Visualisierungen benötigen häufig nur einen Teil der Daten (wenige Spalten oder bestimmte Zeilen). Auch müssen wir oft neue Spalten berechnen oder Daten aggregieren, bevor wir sie visualisieren können. Alle diese Aufgaben können wir unter dem Bereich der **Datentransformation** zusammenfassen.
+
+
+```{r echo = FALSE, operationen-datentransformation, out.width='85%', fig.show='hold', fig.cap='Fünf Operationen in der Datentransformation.', fig.align = 'center'}
+knitr::include_graphics(rep('fig/operations_in_data_transformation.svg', 1))
+```
 
 Für diese Aufgaben bietet R mit dem Paket `dplyr` mächtige Funktionen. Insbesondere lernen wir in dem Abschnitt:
 
@@ -34,7 +39,7 @@ Für diese Aufgaben bietet R mit dem Paket `dplyr` mächtige Funktionen. Insbeso
 
 ## Daten visualisieren
 
-Das wichtigste Werkzeug in der explorativen Datenanalyse ist die **Visualisierung von Daten**. In R steht uns dafür mit `ggplot2` ein leistungsfähiges Instrument zur Verfügung. Wir lernen für bestimmte Anwendungsfälle die richtigen Visualisierungen zu identifizieren und mit `ggplot2` umzusetzen.
+Das wichtigste Werkzeug in der explorativen Datenanalyse ist die **Visualisierung von Daten**. In R steht uns dafür mit `ggplot2` ein leistungsfähiges Instrument zur Verfügung. Wir lernen für bestimmte Anwendungsfälle passende Visualisierungen zu identifizieren und mit `ggplot2` umzusetzen.
 
 <!-- TODO: Referenz einfügen -->
 

@@ -244,6 +244,7 @@ div.csl-indent {
 <li class="chapter" data-level="8.1" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
 <li class="chapter" data-level="8.2" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#datensatz-laden"><i class="fa fa-check"></i><b>8.2</b> Datensatz laden</a></li>
 <li class="chapter" data-level="8.3" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#datensatz-erkunden"><i class="fa fa-check"></i><b>8.3</b> Datensatz erkunden</a></li>
+<li class="chapter" data-level="8.4" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#ungültige-daten-entfernen"><i class="fa fa-check"></i><b>8.4</b> Ungültige Daten entfernen</a></li>
 </ul></li>
 <li class="part"><span><b>Anhang</b></span></li>
 <li class="chapter" data-level="" data-path="datensaetze.html"><a href="datensaetze.html"><i class="fa fa-check"></i>Datensätze</a></li>
@@ -298,7 +299,7 @@ div.csl-indent {
 ##  [19] &quot;f6_gebindeart&quot;                      &quot;f7_muell_einweg&quot;                   
 ##  [21] &quot;f7_muellbergreduz_mehrweg&quot;          &quot;f7_umweltschutz_mehrweg&quot;           
 ##  [23] &quot;f8_info_beimKauf&quot;                   &quot;f8_info_empfehlung&quot;                
-...</code></pre>
+...  124  Zeilen sind ausgeblendet.</code></pre>
 <p>Der Aufbau der Spaltennamen gibt Aufschluss darüber, warum der Datensatz so viele Spalten beinhaltet. Jede Frage und deren Antworten sind in mehr als einer Spalte gespeichert. Das lässt sich an der ersten Frage bereits gut zeigen. Für sie sind die Spalten <code>f1_gekauft</code>, <code>f1_getrunken</code> und <code>f1_weder_noch</code> reserviert. Für jede Antwortoption der Frage 1 “Haben Sie in den letzten 12 Monaten Orangenlimonade gekauft oder getrunken? (Mehrfachnennung möglich)” ist eine Spalte vorgesehen. Wurde die entsprechende Antwortoption angekreuzt, beinhaltet die Spalte den Wert 1. Wenn nicht, den Wert 0. Das können wir überprüfen, indem wir <a href="">alle Spalten auswählen, die mit “f1_” beginnen</a>.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="fallstudie-orangenlimonade.html#cb79-1" aria-hidden="true" tabindex="-1"></a>limo <span class="sc">%&gt;%</span></span>
 <span id="cb79-2"><a href="fallstudie-orangenlimonade.html#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;f1_&quot;</span>))</span></code></pre></div>
@@ -317,6 +318,11 @@ div.csl-indent {
 ## 10          1            0             0
 ## # ... with 411 more rows</code></pre>
 <p>Diese Art der Speicherung ist typisch für Fragebögen in der Marktforschung.</p>
+</div>
+<div id="ungültige-daten-entfernen" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Ungültige Daten entfernen</h2>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="fallstudie-orangenlimonade.html#cb81-1" aria-hidden="true" tabindex="-1"></a>limo <span class="ot">&lt;-</span> limo <span class="sc">%&gt;%</span></span>
+<span id="cb81-2"><a href="fallstudie-orangenlimonade.html#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(f1_weder_noch <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 
 </div>
 </div>

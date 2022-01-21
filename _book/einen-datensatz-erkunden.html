@@ -244,6 +244,7 @@ div.csl-indent {
 <li class="chapter" data-level="8.1" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
 <li class="chapter" data-level="8.2" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#datensatz-laden"><i class="fa fa-check"></i><b>8.2</b> Datensatz laden</a></li>
 <li class="chapter" data-level="8.3" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#datensatz-erkunden"><i class="fa fa-check"></i><b>8.3</b> Datensatz erkunden</a></li>
+<li class="chapter" data-level="8.4" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#ungültige-daten-entfernen"><i class="fa fa-check"></i><b>8.4</b> Ungültige Daten entfernen</a></li>
 </ul></li>
 <li class="part"><span><b>Anhang</b></span></li>
 <li class="chapter" data-level="" data-path="datensaetze.html"><a href="datensaetze.html"><i class="fa fa-check"></i>Datensätze</a></li>
@@ -328,7 +329,7 @@ Figure 3.1: Die Anzeige eines Tibbles in RStudio mit <code>view</code>.
 ## $ against_dragon    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
 ## $ against_electric  &lt;dbl&gt; 0.5, 0.5, 0.5, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 1.0, 1.~
 ## $ against_fairy     &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 1.~
-...</code></pre>
+...  35  Zeilen sind ausgeblendet.</code></pre>
 </div>
 <div id="anzahl-spalten-zeilen" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Anzahl Spalten und Zeilen ermitteln</h2>
@@ -371,7 +372,7 @@ Figure 3.1: Die Anzeige eines Tibbles in RStudio mit <code>view</code>.
 ##  3 flying  
 ##  4 dark    
 ##  5 electric
-...</code></pre>
+...  14  Zeilen sind ausgeblendet.</code></pre>
 </div>
 <div id="eindeutige-werte-und-deren-häufigkeiten" class="section level4" number="3.5.1.2">
 <h4><span class="header-section-number">3.5.1.2</span> Eindeutige Werte und deren Häufigkeiten</h4>
@@ -386,7 +387,7 @@ Figure 3.1: Die Anzeige eines Tibbles in RStudio mit <code>view</code>.
 ##  3 dragon      27
 ##  4 electric    39
 ##  5 fairy       18
-...</code></pre>
+...  13  Zeilen sind ausgeblendet.</code></pre>
 <p>Meist es nützlich, direkt nach Häufigkeiten zu sortieren:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="einen-datensatz-erkunden.html#cb23-1" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span> </span>
 <span id="cb23-2"><a href="einen-datensatz-erkunden.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type1, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
@@ -398,7 +399,7 @@ Figure 3.1: Die Anzeige eines Tibbles in RStudio mit <code>view</code>.
 ##  3 grass       78
 ##  4 bug         72
 ##  5 psychic     53
-...</code></pre>
+...  13  Zeilen sind ausgeblendet.</code></pre>
 </div>
 </div>
 <div id="wertebereich-intervallskaliert" class="section level3" number="3.5.2">
@@ -443,7 +444,7 @@ Figure 3.1: Die Anzeige eines Tibbles in RStudio mit <code>view</code>.
 <span id="cb31-4"><a href="einen-datensatz-erkunden.html#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb31-5"><a href="einen-datensatz-erkunden.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> weight_kg) <span class="sc">+</span></span>
 <span id="cb31-6"><a href="einen-datensatz-erkunden.html#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>Das Historgramm zeigt uns, dass der größte Teil der Daten im kleineren Bereich liegt und nur wenige Ausnahmen große Werte jenseits der 300 aufweisen.</p>
 </div>
 <div id="anzahl-fehlender-werte" class="section level4" number="3.5.2.3">

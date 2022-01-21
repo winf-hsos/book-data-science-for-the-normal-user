@@ -41,3 +41,11 @@ limo %>%
   select(starts_with("f1_"))
 ```
 Diese Art der Speicherung ist typisch für Fragebögen in der Marktforschung.
+
+
+## Ungültige Daten entfernen
+
+```{r, results = 'hide'}
+limo <- limo %>%
+  filter(f1_weder_noch == 1)
+```

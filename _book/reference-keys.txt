@@ -62,3 +62,7 @@ fallstudie-orangenlimonade
 einführung
 datensatz-laden
 datensatz-erkunden
+ungültige-daten-entfernen
+fig:operationen-datentransformation
+cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
+datentransformation

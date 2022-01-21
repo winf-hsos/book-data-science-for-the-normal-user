@@ -244,6 +244,7 @@ div.csl-indent {
 <li class="chapter" data-level="8.1" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
 <li class="chapter" data-level="8.2" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#datensatz-laden"><i class="fa fa-check"></i><b>8.2</b> Datensatz laden</a></li>
 <li class="chapter" data-level="8.3" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#datensatz-erkunden"><i class="fa fa-check"></i><b>8.3</b> Datensatz erkunden</a></li>
+<li class="chapter" data-level="8.4" data-path="fallstudie-orangenlimonade.html"><a href="fallstudie-orangenlimonade.html#ungültige-daten-entfernen"><i class="fa fa-check"></i><b>8.4</b> Ungültige Daten entfernen</a></li>
 </ul></li>
 <li class="part"><span><b>Anhang</b></span></li>
 <li class="chapter" data-level="" data-path="datensaetze.html"><a href="datensaetze.html"><i class="fa fa-check"></i>Datensätze</a></li>
@@ -432,7 +433,7 @@ div.csl-indent {
 ##  3 Venusaur   grass poison
 ##  4 Charmander fire  &lt;NA&gt;  
 ##  5 Charmeleon fire  &lt;NA&gt;  
-...</code></pre>
+...  6  Zeilen sind ausgeblendet.</code></pre>
 <p>Wir können bei Bedarf auch einzelne Elemente der Menge über den <a href="spalten-auswählen-mit-select.html#minus-operator">Minus-Operator</a> ausschließen:</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="spalten-auswählen-mit-select.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selektieren auf Basis dieser Menge, aber ohne &quot;type2&quot;</span></span>
 <span id="cb60-2"><a href="spalten-auswählen-mit-select.html#cb60-2" aria-hidden="true" tabindex="-1"></a>pokemon <span class="sc">%&gt;%</span> </span>
@@ -445,7 +446,7 @@ div.csl-indent {
 ##  3 Venusaur   grass
 ##  4 Charmander fire 
 ##  5 Charmeleon fire 
-...</code></pre>
+...  6  Zeilen sind ausgeblendet.</code></pre>
 <p>Mit <code>any_of</code> können wir auch Spalten im Vektor aufnehmen, die nicht existieren. Es werden dann alle Spalten selektiert, die in der Liste vorkommen und auch tatsächlich im Tibble vorhanden sind. So können wir einen Vektor erstellen, der Spaltennamen aus unterschiedlichen Datensätzen beinhaltet:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="spalten-auswählen-mit-select.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Erstellen eines Vektors mit gewünschten Spaltennamen, &quot;type3&quot; existiert nicht im Tibble</span></span>
 <span id="cb62-2"><a href="spalten-auswählen-mit-select.html#cb62-2" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;type1&quot;</span>, <span class="st">&quot;type2&quot;</span>, <span class="st">&quot;type3&quot;</span>)</span>
@@ -461,7 +462,7 @@ div.csl-indent {
 ##  3 Venusaur   grass poison
 ##  4 Charmander fire  &lt;NA&gt;  
 ##  5 Charmeleon fire  &lt;NA&gt;  
-...</code></pre>
+...  6  Zeilen sind ausgeblendet.</code></pre>
 </div>
 <div id="weitere-online-quellen" class="section level2" number="6.7">
 <h2><span class="header-section-number">6.7</span> Weitere Online-Quellen</h2>
